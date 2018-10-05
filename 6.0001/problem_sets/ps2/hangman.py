@@ -225,8 +225,17 @@ def match_with_gaps(my_word, other_word):
         _ , and my_word and other_word are of the same length;
         False otherwise:
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    matched = True
+    my_word_no_spaces = my_word.replace(" ", "")
+
+    if (len(my_word_no_spaces) == len(other_word)):
+        for letter_pair in zip(my_word_no_spaces, other_word):
+            if (letter_pair[0].isalpha()) and (letter_pair[0] != letter_pair[1]):
+                matched = False
+    else:
+        matched = False
+
+    return matched
 
 
 def show_possible_matches(my_word):
