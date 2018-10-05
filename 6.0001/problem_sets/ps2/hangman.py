@@ -228,12 +228,14 @@ def match_with_gaps(my_word, other_word):
     matched = True
     my_word_no_spaces = my_word.replace(" ", "")
 
-    if (len(my_word_no_spaces) == len(other_word)):
-        for letter_pair in zip(my_word_no_spaces, other_word):
-            if (letter_pair[0].isalpha()) and (letter_pair[0] != letter_pair[1]):
-                matched = False
-    else:
+    if (len(my_word_no_spaces) != len(other_word)):
         matched = False
+
+    # Pair up the words letter by letter and compare them
+    for letter_pair in zip(my_word_no_spaces, other_word):
+        if ((letter_pair[0] != letter_pair[1]) and
+            ((letter_pair[0].isalpha()) or (letter_pair[1] in my_word_no_spaces))):
+            matched = False
 
     return matched
 
@@ -249,7 +251,15 @@ def show_possible_matches(my_word):
 
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    matches = ""
+    for word in wordlist:
+        if match_with_gaps(my_word, word):
+            matches += word + " "
+
+    if matches:
+        print(matches)
+    else:
+        print("No matches found.")
 
 
 def hangman_with_hints(secret_word):
