@@ -14,6 +14,14 @@ import string
 
 WORDLIST_FILENAME = "words.txt"
 
+VOWELS = "aeiou"
+ALREADY_GUESSED = "Oops! You've already guessed that letter."
+NOT_IN_MY_WORD = "Oops! That letter's not in my word."
+NOT_VALID_LETTER = "Oops! That's not a valid letter."
+NO_WARNINGS = "You have no warnings left so you lose one guess:"
+WINNING_MESSAGE = "Congratulations, you won!\nYour total score for this game is: {}"
+LOSING_MESSAGE = "Sorry, you ran out of guesses. The word was {}."
+
 
 def load_words():
     """
@@ -101,6 +109,15 @@ def get_available_letters(letters_guessed):
     return available_letters
 
 
+def get_total_score(secret_word, guesses_remaining):
+    unique_letters = ""
+    for letter in secret_word:
+        if letter not in unique_letters:
+            unique_letters += letter
+
+    return guesses_remaining * len(unique_letters)
+
+
 def hangman(secret_word):
     '''
     secret_word: string, the secret word to guess.
@@ -126,8 +143,68 @@ def hangman(secret_word):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    guesses_remaining = 6
+    warnings_remaining = 3
+    letters_guessed = ""
+
+    print("Welcome to Hangman!")
+    print("I'm thinking of a word that is {} letters long.".format(len(secret_word)))
+
+    while not is_word_guessed(secret_word, letters_guessed) and guesses_remaining >= 0:
+        print("--------------\n")
+        print("You have {} warnings left.".format(warnings_remaining))
+        print("You have {} guesses left.".format(guesses_remaining))
+        print("Available letters:", get_available_letters(letters_guessed))
+
+        guess = input("Please guess a letter: ").lower()
+        if guess.isalpha() and (guess not in letters_guessed):
+            letters_guessed += guess
+
+            if guess in secret_word:
+                print("Good guess:", get_guessed_word(secret_word, letters_guessed))
+            else:
+                print(NOT_IN_MY_WORD, get_guessed_word(secret_word, letters_guessed))
+
+            if guess in VOWELS and (guess not in secret_word):
+                guesses_remaining -= 2
+            elif guess not in secret_word:
+                guesses_remaining -= 1
+
+        # Check to see if the user guessed a duplicate letter.
+        elif guess.isalpha() and (guess in letters_guessed):
+            if warnings_remaining > 0:
+                warnings_remaining -= 1
+                print(ALREADY_GUESSED, "You now have {} warnings: {}".format(
+                    warnings_remaining,
+                    get_guessed_word(secret_word, letters_guessed)))
+            else:
+                guesses_remaining -= 1
+                print(
+                    ALREADY_GUESSED,
+                    NO_WARNINGS,
+                    get_guessed_word(secret_word, letters_guessed))
+
+        # Warn the user about non-alphabet characters.
+        else:
+            if warnings_remaining > 0:
+                warnings_remaining -= 1
+                print(NOT_VALID_LETTER, "You now have {} warnings: {}".format(
+                    warnings_remaining,
+                    get_guessed_word(secret_word, letters_guessed)))
+            else:
+                guesses_remaining -= 1
+                print(
+                    NOT_VALID_LETTER,
+                    NO_WARNINGS,
+                    get_guessed_word(secret_word, letters_guessed))
+
+    # By now the user has either guessed the word or run out of guesses.
+    print("\n\n=============")
+
+    if is_word_guessed(secret_word, letters_guessed) and guesses_remaining >= 0:
+        print(WINNING_MESSAGE.format(get_total_score(secret_word, guesses_remaining)))
+    else:
+        print(LOSING_MESSAGE.format(secret_word))
 
 
 # When you've completed your hangman function, scroll down to the bottom
@@ -180,7 +257,8 @@ def hangman_with_hints(secret_word):
     * Before each round, you should display to the user how many guesses
       s/he has left and the letters that the user has not yet guessed.
 
-    * Ask the user to supply one guess per round. Make sure to check that the user guesses a letter
+    * Ask the user to supply one guess per round. Make sure to check that the user
+      guesses a letter
 
     * The user should receive feedback immediately after each guess
       about whether their guess appears in the computer's word.
