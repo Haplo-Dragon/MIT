@@ -19,6 +19,8 @@ ALREADY_GUESSED = "Oops! You've already guessed that letter."
 NOT_IN_MY_WORD = "Oops! That letter's not in my word."
 NOT_VALID_LETTER = "Oops! That's not a valid letter."
 NO_WARNINGS_LEFT = "You have no warnings left so you lose one guess:"
+COMMAND_POSSIBLE_MATCHES = "*"
+POSSIBLE_MATCHES = "Possible word matches are:\n"
 WINNING_MESSAGE = "Congratulations, you won!\nYour total score for this game is: {}"
 LOSING_MESSAGE = "Sorry, you ran out of guesses. The word was {}."
 
@@ -257,9 +259,9 @@ def show_possible_matches(my_word):
             matches += word + " "
 
     if matches:
-        print(matches)
+        return matches
     else:
-        print("No matches found.")
+        return "No matches found."
 
 
 def hangman_with_hints(secret_word):
@@ -291,7 +293,79 @@ def hangman_with_hints(secret_word):
     Follows the other limitations detailed in the problem write-up.
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    guesses_remaining = 6
+    warnings_remaining = 3
+    letters_guessed = ""
+
+    print("Welcome to Hangman!")
+    print("I'm thinking of a word that is {} letters long.".format(len(secret_word)))
+
+    while not is_word_guessed(secret_word, letters_guessed) and guesses_remaining >= 0:
+        print("--------------\n")
+        print("You have {} warnings left.".format(warnings_remaining))
+        print("You have {} guesses left.".format(guesses_remaining))
+        print("Available letters:", get_available_letters(letters_guessed))
+        print("Guessing * will show you possible word matches.")
+
+        guess = input("Please guess a letter: ").lower()
+
+        if guess.isalpha() and (guess not in letters_guessed):
+            letters_guessed += guess
+
+            if guess in secret_word:
+                print("Good guess:", get_guessed_word(secret_word, letters_guessed))
+            else:
+                print(NOT_IN_MY_WORD, get_guessed_word(secret_word, letters_guessed))
+                if guess in VOWELS:
+                    guesses_remaining -= 2
+                else:
+                    guesses_remaining -= 1
+
+            # if guess in VOWELS and (guess not in secret_word):
+            #     guesses_remaining -= 2
+            # elif guess not in secret_word:
+            #     guesses_remaining -= 1
+
+        # Check to see if the user guessed a duplicate letter.
+        elif guess.isalpha() and (guess in letters_guessed):
+            if warnings_remaining > 0:
+                warnings_remaining -= 1
+                print(ALREADY_GUESSED, "You now have {} warnings: {}".format(
+                    warnings_remaining,
+                    get_guessed_word(secret_word, letters_guessed)))
+            else:
+                guesses_remaining -= 1
+                print(
+                    ALREADY_GUESSED,
+                    NO_WARNINGS_LEFT,
+                    get_guessed_word(secret_word, letters_guessed))
+
+        # Use a special command character to show all possible matches
+        elif guess == COMMAND_POSSIBLE_MATCHES:
+            print(POSSIBLE_MATCHES,
+                  show_possible_matches(get_guessed_word(secret_word, letters_guessed)))
+
+        # Warn the user about non-alphabet characters.
+        else:
+            if warnings_remaining > 0:
+                warnings_remaining -= 1
+                print(NOT_VALID_LETTER, "You now have {} warnings: {}".format(
+                    warnings_remaining,
+                    get_guessed_word(secret_word, letters_guessed)))
+            else:
+                guesses_remaining -= 1
+                print(
+                    NOT_VALID_LETTER,
+                    NO_WARNINGS_LEFT,
+                    get_guessed_word(secret_word, letters_guessed))
+
+    # By now the user has either guessed the word or run out of guesses.
+    print("\n\n=============")
+
+    if is_word_guessed(secret_word, letters_guessed) and guesses_remaining >= 0:
+        print(WINNING_MESSAGE.format(get_total_score(secret_word, guesses_remaining)))
+    else:
+        print(LOSING_MESSAGE.format(secret_word))
 
 
 # When you've completed your hangman_with_hint function, comment the two similar
@@ -306,13 +380,13 @@ if __name__ == "__main__":
     # To test part 2, comment out the pass line above and
     # uncomment the following two lines.
 
-    secret_word = choose_word(wordlist)
-    hangman(secret_word)
+    # secret_word = choose_word(wordlist)
+    # hangman(secret_word)
 
-###############
+    ###############
 
     # To test part 3 re-comment out the above lines and
     # uncomment the following two lines.
 
-    # secret_word = choose_word(wordlist)
-    # hangman_with_hints(secret_word)
+    secret_word = choose_word(wordlist)
+    hangman_with_hints(secret_word)
