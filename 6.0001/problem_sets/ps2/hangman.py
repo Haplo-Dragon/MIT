@@ -18,7 +18,7 @@ VOWELS = "aeiou"
 ALREADY_GUESSED = "Oops! You've already guessed that letter."
 NOT_IN_MY_WORD = "Oops! That letter's not in my word."
 NOT_VALID_LETTER = "Oops! That's not a valid letter."
-NO_WARNINGS = "You have no warnings left so you lose one guess:"
+NO_WARNINGS_LEFT = "You have no warnings left so you lose one guess:"
 WINNING_MESSAGE = "Congratulations, you won!\nYour total score for this game is: {}"
 LOSING_MESSAGE = "Sorry, you ran out of guesses. The word was {}."
 
@@ -181,7 +181,7 @@ def hangman(secret_word):
                 guesses_remaining -= 1
                 print(
                     ALREADY_GUESSED,
-                    NO_WARNINGS,
+                    NO_WARNINGS_LEFT,
                     get_guessed_word(secret_word, letters_guessed))
 
         # Warn the user about non-alphabet characters.
@@ -195,7 +195,7 @@ def hangman(secret_word):
                 guesses_remaining -= 1
                 print(
                     NOT_VALID_LETTER,
-                    NO_WARNINGS,
+                    NO_WARNINGS_LEFT,
                     get_guessed_word(secret_word, letters_guessed))
 
     # By now the user has either guessed the word or run out of guesses.
