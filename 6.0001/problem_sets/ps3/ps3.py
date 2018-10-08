@@ -119,6 +119,7 @@ def get_word_score(word, current_hand_length):
     returns: int >= 0
     """
     word = word.lower()
+    # Storing the length isn't strictly necessary, but it makes for easier reading below
     word_length = len(word)
     letter_score = 0
     length_score = 0
@@ -205,8 +206,16 @@ def update_hand(hand, word):
     hand: dictionary (string -> int)
     returns: dictionary (string -> int)
     """
+    new_hand = hand.copy()
 
-    pass  # TO DO... Remove this line when you implement this function
+    for letter in word.lower():
+        if new_hand.get(letter):
+            new_hand[letter] = new_hand[letter] - 1
+
+    # Clean up the new hand by removing letters we've run out of
+    new_hand = {letter: count for (letter, count) in new_hand.items() if count > 0}
+
+    return new_hand
 
 
 #
@@ -217,7 +226,7 @@ def is_valid_word(word, hand, word_list):
     Returns True if word is in the word_list and is entirely
     composed of letters in the hand. Otherwise, returns False.
     Does not mutate hand or word_list.
-   
+
     word: string
     hand: dictionary (string -> int)
     word_list: list of lowercase strings
