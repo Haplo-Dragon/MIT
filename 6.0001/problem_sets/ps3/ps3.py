@@ -383,8 +383,24 @@ def substitute_hand(hand, letter):
     letter: string
     returns: dictionary (string -> int)
     """
+    new_hand = hand.copy()
 
-    pass  # TO DO... Remove this line when you implement this function
+    if letter in hand:
+        letter_choices = VOWELS + CONSONANTS
+        # Remove the substituted letter from the new letter choices
+        letter_choices = letter_choices.replace(letter, '')
+
+        # Remove any letters in the hand from the new letter choices
+        letter_choices = ''.join(
+            [letter for letter in letter_choices if letter not in hand.keys()])
+
+        # Choose a new random letter
+        new_letter = random.choice(letter_choices)
+        new_hand[new_letter] = new_hand[letter]
+
+        del new_hand[letter]
+
+    return new_hand
 
 
 def play_game(word_list):
