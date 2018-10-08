@@ -13,6 +13,7 @@ import string
 
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
+WILDCARD = "*"
 HAND_SIZE = 7
 
 SCRABBLE_LETTER_VALUES = {
@@ -42,6 +43,7 @@ SCRABBLE_LETTER_VALUES = {
     "x": 8,
     "y": 4,
     "z": 10,
+    WILDCARD: 0,
 }
 
 # -----------------------------------
@@ -172,7 +174,9 @@ def deal_hand(n):
     """
 
     hand = {}
-    num_vowels = int(math.ceil(n / 3))
+    # We're reserving one vowel slot for the wildcard
+    num_vowels = int(math.ceil(n / 3)) - 1
+    hand[WILDCARD] = 1
 
     for i in range(num_vowels):
         x = random.choice(VOWELS)
@@ -238,6 +242,13 @@ def is_valid_word(word, hand, word_list):
 
     if word not in word_list:
         is_valid = False
+
+        if WILDCARD in word:
+            for vowel in VOWELS:
+                if word.replace(WILDCARD, vowel) in word_list:
+                    is_valid = True
+                    break
+
     for letter in word_letter_count.keys():
         if word_letter_count[letter] > hand.get(letter, 0):
             is_valid = False
@@ -332,7 +343,7 @@ def play_hand(hand, word_list):
 
 
 def substitute_hand(hand, letter):
-    """ 
+    """
     Allow the user to replace all copies of one letter in the hand (chosen by user)
     with a new letter chosen from the VOWELS and CONSONANTS at random. The new letter
     should be different from user's choice, and should not be any of the letters
@@ -348,7 +359,7 @@ def substitute_hand(hand, letter):
         {'h':1, 'e':1, 'o':1, 'x':2} -> if the new letter is 'x'
     The new letter should not be 'h', 'e', 'l', or 'o' since those letters were
     already in the hand.
-    
+
     hand: dictionary (string -> int)
     letter: string
     returns: dictionary (string -> int)
@@ -365,7 +376,7 @@ def play_game(word_list):
 
     * Accumulates the score for each hand into a total score for the
       entire series
- 
+
     * For each hand, before playing, ask the user if they want to substitute
       one letter for another. If the user inputs 'yes', prompt them for their
       desired letter. This can only be done once during the game. Once the
