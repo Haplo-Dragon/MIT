@@ -46,12 +46,18 @@ SCRABBLE_LETTER_VALUES = {
     WILDCARD: 0,
 }
 
+SEPARATOR = "-------------"
 END_TURN = "!!"
+CURRENT_HAND = "Current hand: "
 PROMPT = """Enter word, or "{}" to indicate that you're finished: """.format(END_TURN)
 VALID_WORD = """"{}" earned {} points. Total: {} points"""
 INVALID_WORD = "That is not a valid word. Please choose another word."
 OUT_OF_LETTERS = "Ran out of letters."
 TOTAL_SCORE = "Total score: {} points"
+SUBSTITUTE = "Would you like to substitute a letter? "
+REPLACE_LETTER = "Which letter would like to replace? "
+REPLAY = "Would you like to replay the hand? "
+GAME_SCORE = "Total score over all hands: {} points"
 # -----------------------------------
 # Helper code
 # (you don't need to understand this helper code)
@@ -155,6 +161,7 @@ def display_hand(hand):
     hand: dictionary (string -> int)
     """
 
+    print(CURRENT_HAND)
     for letter in hand.keys():
         for j in range(hand[letter]):
             print(letter, end=" ")  # print all on the same line
@@ -347,6 +354,8 @@ def play_hand(hand, word_list):
     else:
         print(OUT_OF_LETTERS, TOTAL_SCORE.format(total_score))
 
+    print(SEPARATOR)
+
     # Return the total score as result of function
     return total_score
 
@@ -433,10 +442,47 @@ def play_game(word_list):
 
     word_list: list of lowercase strings
     """
+    num_hands = int(input("Enter total number of hands: "))
+    substition_allowed = True
+    replay_allowed = True
+    total_score = 0
 
-    print(
-        "play_game not implemented."
-    )  # TO DO... Remove this line when you implement this function
+    while num_hands > 0:
+        # Deal new hand
+        hand = deal_hand(HAND_SIZE)
+
+        # Ask user if they want to substitute
+        if substition_allowed:
+            # Show user the dealt hand
+            display_hand(hand)
+            sub = input(SUBSTITUTE).lower()
+            # If they do, prompt them for letter and substitute it
+            if sub == "yes":
+                letter_to_replace = input(REPLACE_LETTER).lower()
+                hand = substitute_hand(hand, letter_to_replace)
+                # Only one substitution is allowed per game
+                substition_allowed = False
+
+        # Play the hand
+        current_score = play_hand(hand, word_list)
+
+        # Ask user if they would like to replay the hand
+        if replay_allowed:
+            replay = input(REPLAY).lower()
+            # If they do, replay hand and keep highest score
+            if replay == "yes":
+                new_score = play_hand(hand, word_list)
+                current_score = max(current_score, new_score)
+                # Only one replay is allowed per game
+                replay_allowed = False
+
+        # Add current hand score to total score
+        total_score += current_score
+
+        num_hands -= 1
+
+    # Display total score from all hands
+    print(GAME_SCORE.format(total_score))
 
 
 #
