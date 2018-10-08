@@ -232,17 +232,27 @@ def is_valid_word(word, hand, word_list):
     word_list: list of lowercase strings
     returns: boolean
     """
+    is_valid = True
+    word = word.lower()
+    word_letter_count = get_frequency_dict(word)
 
-    pass  # TO DO... Remove this line when you implement this function
+    if word not in word_list:
+        is_valid = False
+    for letter in word_letter_count.keys():
+        if word_letter_count[letter] > hand.get(letter, 0):
+            is_valid = False
+            break
+
+    return is_valid
 
 
 #
 # Problem #5: Playing a hand
 #
 def calculate_handlen(hand):
-    """ 
+    """
     Returns the length (number of letters) in the current hand.
-    
+
     hand: dictionary (string-> int)
     returns: integer
     """
@@ -251,12 +261,11 @@ def calculate_handlen(hand):
 
 
 def play_hand(hand, word_list):
-
     """
     Allows the user to play the given hand, as follows:
 
     * The hand is displayed.
-    
+
     * The user may input a word.
 
     * When any word is entered (valid or invalid), it uses up letters
@@ -272,13 +281,13 @@ def play_hand(hand, word_list):
     * The sum of the word scores is displayed when the hand finishes.
 
     * The hand finishes when there are no more unused letters.
-      The user can also finish playing the hand by inputing two 
+      The user can also finish playing the hand by inputing two
       exclamation points (the string '!!') instead of a word.
 
       hand: dictionary (string -> int)
       word_list: list of lowercase strings
       returns: the total score for the hand
-      
+
     """
 
     # BEGIN PSEUDOCODE <-- Remove this comment when you implement this function
@@ -354,7 +363,7 @@ def play_game(word_list):
 
     * Asks the user to input a total number of hands
 
-    * Accumulates the score for each hand into a total score for the 
+    * Accumulates the score for each hand into a total score for the
       entire series
  
     * For each hand, before playing, ask the user if they want to substitute
@@ -364,8 +373,8 @@ def play_game(word_list):
       substitute letters in the future.
 
     * For each hand, ask the user if they would like to replay the hand.
-      If the user inputs 'yes', they will replay the hand and keep 
-      the better of the two scores for that hand.  This can only be done once 
+      If the user inputs 'yes', they will replay the hand and keep
+      the better of the two scores for that hand.  This can only be done once
       during the game. Once the replay option is used, the user should not
       be asked if they want to replay future hands. Replaying the hand does
       not count as one of the total number of hands the user initially
@@ -373,7 +382,7 @@ def play_game(word_list):
 
             * Note: if you replay a hand, you do not get the option to substitute
                     a letter - you must play whatever hand you just had.
-      
+
     * Returns the total score for the series of hands
 
     word_list: list of lowercase strings
