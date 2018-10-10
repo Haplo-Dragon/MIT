@@ -223,7 +223,7 @@ class CiphertextMessage(Message):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         """
-        pass  # delete this line and replace with your code here
+        Message.__init__(self, text)
 
     def decrypt_message(self):
         """
@@ -240,8 +240,23 @@ class CiphertextMessage(Message):
 
         Returns: a tuple of the best shift value used to decrypt the message
         and the decrypted message text using that shift value
-        """
-        pass  # delete this line and replace with your code here
+        # """
+        best_shift = 1
+        max_real_words = 0
+
+        for shift in range(best_shift, 27):
+            text = self.apply_shift(shift)
+            split_text = text.split(" ")
+
+            num_real_words = 0
+            for word in split_text:
+                if is_word(self.get_valid_words(), word):
+                    num_real_words += 1
+            if num_real_words > max_real_words:
+                max_real_words = num_real_words
+                best_shift = shift
+
+        return self.apply_shift(best_shift)
 
 
 if __name__ == "__main__":
