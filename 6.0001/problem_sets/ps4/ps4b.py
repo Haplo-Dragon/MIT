@@ -256,7 +256,7 @@ class CiphertextMessage(Message):
                 max_real_words = num_real_words
                 best_shift = shift
 
-        return self.apply_shift(best_shift)
+        return (best_shift, self.apply_shift(best_shift))
 
 
 if __name__ == "__main__":
@@ -271,7 +271,18 @@ if __name__ == "__main__":
     #    print('Expected Output:', (24, 'hello'))
     #    print('Actual Output:', ciphertext.decrypt_message())
 
-    # TODO: WRITE YOUR TEST CASES HERE
+    plaintext = PlaintextMessage('Hello, Kiska!', 2)
+    print('Expected Output: Jgnnq, Mkumc!')
+    print('Actual Output:', plaintext.get_message_text_encrypted())
+
+    plaintext = PlaintextMessage('Hi, Remy!', 4)
+    print('Expected Output: Lm, Viqc!')
+    print('Actual Output:', plaintext.get_message_text_encrypted())
+
+    # Example test case (CiphertextMessage)
+    ciphertext = CiphertextMessage('jgnnq')
+    print('Expected Output:', (24, 'hello'))
+    print('Actual Output:', ciphertext.decrypt_message())
 
     # TODO: best shift value and unencrypted story
 
