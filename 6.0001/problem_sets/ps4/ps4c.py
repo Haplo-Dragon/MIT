@@ -156,7 +156,7 @@ class EncryptedSubMessage(SubMessage):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         """
-        pass  # delete this line and replace with your code here
+        SubMessage.__init__(self, text)
 
     def decrypt_message(self):
         """
@@ -176,7 +176,33 @@ class EncryptedSubMessage(SubMessage):
 
         Hint: use your function from Part 4A
         """
-        pass  # delete this line and replace with your code here
+        permutations = get_permutations(VOWELS_LOWER)
+        best_permutation = ""
+        max_real_words = 0
+
+        # Try all vowel permutations
+        for permutation in permutations:
+            transpose_dict = self.build_transpose_dict(permutation)
+            text = self.apply_transpose(transpose_dict)
+            split_text = text.split(" ")
+
+            # Check each word in the transposed text for validity
+            num_real_words = 0
+            for word in split_text:
+                if is_word(self.get_valid_words(), word):
+                    num_real_words += 1
+            # Check to see if this permutation beats other permutations
+            if num_real_words > max_real_words:
+                max_real_words = num_real_words
+                best_permutation = permutation
+
+        # If no good permutations were found, we'll just return the original string
+        if max_real_words == 0:
+            return self.get_message_text()
+        # Otherwise, we've brute-forced the best permutation and we'll use it to decrypt
+        else:
+            best_transpose_dict = self.build_transpose_dict(best_permutation)
+            return self.apply_transpose(best_transpose_dict)
 
 
 if __name__ == "__main__":
