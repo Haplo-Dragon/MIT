@@ -279,11 +279,18 @@ if __name__ == "__main__":
     print('Expected Output: Lm, Viqc!')
     print('Actual Output:', plaintext.get_message_text_encrypted())
 
-    # Example test case (CiphertextMessage)
-    ciphertext = CiphertextMessage('jgnnq')
-    print('Expected Output:', (24, 'hello'))
+    ciphertext = CiphertextMessage('Idwwb fdw.')
+    print('Expected Output:', (23, 'Fatty cat.'))
     print('Actual Output:', ciphertext.decrypt_message())
 
-    # TODO: best shift value and unencrypted story
+    ciphertext = CiphertextMessage('Rzxhqjx lqfxxjx.')
+    print('Expected Output:', (21, 'Muscles glasses.'))
+    print('Actual Output:', ciphertext.decrypt_message())
 
-    pass  # delete this line and replace with your code here
+    # Best shift value: 12
+    # Unencrypted story:
+    # Jack Florey is a mythical character created on the spur of a moment to help cover
+    # an insufficiently planned hack. He has been registered for classes at MIT twice
+    # before, but has reportedly never passed aclass [sic]. It has been the tradition
+    # of the residents of East Campus to become Jack Florey for a few nights each year
+    # to educate incoming students in the ways, means, and ethics of hacking.
