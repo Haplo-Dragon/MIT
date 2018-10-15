@@ -3,9 +3,10 @@
 # Collaborators: Python docs
 # Time:
 
+from enum import Enum
 import feedparser
-import string
 import re
+import string
 import time
 import threading
 from project_util import translate_html
@@ -314,7 +315,35 @@ def filter_stories(stories, triggerlist):
 # ======================
 # User-Specified Triggers
 # ======================
+class TRIGGER(Enum):
+    TITLE = TitleTrigger
+    DESCRIPTION = DescriptionTrigger
+    BEFORE = BeforeTrigger
+    AFTER = AfterTrigger
+    AND = AndTrigger
+    OR = OrTrigger
+    NOT = NotTrigger
+
+
 # Problem 11
+def get_trigger_type(keyword):
+    """
+    Converts a string keyword to an enumerated TRIGGER type.
+
+    keyword (string): A keyword (TITLE, DESCRIPTION, BEFORE, AFTER, AND, OR, NOT)
+                        specifying which type of trigger to enumerate
+    """
+    keyword = keyword.upper()
+
+    try:
+        trigger_type = TRIGGER[keyword]
+    except KeyError as e:
+        trigger_type = None
+        print("Unknown trigger type keyword {} in trigger config file.".format(keyword))
+
+    return trigger_type
+
+
 def read_trigger_config(filename):
     """
     filename: the name of a trigger configuration file
@@ -324,18 +353,54 @@ def read_trigger_config(filename):
     """
     # We give you the code to read in the file and eliminate blank lines and
     # comments. You don't need to know how it works for now!
-    trigger_file = open(filename, "r")
-    lines = []
-    for line in trigger_file:
-        line = line.rstrip()
-        if not (len(line) == 0 or line.startswith("//")):
-            lines.append(line)
+    with open(filename, "r") as trigger_file:
+        lines = []
+        for line in trigger_file:
+            line = line.rstrip()
+            if not (len(line) == 0 or line.startswith("//")):
+                lines.append(line)
 
     # TODO: Problem 11
     # line is the list of lines that you need to parse and for which you need
     # to build triggers
 
     print(lines)  # for now, print it so you see what it contains!
+    # A dictionary mapping trigger names to created trigger objects
+    created_triggers = {}
+    # The list of triggers we'll actually be returning
+    returned_triggers = []
+
+    for line in lines:
+        elements = line.split(",")
+
+        # If the line is not an ADD, create appropriate triggers based on keywords
+        if elements[0] != "ADD":
+            trigger_name = elements[0]
+            # This maps an enumerated type to the actual trigger class names.
+            # We'll call its value like a function to instantiate a class
+            trigger_type = get_trigger_type(elements[1])
+            # Everything else, which may be phrases, times, or other trigger names
+            arguments = elements[2:]
+
+            if trigger_type in [
+                    TRIGGER.TITLE,
+                    TRIGGER.DESCRIPTION,
+                    TRIGGER.BEFORE,
+                    TRIGGER.AFTER,
+                    TRIGGER.NOT]:
+                created_triggers[trigger_name] = trigger_type.value(arguments[0])
+
+            elif trigger_type in [TRIGGER.AND, TRIGGER.OR]:
+                first = created_triggers[arguments[0]]
+                second = created_triggers[arguments[1]]
+                created_triggers[trigger_name] = trigger_type.value(first, second)
+
+        if elements[0] == "ADD":
+            triggers_to_add = elements[1:]
+            for trigger in triggers_to_add:
+                returned_triggers.append(created_triggers[trigger])
+
+    return returned_triggers
 
 
 SLEEPTIME = 120  # seconds -- how often we poll
@@ -345,15 +410,15 @@ def main_thread(master):
     # A sample trigger list - you might need to change the phrases to correspond
     # to what is currently in the news
     try:
-        t1 = TitleTrigger("election")
-        t2 = DescriptionTrigger("Trump")
-        t3 = DescriptionTrigger("Clinton")
-        t4 = AndTrigger(t2, t3)
-        triggerlist = [t1, t4]
+        # t1 = TitleTrigger("election")
+        # t2 = DescriptionTrigger("Trump")
+        # t3 = DescriptionTrigger("Clinton")
+        # t4 = AndTrigger(t2, t3)
+        # triggerlist = [t1, t4]
 
         # Problem 11
         # TODO: After implementing read_trigger_config, uncomment this line
-        # triggerlist = read_trigger_config('triggers.txt')
+        triggerlist = read_trigger_config('triggers.txt')
 
         # HELPER CODE - you don't need to understand this!
         # Draws the popup window that displays the filtered stories
