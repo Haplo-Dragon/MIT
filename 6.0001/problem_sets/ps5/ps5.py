@@ -217,9 +217,23 @@ class TimeTrigger(Trigger):
         time.replace(tzinfo=pytz.timezone("EST"))
         self.time = time
 
+
 # Problem 6
 # TODO: BeforeTrigger and AfterTrigger
+class BeforeTrigger(TimeTrigger):
+    def __init__(self, time):
+        TimeTrigger.__init__(self, time)
 
+    def evaluate(self, story):
+        return story.get_pubdate() < self.time
+
+
+class AfterTrigger(TimeTrigger):
+    def __init__(self, time):
+        TimeTrigger.__init__(self, time)
+
+    def evaluate(self, story):
+        return story.get_pubdate() > self.time
 
 # COMPOSITE TRIGGERS
 
