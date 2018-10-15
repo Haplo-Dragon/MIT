@@ -301,9 +301,14 @@ def filter_stories(stories, triggerlist):
     Returns: a list of only the stories for which a trigger in triggerlist fires.
     """
     # TODO: Problem 10
-    # This is a placeholder
-    # (we're just returning all the stories, with no filtering)
-    return stories
+    filtered_stories = []
+
+    for trigger in triggerlist:
+        for story in stories:
+            if trigger.evaluate(story):
+                filtered_stories.append(story)
+
+    return filtered_stories
 
 
 # ======================
@@ -408,14 +413,14 @@ def main_thread(master):
 
 
 if __name__ == "__main__":
-    # root = Tk()
-    # root.title("Some RSS parser")
-    # t = threading.Thread(target=main_thread, args=(root,))
-    # t.start()
-    # root.mainloop()
+    root = Tk()
+    root.title("Some RSS parser")
+    t = threading.Thread(target=main_thread, args=(root,))
+    t.start()
+    root.mainloop()
 
-    trigger = PhraseTrigger("purple cow")
-    for list_of_tests in [POS_TESTS, NEG_TESTS]:
-        print("\n======================")
-        for test in list_of_tests:
-            print("Purple cow in {}?: {}".format(test, trigger.is_phrase_in(test)))
+    # trigger = PhraseTrigger("purple cow")
+    # for list_of_tests in [POS_TESTS, NEG_TESTS]:
+    #     print("\n======================")
+    #     for test in list_of_tests:
+    #         print("Purple cow in {}?: {}".format(test, trigger.is_phrase_in(test)))
