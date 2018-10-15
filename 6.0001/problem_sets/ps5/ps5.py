@@ -252,8 +252,23 @@ class NotTrigger(Trigger):
     def evaluate(self, story):
         return not self.trigger.evaluate(story)
 
+
 # Problem 8
 # TODO: AndTrigger
+class AndTrigger(Trigger):
+    def __init__(self, first_trigger, second_trigger):
+        """
+        Initializes an AndTrigger object.
+
+        first_trigger (trigger): An instance of a subclass of PhraseTrigger
+        second_trigger (trigger): An instance of a subclass of PhraseTrigger
+        """
+        self.first_trigger = first_trigger
+        self.second_trigger = second_trigger
+
+    def evaluate(self, story):
+        return (self.first_trigger.evaluate(story) and
+                self.second_trigger.evaluate(story))
 
 # Problem 9
 # TODO: OrTrigger
