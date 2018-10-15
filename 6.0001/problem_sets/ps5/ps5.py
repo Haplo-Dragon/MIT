@@ -203,13 +203,19 @@ class DescriptionTrigger(PhraseTrigger):
     def evaluate(self, story):
         return self.is_phrase_in(story.get_description())
 
+
 # TIME TRIGGERS
 
 # Problem 5
 # TODO: TimeTrigger
-# Constructor:
-#        Input: Time has to be in EST and in the format of "%d %b %Y %H:%M:%S".
-#        Convert time from string to a datetime before saving it as an attribute.
+class TimeTrigger(Trigger):
+    def __init__(self, time):
+        # Constructor:
+        # Input: Time has to be in EST and in the format of "%d %b %Y %H:%M:%S".
+        # Convert time from string to a datetime before saving it as an attribute.
+        time = datetime.strptime(time, "%d %b %Y %H:%M:%S")
+        time.replace(tzinfo=pytz.timezone("EST"))
+        self.time = time
 
 # Problem 6
 # TODO: BeforeTrigger and AfterTrigger
