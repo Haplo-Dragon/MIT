@@ -270,8 +270,23 @@ class AndTrigger(Trigger):
         return (self.first_trigger.evaluate(story) and
                 self.second_trigger.evaluate(story))
 
+
 # Problem 9
 # TODO: OrTrigger
+class OrTrigger(Trigger):
+    def __init__(self, first_trigger, second_trigger):
+        """
+        Initializes an OrTrigger object.
+
+        first_trigger (trigger): An instance of a subclass of PhraseTrigger
+        second_trigger (trigger): An instance of a subclass of PhraseTrigger
+        """
+        self.first_trigger = first_trigger
+        self.second_trigger = second_trigger
+
+    def evaluate(self, story):
+        return (self.first_trigger.evaluate(story) or
+                self.second_trigger.evaluate(story))
 
 
 # ======================
