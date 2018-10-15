@@ -1,16 +1,33 @@
 # 6.0001/6.00 Problem Set 5 - RSS Feed Filter
 # Name:
-# Collaborators:
+# Collaborators: Python docs
 # Time:
 
 import feedparser
 import string
+import re
 import time
 import threading
 from project_util import translate_html
 from mtTkinter import *
 from datetime import datetime
 import pytz
+
+
+POS_TESTS = [
+    'PURPLE COW',
+    'The purple cow is soft and cuddly.',
+    'The farmer owns a really PURPLE cow.',
+    'Purple!!! Cow!!!',
+    'purple@#$%cow',
+    'Did you see a purple cow?', ]
+
+NEG_TESTS = [
+    'Purple cows are cool!',
+    'The purple blob over there is a cow.',
+    'How now brown cow.',
+    'Cow!!! Purple!!!',
+    'purplecowpurplecowpurplecow', ]
 
 
 # -----------------------------------------------------------------------
@@ -122,6 +139,40 @@ class Trigger(object):
 
 # Problem 2
 # TODO: PhraseTrigger
+class PhraseTrigger(Trigger):
+    def __init__(self, phrase):
+        """
+        Initializes a PhraseTrigger object.
+
+        phrase (string): The phrase to be used as a trigger for news stories
+        """
+        self.phrase = phrase.lower()
+
+    def is_phrase_in(self, text):
+        """
+        Returns true if phrase is present in text.
+
+        text (string): Text to be checked for the phrase
+        """
+        text = text.lower()
+
+        # This regular expression pattern will match any consecutive characters that are
+        # NOT letters
+        pattern = r'[^\w]+'
+        # Remove any instances of that pattern and replace them with a single space
+        cleaned_up_text = re.sub(pattern, " ", text)
+
+        # This pattern will match the phrase exactly (it won't match "purple cow"
+        # to "purple cows", for instance)
+        phrase_pattern = r'\b' + self.phrase + r'\b'
+
+        # Find all the occurences of phrase in the cleaned-up text
+        match = re.search(phrase_pattern, cleaned_up_text)
+        # True if there are any matches, False if there are no matches
+        phrase_found = bool(match)
+
+        return phrase_found
+
 
 # Problem 3
 # TODO: TitleTrigger
@@ -272,8 +323,14 @@ def main_thread(master):
 
 
 if __name__ == "__main__":
-    root = Tk()
-    root.title("Some RSS parser")
-    t = threading.Thread(target=main_thread, args=(root,))
-    t.start()
-    root.mainloop()
+    # root = Tk()
+    # root.title("Some RSS parser")
+    # t = threading.Thread(target=main_thread, args=(root,))
+    # t.start()
+    # root.mainloop()
+
+    trigger = PhraseTrigger("purple cow")
+    for list_of_tests in [POS_TESTS, NEG_TESTS]:
+        print("\n======================")
+        for test in list_of_tests:
+            print("Purple cow in {}?: {}".format(test, trigger.is_phrase_in(test)))
