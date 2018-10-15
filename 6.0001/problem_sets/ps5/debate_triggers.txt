@@ -1,0 +1,26 @@
+// title trigger for debate
+t1,TITLE,debate
+
+// description trigger for Trump
+t2,DESCRIPTION,Trump
+
+// description trigger for Clinton
+t3,DESCRIPTION,Clinton
+
+// after trigger for debate time
+t4,AFTER,19 Oct 2016 19:00:00
+
+//before trigger for debate time
+t5,BEFORE,19 Oct 2016 22:00:00
+
+// composite trigger for time window
+t6,AND,t4,t5
+
+// composite trigger for time window and debate in title
+t7,AND,t1,t6
+
+// composite trigger for both descriptions
+t8,AND,t2,t3
+
+// final trigger list
+ADD,t7,t8
