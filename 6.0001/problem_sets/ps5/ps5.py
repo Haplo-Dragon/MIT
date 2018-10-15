@@ -214,7 +214,7 @@ class TimeTrigger(Trigger):
         # Input: Time has to be in EST and in the format of "%d %b %Y %H:%M:%S".
         # Convert time from string to a datetime before saving it as an attribute.
         time = datetime.strptime(time, "%d %b %Y %H:%M:%S")
-        time.replace(tzinfo=pytz.timezone("EST"))
+        time = time.replace(tzinfo=pytz.timezone("EST"))
         self.time = time
 
 
@@ -237,8 +237,20 @@ class AfterTrigger(TimeTrigger):
 
 # COMPOSITE TRIGGERS
 
+
 # Problem 7
 # TODO: NotTrigger
+class NotTrigger(Trigger):
+    def __init__(self, trigger):
+        """
+        Initializes a NotTrigger object.
+
+        trigger (trigger): An instance of a subclass of PhraseTrigger
+        """
+        self.trigger = trigger
+
+    def evaluate(self, story):
+        return not self.trigger.evaluate(story)
 
 # Problem 8
 # TODO: AndTrigger
