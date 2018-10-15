@@ -191,6 +191,17 @@ class TitleTrigger(PhraseTrigger):
 
 # Problem 4
 # TODO: DescriptionTrigger
+class DescriptionTrigger(PhraseTrigger):
+    def __init__(self, phrase):
+        """
+        Initializes a DescriptionTrigger object.
+
+        phrase(string): The phrase to be used as a trigger for news descriptions.
+        """
+        PhraseTrigger.__init__(self, phrase)
+
+    def evaluate(self, story):
+        return self.is_phrase_in(story.get_description())
 
 # TIME TRIGGERS
 
