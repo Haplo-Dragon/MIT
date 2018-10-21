@@ -62,8 +62,29 @@ def greedy_cow_transport(cows, limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    # Make a list of the provided cows dictionary, sorted by cow weight, heaviest first
+    cows_remaining = sorted(cows.items(), key=lambda cow: cow[1], reverse=True)
+    trips = []
+
+    # While there are cows left to take
+    while(cows_remaining):
+        # Start a trip with an empty spaceship
+        current_trip = []
+        current_trip_weight = 0
+        # Making a copy allows us to avoid changing the list we're iterating over
+        earth_cows = cows_remaining.copy()
+        # Check all cows left on Earth, heaviest first
+        for cow in earth_cows:
+            if current_trip_weight + cow[1] <= limit:
+                # Add heaviest cow that doesn't break the limit to current trip
+                current_trip.append(cow[0])
+                current_trip_weight += cow[1]
+                # Remove that cow from consideration
+                cows_remaining.remove(cow)
+        # Add current trip to trips list
+        trips.append(current_trip)
+
+    return trips
 
 
 # Problem 3
