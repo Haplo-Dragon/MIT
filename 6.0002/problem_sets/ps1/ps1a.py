@@ -109,8 +109,33 @@ def brute_force_cow_transport(cows, limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    # Get list of cow names, copying to avoid mutation
+    cow_names = list(cows)
+    shortest_number_of_trips = len(cow_names)
+    best_trip_plan = []
+
+    # Try every possible set of trips, trying a single trip first, then two trips, etc.
+    for set_of_trips in get_partitions(cow_names):
+        current_number_of_trips = len(set_of_trips)
+        trips_under_limit = True
+
+        for trip in set_of_trips:
+            # Calculate the weight of the current trip
+            current_trip_weight = 0
+            for cow in trip:
+                current_trip_weight += cows[cow]
+
+            # If any of the trips are over the weight limit, move on to the next set
+            if current_trip_weight > limit:
+                trips_under_limit = False
+                break
+
+        # If the spaceship isn't broken and this set used fewer trips, it's the best plan
+        if (trips_under_limit) and (current_number_of_trips < shortest_number_of_trips):
+            shortest_number_of_trips = current_number_of_trips
+            best_trip_plan = set_of_trips
+
+    return best_trip_plan
 
 
 # Problem 4
