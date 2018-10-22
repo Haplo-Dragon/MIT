@@ -6,7 +6,6 @@
 
 from ps1_partition import get_partitions
 import time
-from pprint import pprint
 
 # ================================
 # Part A: Transporting Space Cows
@@ -73,6 +72,7 @@ def greedy_cow_transport(cows, limit=10):
         current_trip_weight = 0
         # Making a copy allows us to avoid changing the list we're iterating over
         earth_cows = cows_remaining.copy()
+
         # Check all cows left on Earth, heaviest first
         for cow in earth_cows:
             if current_trip_weight + cow[1] <= limit:
@@ -81,6 +81,7 @@ def greedy_cow_transport(cows, limit=10):
                 current_trip_weight += cow[1]
                 # Remove that cow from consideration
                 cows_remaining.remove(cow)
+
         # Add current trip to trips list
         trips.append(current_trip)
 
@@ -152,10 +153,24 @@ def compare_cow_transport_algorithms():
     Returns:
     Does not return anything.
     """
-    # TODO: Your code here
-    pass
+    cows = load_cows('ps1_cow_data.txt')
+    weight_limit = 10
+
+    greedy_start = time.time()
+    greedy = greedy_cow_transport(cows, weight_limit)
+    greedy_end = time.time()
+    greedy_time = greedy_end - greedy_start
+
+    brute_start = time.time()
+    brute = brute_force_cow_transport(cows, weight_limit)
+    brute_end = time.time()
+    brute_time = brute_end - brute_start
+
+    print("The greedy algorithm ran in {} seconds and used {} trips.".format(
+        greedy_time, len(greedy)))
+    print("The brute force algorithm ran in {} seconds and used {} trips.".format(
+        brute_time, len(brute)))
 
 
 if __name__ == "__main__":
-    cows = load_cows('ps1_cow_data.txt')
-    pprint(cows)
+    compare_cow_transport_algorithms()
