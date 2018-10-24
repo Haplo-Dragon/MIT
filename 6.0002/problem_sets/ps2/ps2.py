@@ -45,10 +45,33 @@ def load_map(map_filename):
     Returns:
         a Digraph representing the map
     """
-
-    # TODO
     print("Loading map from file...")
 
+    edges = []
+    nodes = set()
+    campus_map = Digraph()
+
+    with open(map_filename, 'r') as f:
+        for line in f:
+            current_edge_data = line.split(" ")
+            src = Node(current_edge_data[0])
+            dest = Node(current_edge_data[1])
+            total_distance = int(current_edge_data[2])
+            outdoor_distance = int(current_edge_data[3])
+
+            for node in src, dest:
+                nodes.add(node)
+
+            current_edge = WeightedEdge(src, dest, total_distance, outdoor_distance)
+            edges.append(current_edge)
+
+    for node in nodes:
+        campus_map.add_node(node)
+
+    for edge in edges:
+        campus_map.add_edge(edge)
+
+    return campus_map
 
 # Problem 2c: Testing load_map
 # Include the lines used to test load_map below, but comment them out
