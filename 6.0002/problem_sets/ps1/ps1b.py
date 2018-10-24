@@ -1,7 +1,7 @@
 ###########################
 # 6.0002 Problem Set 1b: Space Change
 # Name: Ethan Fulbright
-# Collaborators: Jesi Ross
+# Collaborators: Jesi Ross, Yale CS lecture - Computer Science 201a, Prof. Dana Angluin
 # Time:
 # Author: charz, cdenise
 
