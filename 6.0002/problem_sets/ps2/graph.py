@@ -73,8 +73,8 @@ class WeightedEdge(Edge):
 
     def __str__(self):
         return "{}->{} ({}, {})".format(
-            self.src,
-            self.dest,
+            self.src.get_name(),
+            self.dest.get_name(),
             self.total_distance,
             self.outdoor_distance)
 
@@ -103,13 +103,21 @@ class Digraph(object):
     def add_node(self, node):
         """Adds a Node object to the Digraph. Raises a ValueError if it is
         already in the graph."""
-        pass  # TODO
+        if node in self.edges:
+            raise ValueError("Duplicate node.")
+        else:
+            self.edges[node] = []
 
     def add_edge(self, edge):
         """Adds an Edge or WeightedEdge instance to the Digraph. Raises a
         ValueError if either of the nodes associated with the edge is not
         in the  graph."""
-        pass  # TODO
+        source = edge.get_source()
+        destination = edge.get_destination()
+        if not (source in self.edges and destination in self.edges):
+            raise ValueError("Node not in graph.")
+
+        self.edges[source].append(edge)
 
 
 # ================================================================
