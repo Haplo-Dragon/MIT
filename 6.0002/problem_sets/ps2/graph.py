@@ -94,6 +94,9 @@ class Digraph(object):
         edge_strs = sorted(edge_strs)  # sort alphabetically
         return "\n".join(edge_strs)  # concat edge_strs with "\n"s between them
 
+    def __contains__(self, node):
+        return self.has_node(node)
+
     def get_edges_for_node(self, node):
         return self.edges[node]
 
