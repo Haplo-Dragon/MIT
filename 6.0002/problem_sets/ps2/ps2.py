@@ -86,7 +86,8 @@ def load_map(map_filename):
 # What is the objective function for this problem? What are the constraints?
 #
 # Answer:
-#
+# The objective function is to minimize the distance traveled. The contraint is
+# a maximum distance to be spent outdoors (before we get too cold).
 
 # Problem 3b: Implement get_best_path
 def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist, best_path):
