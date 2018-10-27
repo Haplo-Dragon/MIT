@@ -98,10 +98,18 @@ class Digraph(object):
         return self.has_node(node)
 
     def get_edges_for_node(self, node):
-        return self.edges[node]
+        target_node = self.get_node(node)
+        return self.edges[target_node]
 
     def has_node(self, node):
-        return node in self.nodes
+        target_node = self.get_node(node)
+        return target_node in self.nodes
+
+    def get_node(self, name):
+        for node in self.edges:
+            if node.get_name() == name:
+                return node
+        raise NameError('{} not in graph.'.format(name))
 
     def add_node(self, node):
         """Adds a Node object to the Digraph. Raises a ValueError if it is
