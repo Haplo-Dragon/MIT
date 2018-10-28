@@ -231,8 +231,22 @@ def directed_dfs(digraph, start, end, max_total_dist, max_dist_outdoors):
         If there exists no path that satisfies max_total_dist and
         max_dist_outdoors constraints, then raises a ValueError.
     """
-    # TODO
-    pass
+    path, dist = get_best_path(
+        digraph=digraph,
+        start=start,
+        end=end,
+        path=[[], 0, 0],
+        max_dist_outdoors=max_dist_outdoors,
+        best_dist=0,
+        best_path=None)
+
+    # If a short enough path exists, return the list of buildings on that path.
+    if 0 < dist < max_total_dist:
+        return path[0]
+    # Otherwise, no path exists that is short enough.
+    raise ValueError(
+        'No path can be found with total distance less than \
+        {} and outdoor distance less than {}.'.format(max_total_dist, max_dist_outdoors))
 
 
 # ================================================================
