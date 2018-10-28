@@ -45,7 +45,7 @@ def load_map(map_filename):
     Returns:
         a Digraph representing the map
     """
-    print("Loading map from file...")
+    print("Loading map from file...\n")
 
     edges = []
     nodes = set()
@@ -77,6 +77,9 @@ def load_map(map_filename):
 # Include the lines used to test load_map below, but comment them out
 # map = load_map('test_load_map.txt')
 # print(map)
+# for edge in map.get_edges_for_node('Eye'):
+#     print(edge)
+# print('Eye' in map)
 
 #
 # Problem 3: Finding the Shorest Path using Optimized Search Method
@@ -88,6 +91,7 @@ def load_map(map_filename):
 # Answer:
 # The objective function is to minimize the distance traveled. The contraint is
 # a maximum distance to be spent outdoors (before we get too cold).
+
 
 # Problem 3b: Implement get_best_path
 def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist, best_path):
@@ -123,8 +127,79 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist, best_
         If there exists no path that satisfies max_total_dist and
         max_dist_outdoors constraints, then return None.
     """
-    # TODO
-    pass
+    # Add string of start node to path
+    path[0] = path[0] + [start]
+
+    if best_path is not None:
+        best_dist = best_path[1]
+    else:
+        best_dist = 0
+
+    # If start and end are not valid nodes
+    if not ((start in digraph) and (end in digraph)):
+        raise KeyError('Start or end node are not valid nodes in the provided graph.')
+
+    # Else, if start and end are the same node
+    elif start == end:
+        # Update global variables appropriately
+        best_path = path[:]
+        best_dist = best_path[1]
+        # print("Reached end node,", best_path, best_dist)
+
+    else:
+        # print("\nChecking edges of node {}...".format(start))
+        # For all child nodes of start (this returns a LIST of EDGES)
+        for edge in digraph.get_edges_for_node(start):
+            new_node = edge.get_destination().get_name()
+            # Avoid loops
+            if new_node not in path[0]:
+                # print("Checking edge", edge, "Path is", path)
+                # Construct a path including that node.
+                # Add this edge's total distance and outdoor distance to the path
+                # traveled so far.
+                current_total_dist = path[1] + edge.get_total_distance()
+                current_outdoor_dist = path[2] + edge.get_outdoor_distance()
+                # If we're just starting or the current path is better than our shortest
+                # path so far, we want to explore recursively. We also AVOID recursing
+                # if the current edge would exceed our maximum distance outdoors
+                # constraint.
+                if ((best_path is None) or (current_total_dist < best_dist)) and \
+                   (current_outdoor_dist <= max_dist_outdoors):
+                    # print("Edge {} is viable, recursing.".format(edge))
+                    # Copy the path so that local changes aren't propagated up the stack
+                    current_path = path[:]
+                    current_path[1] = current_total_dist
+                    current_path[2] = current_outdoor_dist
+                    # Recursively solve the rest of the path, from the child node to
+                    # the end node
+                    new_path, new_dist = get_best_path(
+                        digraph,
+                        new_node,
+                        end,
+                        current_path,
+                        max_dist_outdoors,
+                        best_dist,
+                        best_path)
+                    if new_path is not None:
+                        best_path = new_path
+                        best_dist = new_dist
+                        # print("Found new best path:", best_path)
+
+    # Return shortest path
+    return (best_path, best_dist)
+
+
+map = load_map('test_load_map2.txt')
+print(map)
+path, dist = get_best_path(
+    digraph=map,
+    start='Wasteland',
+    end='Eye',
+    path=[[], 0, 0],
+    max_dist_outdoors=200,
+    best_dist=0,
+    best_path=None)
+print("==================\nFinal path is: {}\nDistance is {}".format(path, dist))
 
 
 # Problem 3c: Implement directed_dfs
