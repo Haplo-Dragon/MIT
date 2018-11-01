@@ -42,7 +42,7 @@ class ps3_P1A(unittest.TestCase):
         width, height, dirt_amount = (3, 4, 1)
         room = ps3.RectangularRoom(width, height, dirt_amount)
         for x, y in xyrange(width, height):
-            self.assertEquals(
+            self.assertEqual(
                 room.get_dirt_amount(x, y),
                 dirt_amount,
                 "Tile {} was not initialized with correct dirt amount".format((x, y)),
@@ -56,7 +56,7 @@ class ps3_P1A(unittest.TestCase):
         width, height, dirt_amount = (3, 4, 0)
         room = ps3.RectangularRoom(width, height, dirt_amount)
         for x, y in xyrange(width, height):
-            self.assertEquals(
+            self.assertEqual(
                 room.get_dirt_amount(x, y),
                 dirt_amount,
                 "Tile {} was not initialized with correct dirt amount".format((x, y)),
@@ -256,7 +256,7 @@ class ps3_P1B(unittest.TestCase):
             robot.set_robot_direction(directions[dir_index])
         for dir_index, robot in enumerate(robots):
             robot_dir = robot.get_robot_direction()
-            self.assertEquals(
+            self.assertEqual(
                 robot_dir,
                 directions[dir_index],
                 "Robot direction set or retrieved incorrectly: expected {}, got {}".format(
@@ -311,7 +311,7 @@ class ps3_P2_ER(unittest.TestCase):
             width, height, dirt_amount = (random.randint(1, 10), random.randint(1, 10), 1)
             room_num_tiles = ps3.EmptyRoom(width, height, dirt_amount).get_num_tiles()
             sol_room_tiles = ps3.EmptyRoom(width, height, dirt_amount).get_num_tiles()
-            self.assertEquals(
+            self.assertEqual(
                 room_num_tiles,
                 sol_room_tiles,
                 "student code number of room tiles = {}, not equal to solution code num tiles {}".format(
@@ -321,7 +321,7 @@ class ps3_P2_ER(unittest.TestCase):
 
     def test_is_position_valid(self):
         """ Test is_position_valid
-            this should be refactored as it's mostly a copy of is_position_in_room code        
+            this should be refactored as it's mostly a copy of is_position_in_room code
         """
         width, height, dirt_amount = (3, 4, 2)
         room = ps3.EmptyRoom(width, height, dirt_amount)
@@ -330,10 +330,10 @@ class ps3_P2_ER(unittest.TestCase):
         for x in [0.0, -0.1, width - 0.1, width, width + 0.1]:
             for y in [0.0, -0.1, height - 0.1, height, height + 0.1]:
                 pos = test.Position(x, y)
-                self.assertEquals(
+                self.assertEqual(
                     solution_room.is_position_valid(pos),
                     room.is_position_valid(pos),
-                    "student code and solution code disagree on whether position is valid",
+                    "student code and solution code disagree on whether position is valid" + str(pos),
                 )
 
 
@@ -351,7 +351,7 @@ class ps3_P2_FR(unittest.TestCase):
             # this relies on knowing the underlying details of the class
             sol_room.furniture_tiles = room.furniture_tiles
             for x, y in xyrange(width, height):
-                self.assertEquals(
+                self.assertEqual(
                     room.is_tile_furnished(x, y),
                     sol_room.is_tile_furnished(x, y),
                     "student code and solution code disagree on whether tile is furnished",
@@ -369,7 +369,7 @@ class ps3_P2_FR(unittest.TestCase):
             sol_room.furniture_tiles = room.furniture_tiles
             for x, y in xyrange(width, height):
                 pos = test.Position(x + random.random(), y + random.random())
-                self.assertEquals(
+                self.assertEqual(
                     room.is_position_furnished(pos),
                     sol_room.is_position_furnished(pos),
                     "student code and solution code disagree on whether position is furnished",
@@ -402,10 +402,10 @@ class ps3_P2_FR(unittest.TestCase):
                     room.furniture_tiles[0][1] + 0.3,
                 ]:
                     pos = test.Position(x, y)
-                    self.assertEquals(
+                    self.assertEqual(
                         sol_room.is_position_valid(pos),
                         room.is_position_valid(pos),
-                        "student code and solution code disagree on whether position is valid",
+                        "student code and solution code disagree on whether position is valid:" + str(pos),
                     )
 
     def test_get_num_tiles(self):
@@ -423,7 +423,7 @@ class ps3_P2_FR(unittest.TestCase):
             # generate answers
             room_num_tiles = room.get_num_tiles()
             sol_room_num_tiles = sol_room.get_num_tiles()
-            self.assertEquals(
+            self.assertEqual(
                 room_num_tiles,
                 sol_room_num_tiles,
                 "student code number of room tiles = {}, not equal to solution code num tiles {}".format(
@@ -532,7 +532,7 @@ class ps3_P3(unittest.TestCase):
         robot.set_robot_position(test.Position(1.5, 2.5))
         robot.set_robot_direction(90)
         robot.update_position_and_clean()
-        self.assertEquals(
+        self.assertEqual(
             robot.get_robot_direction(),
             90,
             "Robot direction is updated incorrectly by update_position_and_clean: expected %r, got %r"
