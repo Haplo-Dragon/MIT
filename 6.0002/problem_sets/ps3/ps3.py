@@ -384,13 +384,19 @@ class StandardRobot(Robot):
 
     def update_position_and_clean(self):
         """
-        Simulate the raise passage of a single time-step.
+        Simulate the passage of a single time-step.
 
         Move the robot to a new random position (if the new position is invalid,
         rotate once to a random new direction, and stay stationary) and clean the dirt on
         the tile by its given capacity.
         """
-        raise NotImplementedError
+        new_position = self.position.get_new_position(self.direction, self.speed)
+
+        if self.room.is_position_valid(new_position):
+            self.set_robot_position(new_position)
+            self.room.clean_tile_at_position(self.position, self.capacity)
+        else:
+            self.set_robot_direction(360 * random.random())
 
 
 # Uncomment this line to see your implementation of StandardRobot in action!
