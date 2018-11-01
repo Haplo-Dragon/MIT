@@ -549,12 +549,23 @@ def run_simulation(
 # 1)How does the performance of the two robot types compare when cleaning 80%
 #       of a 20x20 room?
 #
+#   The faulty robots consistently take more time to clean the room, although
+#   the performance gap between the two types of robots diminishes slightly as
+#   the number of robots increases. The time taken appears to decrease roughly
+#   quadratically with respect to the number of robots.
 #
 # 2) How does the performance of the two robot types compare when two of each
 #       robot cleans 80% of rooms with dimensions
 #       10x30, 20x15, 25x12, and 50x6?
 #
+#   Once again, the faulty robots consistently take longer to clean the rooms.
+#   However, the performance gap between robot types is MUCH larger here.
+#   Both robot types take longer to clean the room as the room's aspect ratio
+#   (that is, the room's width divided by its height) increases, but the faulty
+#   robots have a much higher RATE of increase, nearing a linear relationship.
 #
+#   Both types of robots clean most quickly in rooms that are square or nearly so
+#   (that is, rooms whose aspect ratio is 1 or close to 1).
 
 
 def show_plot_compare_strategies(title, x_label, y_label):
@@ -592,9 +603,9 @@ def show_plot_room_shape(title, x_label, y_label):
         print("Plotting cleaning time for a room of width:", width, "by height:", height)
         aspect_ratios.append(float(width) / height)
         times1.append(
-            run_simulation(2, 1.0, 1, width, height, 3, 0.8, 200, StandardRobot)
+            run_simulation(2, 1.0, 1, width, int(height), 3, 0.8, 200, StandardRobot)
         )
-        times2.append(run_simulation(2, 1.0, 1, width, height, 3, 0.8, 200, FaultyRobot))
+        times2.append(run_simulation(2, 1.0, 1, width, int(height), 3, 0.8, 200, FaultyRobot))
     pylab.plot(aspect_ratios, times1)
     pylab.plot(aspect_ratios, times2)
     pylab.title(title)
