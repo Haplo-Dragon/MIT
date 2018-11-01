@@ -484,9 +484,53 @@ def run_simulation(
     robot_type: class of robot to be instantiated (e.g. StandardRobot or
                 FaultyRobot)
     """
-    raise NotImplementedError
+    trial_durations = []
+
+    for i in range(num_trials):
+        # Create a new dirty room
+        room = EmptyRoom(width, height, dirt_amount)
+        # Create robots to populate the room
+        robots = []
+        for i in range(num_robots):
+            robots.append(robot_type(room, speed, capacity))
+
+        # Start animation - will slow simulation if running many trials!
+        # anim = ps3_visualize.RobotVisualization(
+        #     num_robots,
+        #     width,
+        #     height,
+        #     furniture_tiles=False)
+
+        # All room tiles are dirty
+        fraction_of_room_cleaned = 0.0
+        # Reset timer
+        clock = 0
+
+        while fraction_of_room_cleaned < min_coverage:
+            # All robots move and clean
+            for robot in robots:
+                robot.update_position_and_clean()
+
+            # Update the animation
+            # anim.update(room, robots)
+
+            # Record how much of the room has been cleaned so far
+            fraction_of_room_cleaned = room.get_num_cleaned_tiles() / room.get_num_tiles()
+            # Add tick to the clock
+            clock += 1
+
+        # Record how long this trial took
+        trial_durations.append(clock)
+
+        # Close trial animation
+        # anim.done()
+
+    # Return mean number of time steps needed to clean the room
+    return sum(trial_durations) / len(trial_durations)
 
 
+# print('avg time steps: ' +
+#       str(run_simulation(5, 1.0, 1, 5, 5, 3, 1.0, 1, StandardRobot)))
 # print('avg time steps: ' +
 #       str(run_simulation(1, 1.0, 1, 5, 5, 3, 1.0, 50, StandardRobot)))
 # print('avg time steps: ' +
