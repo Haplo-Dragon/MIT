@@ -10,6 +10,8 @@ import random
 
 
 NUM_TIME_STEPS = 300
+TIME_BEFORE_ANTIBIOTIC = 150
+TIME_AFTER_ANTIBIOTIC = 250
 
 ##########################
 # End helper code
@@ -633,7 +635,63 @@ def simulation_with_antibiotic(
             resistant_pop[i][j] is the number of resistant bacteria for
             trial i at time step j
     """
-    pass  # TODO
+    trial_bacteria_counts = []
+    trial_resistant_counts = []
+    for i in range(num_trials):
+        # Initial bacteria population
+        bacteria = [ResistantBacteria(birth_prob, death_prob, resistant, mut_prob)
+                    for i in range(num_bacteria)]
+        # Infect patient
+        patient = TreatedPatient(bacteria, max_pop)
+
+        # Simulate passage of time before antibiotic is administered
+        current_bacteria_counts = []
+        current_resistant_counts = []
+        for i in range(TIME_BEFORE_ANTIBIOTIC):
+            # Record total bacteria count at current time
+            current_bacteria_counts.append(patient.get_total_pop())
+            # Record resistant bacteria count at current time
+            current_resistant_counts.append(patient.get_resist_pop())
+            # Time passes and bacteria die or reproduce according to their probabilities
+            patient.update()
+
+        # Administer antibiotic
+        patient.set_on_antibiotic()
+        # Simulate passage of time after antibiotic is administered
+        for i in range(TIME_AFTER_ANTIBIOTIC):
+            # Record total bacteria count at current time
+            current_bacteria_counts.append(patient.get_total_pop())
+            # Record resistant bacteria count at current time
+            current_resistant_counts.append(patient.get_resist_pop())
+            # Time passes and bacteria die or reproduce according to their probabilities
+            patient.update()
+
+        # Record total bacteria counts for current trial
+        trial_bacteria_counts.append(current_bacteria_counts)
+        # Record resistant bacteria counts for current trial
+        trial_resistant_counts.append(current_resistant_counts)
+
+    # Record average population (total and resistant) at each time step
+    avg_total_pops = []
+    avg_resistant_pops = []
+    for time_step in range(NUM_TIME_STEPS):
+        avg_total_pops.append(calc_pop_avg(trial_bacteria_counts, time_step))
+
+    for time_step in range(NUM_TIME_STEPS):
+        avg_resistant_pops.append(calc_pop_avg(trial_resistant_counts, time_step))
+
+    # Plot average bacteria population size as function of elapsed time
+    make_two_curve_plot(
+        x_coords=list(range(NUM_TIME_STEPS)),
+        y_coords1=avg_total_pops,
+        y_coords2=avg_resistant_pops,
+        y_name1="Total bacteria",
+        y_name2="Resistant bacteria",
+        x_label="Timestep",
+        y_label="Average Bacteria Population",
+        title="With an Antibiotic")
+
+    return (trial_bacteria_counts, trial_resistant_counts)
 
 
 # When you are ready to run the simulations, uncomment the next lines one
@@ -648,12 +706,20 @@ def simulation_with_antibiotic(
 #     num_trials=50,
 # )
 
-# total_pop, resistant_pop = simulation_with_antibiotic(
-#     num_bacteria=100,
-#     max_pop=1000,
-#     birth_prob=0.17,
-#     death_prob=0.2,
-#     resistant=False,
-#     mut_prob=0.8,
-#     num_trials=50,
-# )
+# print("Total {}\nResistant{}".format(
+#     calc_95_ci(total_pop, 299),
+#     calc_95_ci(resistant_pop, 299)))
+
+total_pop, resistant_pop = simulation_with_antibiotic(
+    num_bacteria=100,
+    max_pop=1000,
+    birth_prob=0.17,
+    death_prob=0.2,
+    resistant=False,
+    mut_prob=0.8,
+    num_trials=50,
+)
+
+print("Total {}\nResistant{}".format(
+    calc_95_ci(total_pop, 299),
+    calc_95_ci(resistant_pop, 299)))
