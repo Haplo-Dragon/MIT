@@ -294,7 +294,7 @@ def simulation_without_antibiotic(
 
 
 # When you are ready to run the simulation, uncomment the next line
-populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
+# populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
 
 ##########################
 # PROBLEM 3
@@ -389,7 +389,7 @@ def calc_pop_mean(populations, t):
     return sum(pops_at_time_t) / len(pops_at_time_t)
 
 
-print(calc_95_ci(populations, 299))
+# print(calc_95_ci(populations, 299))
 
 ##########################
 # PROBLEM 4
@@ -409,11 +409,13 @@ class ResistantBacteria(SimpleBacteria):
                 bacteria cell. This is the maximum probability of the
                 offspring acquiring antibiotic resistance
         """
-        pass  # TODO
+        SimpleBacteria.__init__(self, birth_prob, death_prob)
+        self.resistant = resistant
+        self.mut_prob = mut_prob
 
     def get_resistant(self):
         """Returns whether the bacteria has antibiotic resistance"""
-        pass  # TODO
+        return self.resistant
 
     def is_killed(self):
         """Stochastically determines whether this bacteria cell is killed in
@@ -427,7 +429,12 @@ class ResistantBacteria(SimpleBacteria):
             bool: True if the bacteria dies with the appropriate probability
                 and False otherwise.
         """
-        pass  # TODO
+        # Mutated resistant bacteria have a different death probability than
+        # standard bacteria.
+        if self.resistant:
+            return random.random() <= self.death_prob
+        else:
+            return random.random() <= self.death_prob / 4
 
     def reproduce(self, pop_density):
         """
@@ -458,7 +465,22 @@ class ResistantBacteria(SimpleBacteria):
             as this bacteria. Otherwise, raises a NoChildException if this
             bacteria cell does not reproduce.
         """
-        pass  # TODO
+        if random.random() <= self.birth_prob * (1 - pop_density):
+            # If the bacterium is resistant, its offspring will be resistant, too
+            if self.resistant:
+                offspring_resistant = self.resistant
+            # If the bacterium is not resistant, there is a chance its offspring mutates
+            else:
+                offspring_resistant = random.random() <= self.mut_prob * (1 - pop_density)
+
+            return ResistantBacteria(
+                self.birth_prob,
+                self.death_prob,
+                offspring_resistant,
+                self.mut_prob)
+
+        # If the bacterium did not reproduce
+        raise NoChildException
 
 
 class TreatedPatient(Patient):
@@ -482,14 +504,15 @@ class TreatedPatient(Patient):
         Don't forget to call Patient's __init__ method at the start of this
         method.
         """
-        pass  # TODO
+        Patient.__init__(self, bacteria, max_pop)
+        self.on_antibiotic = False
 
     def set_on_antibiotic(self):
         """
         Administer an antibiotic to this patient. The antibiotic acts on the
         bacteria population for all subsequent time steps.
         """
-        pass  # TODO
+        self.on_antibiotic = True
 
     def get_resist_pop(self):
         """
@@ -498,7 +521,9 @@ class TreatedPatient(Patient):
         Returns:
             int: the number of bacteria with antibiotic resistance
         """
-        pass  # TODO
+        # List resistant bacteria
+        resistant_pop = [bac for bac in self.bacteria if bac.get_resistant()]
+        return len(resistant_pop)
 
     def update(self):
         """
@@ -525,8 +550,43 @@ class TreatedPatient(Patient):
         Returns:
             int: The total bacteria population at the end of the update
         """
-        pass  # TODO
+        # Some bacteria die off naturally
+        surviving_bacteria = [bacterium for bacterium in self.bacteria
+                              if not bacterium.is_killed()]
 
+        # If patient is on antibiotics, only resistant bacteria survive
+        if self.on_antibiotic:
+            resistant_bacteria = [bacterium for bacterium in surviving_bacteria
+                                  if bacterium.get_resistant()]
+            surviving_bacteria = resistant_bacteria
+
+        # Current population density determines birth and mutation rates for bacteria
+        current_pop_density = len(surviving_bacteria) / self.max_pop
+
+        # Surviving bacteria reproduce according to the current population density
+        baby_bacteria = []
+        for bacterium in surviving_bacteria:
+            try:
+                baby_bacteria.append(bacterium.reproduce(current_pop_density))
+            except NoChildException:
+                pass
+
+        # Record the new bacteria population (babies do not reproduce)
+        self.bacteria = surviving_bacteria + baby_bacteria
+
+        return len(self.bacteria)
+
+
+# bac = []
+# for i in range(100):
+#     bac.append(ResistantBacteria(0.6, 0.3, False, 0.4))
+# p = TreatedPatient(bac, 500)
+
+# for i in range(10):
+#     print(p.update())
+# p.set_on_antibiotic()
+# for i in range(10):
+#     print(p.update())
 
 ##########################
 # PROBLEM 5
