@@ -276,6 +276,7 @@ def simulation_without_antibiotic(
             # Time passes and bacteria die or reproduce according to their probabilities
             patient.update()
 
+        # Record all bacteria counts for current trial
         trial_bacteria_counts.append(current_bacteria_counts)
 
     # Record average population at each time step
@@ -288,6 +289,8 @@ def simulation_without_antibiotic(
                         x_label="Timestep",
                         y_label="Average Bacteria Population",
                         title="Without Antibiotic")
+
+    return trial_bacteria_counts
 
 
 # When you are ready to run the simulation, uncomment the next line
@@ -319,7 +322,21 @@ def calc_pop_std(populations, t):
         float: the standard deviation of populations across different trials at
              a specific time step
     """
-    pass  # TODO
+    # Calculate mean of populations at time step t
+    mean_population = calc_pop_mean(populations, t)
+
+    # Add up distance of each data point from the mean, squared
+    sum_mean_dists = 0
+    for trial in populations:
+        sum_mean_dists += (trial[t] - mean_population)**2
+
+    # Divide by number of trials
+    sum_mean_dists = sum_mean_dists / len(populations)
+
+    # Square root to get standard deviation
+    standard_deviation = math.sqrt(sum_mean_dists)
+    # Return standard deviation
+    return standard_deviation
 
 
 def calc_95_ci(populations, t):
@@ -343,8 +360,36 @@ def calc_95_ci(populations, t):
 
         I.e., you should return a tuple containing (mean, width)
     """
-    pass  # TODO
+    # Calculate mean of populations at time step t
+    mean_population = calc_pop_mean(populations, t)
+    # Calculate standard deviation of populations at time step t
+    standard_deviation = calc_pop_std(populations, t)
 
+    # Calculate standard error of the mean
+    num_trials = len(populations)
+    standard_error = standard_deviation / (math.sqrt(num_trials))
+
+    # 95% confidence interval is the mean, plus or minus 1.96 * standard error of mean
+    return (mean_population, 1.96 * standard_error)
+
+
+def calc_pop_mean(populations, t):
+    """
+    Calculates the mean population at time t
+
+    populations (list of lists or 2D array): populations[i][j] is the
+            number of bacteria present in trial i at time step j
+    t (int): time step
+
+    Returns mean (float): the mean population at time t
+    """
+    pops_at_time_t = []
+    for trial in populations:
+        pops_at_time_t.append(trial[t])
+    return sum(pops_at_time_t) / len(pops_at_time_t)
+
+
+print(calc_95_ci(populations, 299))
 
 ##########################
 # PROBLEM 4
