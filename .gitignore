@@ -102,3 +102,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# =================
+# Specific files
+6.0002/problem_sets/ps4/*.png
+6.0002/problem_sets/ps4/*.odt
