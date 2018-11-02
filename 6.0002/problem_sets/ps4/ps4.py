@@ -8,7 +8,8 @@ import numpy as np
 import pylab as pl
 import random
 
-random.seed(0)
+
+NUM_TIME_STEPS = 300
 
 ##########################
 # End helper code
@@ -199,13 +200,13 @@ class Patient(object):
         return len(self.bacteria)
 
 
-bac = []
-for i in range(100):
-    bac.append(SimpleBacteria(1, 0.3))
-p = Patient(bac, 500)
+# bac = []
+# for i in range(100):
+#     bac.append(SimpleBacteria(1, 0.3))
+# p = Patient(bac, 500)
 
-for i in range(100):
-    print(p.update())
+# for i in range(100):
+#     print(p.update())
 
 ##########################
 # PROBLEM 2
@@ -223,7 +224,10 @@ def calc_pop_avg(populations, n):
     Returns:
         float: The average bacteria population size at time step n
     """
-    pass  # TODO
+    bacteria_count = []
+    for trial in populations:
+        bacteria_count.append(trial[n])
+    return sum(bacteria_count) / len(bacteria_count)
 
 
 def simulation_without_antibiotic(
@@ -257,11 +261,37 @@ def simulation_without_antibiotic(
         populations (list of lists or 2D array): populations[i][j] is the
             number of bacteria in trial i at time step j
     """
-    pass  # TODO
+    trial_bacteria_counts = []
+    for i in range(num_trials):
+        # Initial bacteria population
+        bacteria = [SimpleBacteria(birth_prob, death_prob) for i in range(num_bacteria)]
+        # Infect patient
+        patient = Patient(bacteria, max_pop)
+
+        # Simulate passage of time
+        current_bacteria_counts = []
+        for i in range(NUM_TIME_STEPS):
+            # Record bacteria count at current time
+            current_bacteria_counts.append(patient.get_total_pop())
+            # Time passes and bacteria die or reproduce according to their probabilities
+            patient.update()
+
+        trial_bacteria_counts.append(current_bacteria_counts)
+
+    # Record average population at each time step
+    avg_pops = []
+    for time_step in range(NUM_TIME_STEPS):
+        avg_pops.append(calc_pop_avg(trial_bacteria_counts, time_step))
+    # Plot average bacteria population size as function of elapsed time
+    make_one_curve_plot(x_coords=list(range(NUM_TIME_STEPS)),
+                        y_coords=avg_pops,
+                        x_label="Timestep",
+                        y_label="Average Bacteria Population",
+                        title="Without Antibiotic")
 
 
 # When you are ready to run the simulation, uncomment the next line
-# populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
+populations = simulation_without_antibiotic(100, 1000, 0.1, 0.025, 50)
 
 ##########################
 # PROBLEM 3
