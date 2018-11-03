@@ -35,6 +35,11 @@ CITIES = [
 TRAINING_INTERVAL = range(1961, 2010)
 TESTING_INTERVAL = range(2010, 2016)
 
+PLOT_TITLE = "Temps on Jan. 10 in NYC 1964-2010\nR-squared: {} Degree: {}\n"
+PLOT_SE_SLOPE = "Standard error of fitted curve slope / Data slope: {}"
+PLOT_X_LABEL = "Years"
+PLOT_Y_LABEL = "Degrees Celsius"
+
 """
 Begin helper code
 """
@@ -222,8 +227,45 @@ def evaluate_models_on_training(x, y, models):
     Returns:
         None
     """
-    # TODO
-    pass
+    for model in models:
+        # Find degree of model. If model is degree 1 (a line), find difference between
+        # model's slope and data's slope
+        model_degree = len(model) - 1
+        model_estimated_values = pylab.polyval(model, x)
+
+        if model_degree == 1:
+            model_se_slope = se_over_slope(x, y, model_estimated_values, model)
+        else:
+            model_se_slope = None
+
+        # Find R squared of model
+        model_r_squared = r_squared(y, model_estimated_values)
+
+        # Plot fitted curve from model as a solid red line
+        pylab.plot(
+            x,
+            model_estimated_values,
+            color='red',
+            linestyle='solid',
+            label="Fit of degree {}".format(model_degree) +
+            " R-squared: {}".format(round(model_r_squared, 5)))
+
+    # Plot measured data as blue dots
+    pylab.plot(x, y, color='blue', marker='o', linestyle='None', label="Measured data")
+
+    # Label axes
+    pylab.xlabel(PLOT_X_LABEL)
+    pylab.ylabel(PLOT_Y_LABEL)
+
+    # Title plot
+    title = PLOT_TITLE.format(round(model_r_squared, 5), model_degree)
+    if model_se_slope:
+        title += PLOT_SE_SLOPE.format(round(model_se_slope, 5))
+    pylab.title(title)
+
+    # Show plot and legend
+    pylab.legend()
+    pylab.show()
 
 
 def gen_cities_avg(climate, multi_cities, years):
