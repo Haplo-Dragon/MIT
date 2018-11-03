@@ -189,8 +189,11 @@ def r_squared(y, estimated):
     Returns:
         a float for the R-squared error term
     """
-    # TODO
-    pass
+    estimated_error = ((y - estimated)**2).sum()
+    mean_samples = (y.sum()) / len(y)
+    measured_variability = ((y - mean_samples)**2).sum()
+
+    return 1 - estimated_error / measured_variability
 
 
 def evaluate_models_on_training(x, y, models):
