@@ -35,7 +35,7 @@ CITIES = [
 TRAINING_INTERVAL = range(1961, 2010)
 TESTING_INTERVAL = range(2010, 2016)
 
-PLOT_TITLE = "Mean annual temps in 21 cities 1964-2010\nR-squared: {} Degree: {}\n"
+PLOT_TITLE = "5-year moving avg temps in 21 cities 1964-2010\nR-squared: {} Degree: {}\n"
 PLOT_SE_SLOPE = "Standard error of fitted curve slope / Data slope: {}"
 PLOT_X_LABEL = "Years"
 PLOT_Y_LABEL = "Degrees Celsius"
@@ -313,8 +313,22 @@ def moving_average(y, window_length):
         an 1-d pylab array with the same length as y storing moving average of
         y-coordinates of the N sample points
     """
-    # TODO
-    pass
+    total_moving_avg = []
+    # Step through the sample points
+    for point in range(len(y)):
+        current_moving_avg = []
+        # Consider the sample points in the window around the current point
+        for index in range(window_length):
+            # Ensure that the window stops at the beginning of the list
+            if (point - index) > -1:
+                # Make a list of the values in the current window
+                current_moving_avg.append(y[point - index])
+
+        # Record the mean of the values in the current window
+        total_moving_avg.append(sum(current_moving_avg) / len(current_moving_avg))
+
+    # Return the moving average
+    return pylab.array(total_moving_avg)
 
 
 def rmse(y, estimated):
@@ -415,17 +429,27 @@ if __name__ == "__main__":
     # models = generate_models(years, NY_annual_avg_data, [1])
     # evaluate_models_on_training(years, NY_annual_avg_data, models)
 
-    # Part B
-    # Now we'll fit a degree 1 model to the mean annual temp. across all cities
-    # Get the mean annual temperature across all cities for the training interval
+    # # Part B
+    # # Now we'll fit a degree 1 model to the mean annual temp. across all cities
+    # # Get the mean annual temperature across all cities for the training interval
+    # all_cities_mean_temps = gen_cities_avg(c, CITIES, list(TRAINING_INTERVAL))
+    # # Generate a 1D pylab array of the years in the training interval
+    # years = pylab.array(TRAINING_INTERVAL)
+    # # Fit a degree 1 model
+    # models = generate_models(years, all_cities_mean_temps, [1])
+    # evaluate_models_on_training(years, all_cities_mean_temps, models)
+    # Part C
+    # Now we'll generate a 5-year moving average and fit a degree 1 model to it
+    # Get mean annual temperature across all cities for the years in training interval
     all_cities_mean_temps = gen_cities_avg(c, CITIES, list(TRAINING_INTERVAL))
     # Generate a 1D pylab array of the years in the training interval
     years = pylab.array(TRAINING_INTERVAL)
+
+    # Get a 1D pylab array representing the 5-year moving average
+    five_year_avgs = moving_average(all_cities_mean_temps, window_length=5)
     # Fit a degree 1 model
-    models = generate_models(years, all_cities_mean_temps, [1])
-    evaluate_models_on_training(years, all_cities_mean_temps, models)
-    # Part C
-    # TODO: replace this line with your code
+    models = generate_models(years, five_year_avgs, [1])
+    evaluate_models_on_training(years, five_year_avgs, models)
 
     # Part D.2
     # TODO: replace this line with your code
