@@ -35,7 +35,7 @@ CITIES = [
 TRAINING_INTERVAL = range(1961, 2010)
 TESTING_INTERVAL = range(2010, 2016)
 
-PLOT_TITLE = "Mean annual temps in NYC 1964-2010\nR-squared: {} Degree: {}\n"
+PLOT_TITLE = "Mean annual temps in 21 cities 1964-2010\nR-squared: {} Degree: {}\n"
 PLOT_SE_SLOPE = "Standard error of fitted curve slope / Data slope: {}"
 PLOT_X_LABEL = "Years"
 PLOT_Y_LABEL = "Degrees Celsius"
@@ -283,8 +283,20 @@ def gen_cities_avg(climate, multi_cities, years):
         this array corresponds to the average annual temperature over the given
         cities for a given year.
     """
-    # TODO
-    pass
+    avg_all_years = []
+    for year in years:
+        avg_all_cities = []
+        for city in multi_cities:
+            # Get yearly temps for the current city
+            current_city_yearly_temps = climate.get_yearly_temp(city, year)
+            # Store average temp for the current city
+            avg_all_cities.append(
+                sum(current_city_yearly_temps) / len(current_city_yearly_temps))
+        # Store average across all cities for the current year
+        avg_all_years.append(sum(avg_all_cities) / len(avg_all_cities))
+
+    # Return average temperatures for the years specified
+    return pylab.array(avg_all_years)
 
 
 def moving_average(y, window_length):
@@ -389,23 +401,29 @@ if __name__ == "__main__":
     # evaluate_models_on_training(years, NY_Jan10_data, models)
 
     # Now we'll plot the mean average temperature for NYC
-    NY_annual_avg_data = []
-    for year in TRAINING_INTERVAL:
-        # Get all daily temperatures for the current year
-        current_year_temps = c.get_yearly_temp(city, year)
-        # Add the mean of those daily temperatures to the data
-        NY_annual_avg_data.append(sum(current_year_temps) / len(current_year_temps))
+    # NY_annual_avg_data = []
+    # for year in TRAINING_INTERVAL:
+    #     # Get all daily temperatures for the current year
+    #     current_year_temps = c.get_yearly_temp(city, year)
+    #     # Add the mean of those daily temperatures to the data
+    #     NY_annual_avg_data.append(sum(current_year_temps) / len(current_year_temps))
 
-    NY_annual_avg_data = pylab.array(NY_annual_avg_data)
-    years = pylab.array(TRAINING_INTERVAL)
+    # NY_annual_avg_data = pylab.array(NY_annual_avg_data)
+    # years = pylab.array(TRAINING_INTERVAL)
 
-    # Fit a degree 1 model.
-    models = generate_models(years, NY_annual_avg_data, [1])
-    evaluate_models_on_training(years, NY_annual_avg_data, models)
+    # # Fit a degree 1 model.
+    # models = generate_models(years, NY_annual_avg_data, [1])
+    # evaluate_models_on_training(years, NY_annual_avg_data, models)
 
     # Part B
-    # TODO: replace this line with your code
-
+    # Now we'll fit a degree 1 model to the mean annual temp. across all cities
+    # Get the mean annual temperature across all cities for the training interval
+    all_cities_mean_temps = gen_cities_avg(c, CITIES, list(TRAINING_INTERVAL))
+    # Generate a 1D pylab array of the years in the training interval
+    years = pylab.array(TRAINING_INTERVAL)
+    # Fit a degree 1 model
+    models = generate_models(years, all_cities_mean_temps, [1])
+    evaluate_models_on_training(years, all_cities_mean_temps, models)
     # Part C
     # TODO: replace this line with your code
 
