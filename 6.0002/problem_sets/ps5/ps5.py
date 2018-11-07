@@ -35,7 +35,7 @@ CITIES = [
 TRAINING_INTERVAL = range(1961, 2010)
 TESTING_INTERVAL = range(2010, 2016)
 
-PLOT_TITLE = "5-year moving avg temps in 21 cities 1964-2010\nR-squared: {} Degree: {}\n"
+PLOT_TITLE = "5-year moving avg temps in 21 cities 1964-2010\nRMSE: {} Degree: {}\n"
 PLOT_SE_SLOPE = "Standard error of fitted curve slope / Data slope: {}"
 PLOT_X_LABEL = "Years"
 PLOT_Y_LABEL = "Degrees Celsius"
@@ -344,8 +344,12 @@ def rmse(y, estimated):
     Returns:
         a float for the root mean square error term
     """
-    # TODO
-    pass
+    # Sum the squares of the distances between actual values and estimated values
+    estimated_error = ((y - estimated)**2).sum()
+    # Divide that sum by the number of values
+    avg_estimated_error = estimated_error / len(y)
+    # Return the square root of that sum
+    return pylab.sqrt(avg_estimated_error)
 
 
 def gen_std_devs(climate, multi_cities, years):
@@ -392,8 +396,38 @@ def evaluate_models_on_testing(x, y, models):
     Returns:
         None
     """
-    # TODO
-    pass
+    for model in models:
+        # Find degree of model.
+        model_degree = len(model) - 1
+        # Use model to estimate values
+        model_estimated_values = pylab.polyval(model, x)
+
+        # Find RMSE of model
+        model_rmse = rmse(y, model_estimated_values)
+
+        # Plot fitted curve from model as a solid red line
+        pylab.plot(
+            x,
+            model_estimated_values,
+            color='red',
+            linestyle='solid',
+            label="Fit of degree {}".format(model_degree) +
+            " RMSE: {}".format(round(model_rmse, 5)))
+
+    # Plot measured data as blue dots
+    pylab.plot(x, y, color='blue', marker='o', linestyle='None', label="Measured data")
+
+    # Label axes
+    pylab.xlabel(PLOT_X_LABEL)
+    pylab.ylabel(PLOT_Y_LABEL)
+
+    # Title plot
+    title = PLOT_TITLE.format(round(model_rmse, 5), model_degree)
+    pylab.title(title)
+
+    # Show plot and legend
+    pylab.legend()
+    pylab.show()
 
 
 if __name__ == "__main__":
