@@ -35,10 +35,10 @@ CITIES = [
 TRAINING_INTERVAL = range(1961, 2010)
 TESTING_INTERVAL = range(2010, 2016)
 
-PLOT_TITLE = "5-year moving avg temps in 21 cities 2010-2016\n"
+PLOT_TITLE = "5-year moving avg standard deviations in temp. - 21 cities 1961-2010\n"
 PLOT_SE_SLOPE = "Standard error of fitted curve slope / Data slope: {}"
 PLOT_X_LABEL = "Years"
-PLOT_Y_LABEL = "Degrees Celsius"
+PLOT_Y_LABEL = "Standard deviation"
 
 """
 Begin helper code
@@ -367,8 +367,35 @@ def gen_std_devs(climate, multi_cities, years):
         this array corresponds to the standard deviation of the average annual
         city temperatures for the given cities in a given year.
     """
-    # TODO
-    pass
+    std_devs = []
+    for year in years:
+        all_cities_current_year = []
+        # Get temperature for current day in current city
+        # Store average temperature for current day across all cities
+        for city in multi_cities:
+            # Get yearly temps for the current city
+            current_city_yearly_temps = climate.get_yearly_temp(city, year)
+            # Store yearly temps for the current city
+            all_cities_current_year.append(current_city_yearly_temps)
+
+        # Store average temps for each day in the current year
+        avg_all_cities = sum(all_cities_current_year) / len(all_cities_current_year)
+
+        # Find mean of the current year's temperatures
+        mean_current_year = sum(avg_all_cities) / len(avg_all_cities)
+
+        # Add up distance of each temp from the current year's mean, squared
+        variance_current_year = 0
+        for temp in avg_all_cities:
+            variance_current_year += (temp - mean_current_year)**2
+
+        # Divide by the number of temperatures
+        variance_current_year = variance_current_year / len(avg_all_cities)
+
+        # Compute the standard deviation of the average temps for current year
+        std_devs.append(pylab.sqrt(variance_current_year))
+
+    return pylab.array(std_devs)
 
 
 def evaluate_models_on_testing(x, y, models):
@@ -510,8 +537,16 @@ if __name__ == "__main__":
         all_cities_mean_temps_testing,
         window_length=5)
     # Use the degree 1, 2, and 20 models fitted from the training data to plot testing
-    evaluate_models_on_testing(years_testing, five_year_avgs_testing, models)
+    # evaluate_models_on_testing(years_testing, five_year_avgs_testing, models)
 
     # Part E
     # =================
-    # TODO: replace this line with your code
+    # Compute standard deviations over all cities in the training interval
+    std_devs = gen_std_devs(c, CITIES, list(TRAINING_INTERVAL))
+
+    # Get 5-year moving averages of the standard deviations
+    five_year_avgs_std_devs = moving_average(std_devs, window_length=5)
+
+    # Fit a degree 1 model to the standard deviations
+    models = generate_models(years_training, five_year_avgs_std_devs, [1])
+    evaluate_models_on_training(years_training, five_year_avgs_std_devs, models)
