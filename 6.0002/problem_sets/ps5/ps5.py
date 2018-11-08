@@ -35,7 +35,7 @@ CITIES = [
 TRAINING_INTERVAL = range(1961, 2010)
 TESTING_INTERVAL = range(2010, 2016)
 
-PLOT_TITLE = "5-year moving avg temps in 21 cities 1964-2010\n"
+PLOT_TITLE = "5-year moving avg temps in 21 cities 2010-2016\n"
 PLOT_SE_SLOPE = "Standard error of fitted curve slope / Data slope: {}"
 PLOT_X_LABEL = "Years"
 PLOT_Y_LABEL = "Degrees Celsius"
@@ -498,7 +498,19 @@ if __name__ == "__main__":
     five_year_avgs_training = moving_average(all_cities_mean_temps, window_length=5)
     # Fit degree 1, 2, and 20 models
     models = generate_models(years_training, five_year_avgs_training, [1, 2, 20])
-    evaluate_models_on_training(years_training, five_year_avgs_training, models)
+    # evaluate_models_on_training(years_training, five_year_avgs_training, models)
+
+    # Get mean annual temps from all cities for the years in the testing interval
+    all_cities_mean_temps_testing = gen_cities_avg(c, CITIES, list(TESTING_INTERVAL))
+    # Generate 1D pylab array of the years in the testing interval
+    years_testing = pylab.array(TESTING_INTERVAL)
+
+    # Get a 1D pylab array representing the 5-year moving average for testing interval
+    five_year_avgs_testing = moving_average(
+        all_cities_mean_temps_testing,
+        window_length=5)
+    # Use the degree 1, 2, and 20 models fitted from the training data to plot testing
+    evaluate_models_on_testing(years_testing, five_year_avgs_testing, models)
 
     # Part E
     # =================
