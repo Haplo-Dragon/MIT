@@ -1,0 +1,55 @@
+Practice Quiz 2
+==============
+FINAL GRADE 85
+==============
+
+1
+    .1 T
+    .2 F
+    .3 T
+    .4 F
+    .5 F
+2
+    11
+3
+    .1 100,000, since the SD is 0, meaning there is no variance in the data
+    .2 100,000 +- 40,000, with a 95% CI
+
+4
+    Approximately .35, or 35%
+5 WRONG
+    Middle figure is Figure 3 (3**x)
+    Bottom figure is Figure 2 (x**3)
+    Top figure is Figure 1    (3x**5)
+6
+    16.0
+    Circle with radius 4
+    Circle with radius 8
+7
+    def findNumber(maxVal):
+    assert maxVal > 0, "maxVal must be a positive integer."
+
+    # Keep track of high and low markers for guess
+    high = maxVal
+    low = 0
+    found = False
+
+    while not found:
+        # Guess halfway
+        guess = (high + low) // 2
+
+        # Test guess
+        result = cmpGuess(guess, maxVal)
+
+        if result == -1:
+            # Guess is too low
+            low = guess
+        elif result == 1:
+            # Guess is too high
+            high = guess
+        elif result == 0:
+            # Guess is correct
+            found = True
+
+    # Return final guess
+    return guess
