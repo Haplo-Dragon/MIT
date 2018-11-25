@@ -1,0 +1,49 @@
+Quiz 3 (Final)
+================
+Final Grade 65 (82 w/o network information that was not taught in 6.0001/2)
+================
+
+1
+    .1 F
+    .2 T
+    .3 T
+    .4 T
+[X] .5 T
+2
+    assert comp(s) == (2 * len(s)) - (len(s))**2
+3 [X]
+    .1 E - none of the above
+    .2 B - about equal
+    .3 B - pi
+4
+    objective function      = G
+    confidence interval     = H
+    depth first search      = F
+    hierarchical clustering = D
+    greedy algorithm        = C
+    feature vector          = I
+5 
+    B - sample bias
+6
+    .1
+        class LIFO(JobQueue):
+            def depart(self):
+                try:
+                    return self.jobs.pop(-1)
+                except:
+                    print("depart called with an empty queue")
+                    raise ValueError("EmptyQueue")
+
+        I would also need to change the call to test so that it examined buses with small
+        capacities.
+[X] .2 
+        No, because LIFO and FIFO for small capacities would not be statistically
+        significantly different.
+7
+    1 passenger
+8
+    Return totPassengers / leftWaiting
+9 [X]
+    Top     - A
+    Middle  - D
+    Bottom  - B
