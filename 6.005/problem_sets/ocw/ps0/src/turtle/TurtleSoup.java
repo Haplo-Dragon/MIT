@@ -123,7 +123,32 @@ public class TurtleSoup {
      *         otherwise of size (# of points) - 1
      */
     public static List<Double> calculateHeadings(List<Integer> xCoords, List<Integer> yCoords) {
-        throw new RuntimeException("implement me!");
+        // We'll assert this, since our for loop depends on it.
+        assert xCoords.size() == yCoords.size() : "Lists of points must be the same size.";
+
+        final List<Double> turns = new ArrayList<>();
+        // The turtle starts facing up (0 degrees).
+        double current_heading = 0.0;
+
+        // Compare pairs of points, getting the turn angle needed to travel from the
+        // current point to the next point.
+        for (int i = 0; i < xCoords.size() - 1; i++) {
+            int currentX = xCoords.get(i);
+            int currentY = yCoords.get(i);
+            int nextX = xCoords.get(i+1);
+            int nextY = yCoords.get(i+1);
+
+            double turn_angle = calculateHeadingToPoint(
+                    current_heading,
+                    currentX, currentY,
+                    nextX, nextY);
+            turns.add(turn_angle);
+            // The turtle ends up facing the direction it turned to get to the next point.
+            current_heading = turn_angle;
+        }
+
+        return turns;
+
     }
 
     /**
