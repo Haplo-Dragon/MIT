@@ -87,7 +87,25 @@ public class TurtleSoup {
      */
     public static double calculateHeadingToPoint(double currentHeading, int currentX, int currentY,
                                                  int targetX, int targetY) {
-        throw new RuntimeException("implement me!");
+        // First, we'll find the difference vector between our two points.
+        final int differenceX = targetX - currentX;
+        final int differenceY = targetY - currentY;
+
+        // Then we'll get the heading we'd need to reach the difference point from the
+        // origin.
+        final double difference_angle = 90 - Math.toDegrees(
+                Math.atan2(differenceY, differenceX));
+
+        // This is the actual turn we need to take, but it may be negative (i.e., a left
+        // turn) because of Java's modulus behavior. Basically, the answer to x % y always
+        // takes the sign of x.
+        double turn_angle = (difference_angle - currentHeading) % 360;
+
+        // Make sure we provide a right (clockwise) turn.
+        if (turn_angle < 0) {
+            turn_angle = 360 + turn_angle;
+        }
+        return turn_angle;
     }
 
     /**
