@@ -3,10 +3,15 @@
  */
 package turtle;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TurtleSoup {
+
+    private static final int DOOR_WIDTH = 4;
+    private static final int MAP_SPACING = 3;
 
     /**
      * Draw a square.
@@ -30,7 +35,7 @@ public class TurtleSoup {
      * @param sides number of sides, where sides must be > 2
      * @return angle in degrees, where 0 <= angle < 360
      */
-    public static double calculateRegularPolygonAngle(int sides) {
+    static double calculateRegularPolygonAngle(int sides) {
         return (double) (180 * (sides - 2)) / sides;
     }
 
@@ -44,7 +49,7 @@ public class TurtleSoup {
      * @param angle size of interior angles in degrees, where 0 < angle < 180
      * @return the integer number of sides
      */
-    public static int calculatePolygonSidesFromAngle(double angle) {
+    static int calculatePolygonSidesFromAngle(double angle) {
         return (int) Math.round(360 / (180 - angle));
     }
 
@@ -85,7 +90,7 @@ public class TurtleSoup {
      * @return adjustment to heading (right turn amount) to get to target point,
      *         must be 0 <= angle < 360
      */
-    public static double calculateHeadingToPoint(double currentHeading, int currentX, int currentY,
+    static double calculateHeadingToPoint(double currentHeading, int currentX, int currentY,
                                                  int targetX, int targetY) {
         // First, we'll find the difference vector between our two points.
         final int differenceX = targetX - currentX;
@@ -122,7 +127,7 @@ public class TurtleSoup {
      * @return list of heading adjustments between points, of size 0 if (# of points) == 0,
      *         otherwise of size (# of points) - 1
      */
-    public static List<Double> calculateHeadings(List<Integer> xCoords, List<Integer> yCoords) {
+    static List<Double> calculateHeadings(List<Integer> xCoords, List<Integer> yCoords) {
         // We'll assert this, since our for loop depends on it.
         assert xCoords.size() == yCoords.size() : "Lists of points must be the same size.";
 
@@ -151,6 +156,90 @@ public class TurtleSoup {
 
     }
 
+    private static void drawFeature(
+            Turtle turtle,
+            int length,
+            int width,
+            boolean draw_door,
+            PenColor previous_color) {
+
+        for (int i=0; i < 2; i++) {
+            turtle.forward(length);
+            turtle.turn(90);
+
+            turtle.forward(width / 2);
+            if (draw_door) {
+                drawDoor(turtle, previous_color);
+            }
+            turtle.forward(width / 2);
+            turtle.turn(90);
+        }
+        // Move forward a bit to avoid unsightly overlap.
+        turtle.forward(length + MAP_SPACING);
+    }
+
+    private static void drawDoor(Turtle turtle, PenColor previous_color) {
+        turtle.color(PenColor.RED);
+
+        // Draw a door symbol (two parallel vertical lines).
+        for (int i=0; i < 2; i++){
+            turtle.turn(90);
+            turtle.forward(DOOR_WIDTH);
+            turtle.turn(180);
+            turtle.forward(DOOR_WIDTH * 2);
+            turtle.turn(180);
+            turtle.forward(DOOR_WIDTH);
+            turtle.turn(270);
+            turtle.forward(DOOR_WIDTH);
+        }
+        // Return turtle to where we found it.
+        turtle.turn(180);
+        turtle.forward(DOOR_WIDTH);
+        turtle.turn(180);
+
+        turtle.color(previous_color);
+    }
+
+    private static void drawMap(Turtle turtle, int rooms){
+        final List<Integer> room_dimensions = Arrays.asList(11, 13, 29, 31);
+        final List<Integer> corridor_lengths = Arrays.asList(40, 65);
+        final int CORRIDOR_WIDTH = 10;
+        final List<Integer> CARDINALS = Arrays.asList(0, 90, 270);
+
+        final Random rand = new Random();
+
+        for (int i=0; i < rooms; i++) {
+            // Generate a randomly sized corridor and attach a randomly sized room to it.
+            int room_length = room_dimensions.get(
+                    rand.nextInt(room_dimensions.size()));
+            int room_width = room_dimensions.get(
+                    rand.nextInt(room_dimensions.size()));
+            int corridor_length = corridor_lengths.get(
+                    rand.nextInt(corridor_lengths.size()));
+
+            // Draw corridor.
+            turtle.color(PenColor.GRAY);
+            drawFeature(
+                    turtle,
+                    corridor_length,
+                    CORRIDOR_WIDTH,
+                    true,
+                    PenColor.GRAY);
+
+            // Draw a randomly sized room, then make a random turn.
+            turtle.color(PenColor.BLACK);
+            drawFeature(
+                    turtle,
+                    room_length,
+                    room_width,
+                    false,
+                    PenColor.BLACK);
+            turtle.turn(CARDINALS.get(rand.nextInt(CARDINALS.size())));
+        }
+
+
+    }
+
     /**
      * Draw your personal, custom art.
      * 
@@ -159,8 +248,8 @@ public class TurtleSoup {
      * 
      * @param turtle the turtle context
      */
-    public static void drawPersonalArt(Turtle turtle) {
-        throw new RuntimeException("implement me!");
+    private static void drawPersonalArt(Turtle turtle) {
+        drawMap(turtle, 75);
     }
 
     /**
@@ -173,8 +262,9 @@ public class TurtleSoup {
     public static void main(String args[]) {
         DrawableTurtle turtle = new DrawableTurtle();
 
-        drawSquare(turtle, 40);
-        drawRegularPolygon(turtle, 6, 40);
+//        drawSquare(turtle, 40);
+//        drawRegularPolygon(turtle, 6, 40);
+        drawPersonalArt(turtle);
 
         // draw the window
         turtle.draw();
