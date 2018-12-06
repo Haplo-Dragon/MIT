@@ -6,10 +6,7 @@ import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ExtractTest {
 
@@ -67,6 +64,9 @@ public class ExtractTest {
             "@alyssa and @bbitdiddle are cool - their email is cool@mit.edu",
             d1
     );
+
+    private static final Set<String> expectedUsers = new HashSet<>(
+            Arrays.asList("alyssa", "bbitdiddle"));
     
     @Test
     public void testAssertionsEnabled() {
@@ -143,7 +143,33 @@ public class ExtractTest {
         Set<String> mentionedUsers = Extract.getMentionedUsers(
                 Collections.singletonList(one_mention));
 
-        assertEquals("");
+        assertEquals(mentionedUsers.size(), 1);
+
+        for (String user : mentionedUsers) {
+            assertTrue(expectedUsers.contains(user.toLowerCase()));
+        }
+    }
+
+    @Test
+    public void testGetMentionedUsersManyMentions() {
+        Set<String> mentionedUsers = Extract.getMentionedUsers(
+                Arrays.asList(one_mention, many_mentions));
+
+        assertEquals(mentionedUsers.size(), 2);
+
+        for (String user : mentionedUsers) {
+            assertTrue(expectedUsers.contains(user.toLowerCase()));
+        }
+    }
+
+    @Test
+    public void testGetMentionedUsersDoesNotModifyInputList() {
+        final List<Tweet> tweets = Arrays.asList(one_mention, many_mentions);
+        final List<Tweet> tweets_copy = Arrays.asList(one_mention, many_mentions);
+
+        Set<String> mentionedUsers = Extract.getMentionedUsers(tweets);
+
+        assertEquals(tweets, tweets_copy);
     }
 
     /*
