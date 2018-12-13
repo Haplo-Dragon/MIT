@@ -23,7 +23,7 @@ public class Filter {
      * @return all and only the tweets in the list whose author is username,
      *         in the same order as in the input list.
      */
-    public static List<Tweet> writtenBy(List<Tweet> tweets, String username) {
+    static List<Tweet> writtenBy(List<Tweet> tweets, String username) {
         throw new RuntimeException("not implemented");
     }
 
@@ -37,7 +37,7 @@ public class Filter {
      * @return all and only the tweets in the list that were sent during the timespan,
      *         in the same order as in the input list.
      */
-    public static List<Tweet> inTimespan(List<Tweet> tweets, Timespan timespan) {
+    static List<Tweet> inTimespan(List<Tweet> tweets, Timespan timespan) {
         throw new RuntimeException("not implemented");
     }
 
@@ -56,7 +56,7 @@ public class Filter {
      *         so "Obama" is the same as "obama".  The returned tweets are in the
      *         same order as in the input list.
      */
-    public static List<Tweet> containing(List<Tweet> tweets, List<String> words) {
+    static List<Tweet> containing(List<Tweet> tweets, List<String> words) {
         throw new RuntimeException("not implemented");
     }
 
