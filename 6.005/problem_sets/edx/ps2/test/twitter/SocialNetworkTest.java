@@ -1,6 +1,8 @@
 package twitter;
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.Test;
 
 public class SocialNetworkTest {
 
@@ -17,16 +18,18 @@ public class SocialNetworkTest {
      * Make sure you have partitions.
      */
     
-    @Test(expected=AssertionError.class)
+    @Test
     public void testAssertionsEnabled() {
-        assert false; // make sure assertions are enabled with VM argument: -ea
+        assertThrows(AssertionError.class, () -> {
+            assert false;
+        }); // make sure assertions are enabled with VM argument: -ea
     }
     
     @Test
     public void testGuessFollowsGraphEmpty() {
         Map<String, Set<String>> followsGraph = SocialNetwork.guessFollowsGraph(new ArrayList<>());
         
-        assertTrue("expected empty graph", followsGraph.isEmpty());
+        assertTrue(followsGraph.isEmpty(), "expected empty graph");
     }
     
     @Test
@@ -34,7 +37,7 @@ public class SocialNetworkTest {
         Map<String, Set<String>> followsGraph = new HashMap<>();
         List<String> influencers = SocialNetwork.influencers(followsGraph);
         
-        assertTrue("expected empty list", influencers.isEmpty());
+        assertTrue(influencers.isEmpty(), "expected empty list");
     }
 
     /*

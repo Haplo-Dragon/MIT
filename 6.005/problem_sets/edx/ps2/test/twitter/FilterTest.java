@@ -1,12 +1,13 @@
 package twitter;
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
 
 public class FilterTest {
 
@@ -21,17 +22,19 @@ public class FilterTest {
     private static final Tweet tweet1 = new Tweet(1, "alyssa", "is it reasonable to talk about rivest so much?", d1);
     private static final Tweet tweet2 = new Tweet(2, "bbitdiddle", "rivest talk in 30 minutes #hype", d2);
     
-    @Test(expected=AssertionError.class)
+    @Test
     public void testAssertionsEnabled() {
-        assert false; // make sure assertions are enabled with VM argument: -ea
+        assertThrows(AssertionError.class, () -> {
+            assert false;
+        }); // make sure assertions are enabled with VM argument: -ea
     }
     
     @Test
     public void testWrittenByMultipleTweetsSingleResult() {
         List<Tweet> writtenBy = Filter.writtenBy(Arrays.asList(tweet1, tweet2), "alyssa");
         
-        assertEquals("expected singleton list", 1, writtenBy.size());
-        assertTrue("expected list to contain tweet", writtenBy.contains(tweet1));
+        assertEquals(1, writtenBy.size(), "expected singleton list");
+        assertTrue(writtenBy.contains(tweet1), "expected list to contain tweet");
     }
     
     @Test
@@ -41,18 +44,18 @@ public class FilterTest {
         
         List<Tweet> inTimespan = Filter.inTimespan(Arrays.asList(tweet1, tweet2), new Timespan(testStart, testEnd));
         
-        assertFalse("expected non-empty list", inTimespan.isEmpty());
-        assertTrue("expected list to contain tweets", inTimespan.containsAll(Arrays.asList(tweet1, tweet2)));
-        assertEquals("expected same order", 0, inTimespan.indexOf(tweet1));
+        assertFalse(inTimespan.isEmpty(), "expected non-empty list");
+        assertTrue(inTimespan.containsAll(Arrays.asList(tweet1, tweet2)), "expected list to contain tweets");
+        assertEquals(0, inTimespan.indexOf(tweet1), "expected same order");
     }
     
     @Test
     public void testContaining() {
         List<Tweet> containing = Filter.containing(Arrays.asList(tweet1, tweet2), Arrays.asList("talk"));
         
-        assertFalse("expected non-empty list", containing.isEmpty());
-        assertTrue("expected list to contain tweets", containing.containsAll(Arrays.asList(tweet1, tweet2)));
-        assertEquals("expected same order", 0, containing.indexOf(tweet1));
+        assertFalse(containing.isEmpty(), "expected non-empty list");
+        assertTrue(containing.containsAll(Arrays.asList(tweet1, tweet2)), "expected list to contain tweets");
+        assertEquals(0, containing.indexOf(tweet1), "expected same order");
     }
 
     /*

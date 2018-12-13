@@ -1,12 +1,13 @@
 package twitter;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
 import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+//import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
 public class ExtractTest {
 
@@ -69,7 +70,7 @@ public class ExtractTest {
             Arrays.asList("alyssa", "bbitdiddle"));
     
     @Test
-    public void testAssertionsEnabled() {
+    void testAssertionsEnabled() {
         assertThrows(AssertionError.class, () -> {
             assert false;
         });
@@ -83,20 +84,20 @@ public class ExtractTest {
       that the method returns a result AT ALL (i.e., it doesn't fail or return null).
     */
     @Test
-    public void testGetTimespanNoTweets() {
+    void testGetTimespanNoTweets() {
         Timespan timespan = Extract.getTimespan(Collections.emptyList());
         assertNotNull(timespan);
     }
 
     @Test
-    public void testGetTimespanOneTweet() {
+    void testGetTimespanOneTweet() {
         Timespan timespan = Extract.getTimespan(Collections.singletonList(tweet1));
         assertEquals(d1, timespan.getStart());
         assertEquals(d1, timespan.getEnd());
     }
     
     @Test
-    public void testGetTimespanTwoTweets() {
+    void testGetTimespanTwoTweets() {
         Timespan timespan = Extract.getTimespan(Arrays.asList(tweet1, tweet2));
 
         assertEquals(d1, timespan.getStart(), "expected start");
@@ -104,7 +105,7 @@ public class ExtractTest {
     }
 
     @Test
-    public void testGetTimespanIdenticalTimestamps() {
+    void testGetTimespanIdenticalTimestamps() {
         Timespan timespan = Extract.getTimespan(Arrays.asList(twin1, twin2));
 
         assertEquals(d1, timespan.getStart());
@@ -112,18 +113,18 @@ public class ExtractTest {
     }
 
     @Test
-    public void testGetTimespanDoesNotModifyInputList() {
+    void testGetTimespanDoesNotModifyInputList() {
         final List<Tweet> tweets = Arrays.asList(tweet1, tweet2);
         final List<Tweet> tweets_copy = Arrays.asList(tweet1, tweet2);
 
         Timespan timespan = Extract.getTimespan(tweets);
 
-        assertEquals(tweets, tweets_copy);
+        assertEquals(tweets_copy, tweets);
 
     }
     
     @Test
-    public void testGetMentionedUsersNoText() {
+    void testGetMentionedUsersNoText() {
         Set<String> mentionedUsers = Extract.getMentionedUsers(
                 Collections.singletonList(empty_tweet));
 
@@ -131,7 +132,7 @@ public class ExtractTest {
     }
 
     @Test
-    public void testGetMentionedUsersNoMention() {
+    void testGetMentionedUsersNoMention() {
         Set<String> mentionedUsers = Extract.getMentionedUsers(
                 Collections.singletonList(tweet1));
         
@@ -139,11 +140,11 @@ public class ExtractTest {
     }
 
     @Test
-    public void testGetMentionedUsersOneMention() {
+    void testGetMentionedUsersOneMention() {
         Set<String> mentionedUsers = Extract.getMentionedUsers(
                 Collections.singletonList(one_mention));
 
-        assertEquals(mentionedUsers.size(), 1);
+        assertEquals(1, mentionedUsers.size());
 
         for (String user : mentionedUsers) {
             assertTrue(expectedUsers.contains(user.toLowerCase()));
@@ -151,11 +152,11 @@ public class ExtractTest {
     }
 
     @Test
-    public void testGetMentionedUsersManyMentions() {
+    void testGetMentionedUsersManyMentions() {
         Set<String> mentionedUsers = Extract.getMentionedUsers(
                 Arrays.asList(one_mention, many_mentions));
 
-        assertEquals(mentionedUsers.size(), 2);
+        assertEquals(2, mentionedUsers.size());
 
         for (String user : mentionedUsers) {
             assertTrue(expectedUsers.contains(user.toLowerCase()));
@@ -163,13 +164,13 @@ public class ExtractTest {
     }
 
     @Test
-    public void testGetMentionedUsersDoesNotModifyInputList() {
+    void testGetMentionedUsersDoesNotModifyInputList() {
         final List<Tweet> tweets = Arrays.asList(one_mention, many_mentions);
         final List<Tweet> tweets_copy = Arrays.asList(one_mention, many_mentions);
 
         Set<String> mentionedUsers = Extract.getMentionedUsers(tweets);
 
-        assertEquals(tweets, tweets_copy);
+        assertEquals(tweets_copy, tweets);
     }
 
     /*

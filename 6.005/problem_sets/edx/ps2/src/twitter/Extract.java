@@ -2,8 +2,11 @@ package twitter;
 
 import java.sql.Time;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Extract consists of methods that extract information from a list of tweets.
@@ -68,7 +71,34 @@ public class Extract {
      *         include a username at most once.
      */
     public static Set<String> getMentionedUsers(List<Tweet> tweets) {
-        throw new RuntimeException("not implemented");
+        final Set<String> mentionedUsers = new HashSet<>();
+
+        Pattern twitter_username_pattern = Pattern.compile(
+            // NO valid Twitter username characters (as defined in Tweet.getAuthor())...
+            "\\B" +
+            // ...followed by ONE @ character...
+            "@{1}" +
+            // ...followed by any number of valid Twitter username characters...
+            "[a-zA-Z\\d_-]+" +
+            // ...followed by NO valid Twitter username characters.
+            "[^a-zA-Z\\d_-]");
+
+        // Get text of each tweet.
+        for (Tweet tweet : tweets) {
+            String currentText = tweet.getText();
+
+            // Find usernames in text and add them to set.
+            Matcher matcher = twitter_username_pattern.matcher(currentText);
+            while (matcher.find()) {
+                // +1 and -1 because we don't want to include the @ symbol or the character
+                // following the end of the username.
+                String found_username = currentText.substring(
+                        matcher.start() + 1, matcher.end() - 1);
+                mentionedUsers.add(found_username);
+            }
+        }
+
+        return mentionedUsers;
     }
 
     /* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
