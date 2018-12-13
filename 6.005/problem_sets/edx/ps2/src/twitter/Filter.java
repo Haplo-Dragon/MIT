@@ -1,5 +1,7 @@
 package twitter;
 
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +26,16 @@ public class Filter {
      *         in the same order as in the input list.
      */
     static List<Tweet> writtenBy(List<Tweet> tweets, String username) {
-        throw new RuntimeException("not implemented");
+        final String user_to_find = username.toLowerCase();
+        final List<Tweet> found_tweets = new ArrayList<>();
+
+        for (Tweet tweet : tweets) {
+            if(tweet.getAuthor().equals(user_to_find)) {
+                found_tweets.add(tweet);
+            }
+        }
+
+        return found_tweets;
     }
 
     /**
@@ -38,7 +49,15 @@ public class Filter {
      *         in the same order as in the input list.
      */
     static List<Tweet> inTimespan(List<Tweet> tweets, Timespan timespan) {
-        throw new RuntimeException("not implemented");
+        final List<Tweet> found_tweets = new ArrayList<>();
+
+        for (Tweet tweet : tweets) {
+            if (isWithinTimespan(tweet, timespan)){
+                found_tweets.add(tweet);
+            }
+        }
+
+        return found_tweets;
     }
 
     /**
@@ -57,7 +76,39 @@ public class Filter {
      *         same order as in the input list.
      */
     static List<Tweet> containing(List<Tweet> tweets, List<String> words) {
-        throw new RuntimeException("not implemented");
+        // Generate a case-insensitive list of search terms.
+        final List<String> search_words = new ArrayList<>();
+        for (String word : words) {
+            search_words.add(word.toLowerCase());
+        }
+        final List<Tweet> found_tweets = new ArrayList<>();
+
+        // Search each tweet's text for the search terms.
+        for (Tweet tweet : tweets) {
+            String current_tweet_text = tweet.getText();
+            for (String word : search_words) {
+                // Only add the tweet if it matches a search term and has not already been
+                // added.
+                if (current_tweet_text.contains(word) && !(found_tweets.contains(tweet))){
+                    found_tweets.add(tweet);
+                }
+            }
+        }
+
+        return found_tweets;
+    }
+
+    private static boolean isWithinTimespan(Tweet tweet, Timespan timespan) {
+        final Instant start = timespan.getStart();
+        final Instant end = timespan.getEnd();
+        final Instant timestamp = tweet.getTimestamp();
+
+        final boolean on_or_after_start =
+                timestamp.isAfter(start) || timestamp.equals(start);
+        final boolean on_or_before_end =
+                timestamp.isBefore(end) || timestamp.equals(end);
+
+        return (on_or_after_start && on_or_before_end);
     }
 
     /* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.

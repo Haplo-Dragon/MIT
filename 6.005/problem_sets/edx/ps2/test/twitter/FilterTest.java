@@ -61,7 +61,7 @@ public class FilterTest {
         List<Tweet> original_list = Arrays.asList(tweet1, tweet2, tweet3);
         List<Tweet> input_list = Arrays.asList(tweet1, tweet2, tweet3);
 
-        input_list = Filter.writtenBy(input_list, "alyssa");
+        List<Tweet> discarded_results = Filter.writtenBy(input_list, "Remy");
 
         assertEquals(original_list, input_list);
     }
@@ -128,7 +128,8 @@ public class FilterTest {
         List<Tweet> original_list = Arrays.asList(tweet1, tweet2);
         List<Tweet> input_list = Arrays.asList(tweet1, tweet2);
 
-        input_list = Filter.inTimespan(input_list, new Timespan(testStart, testEnd));
+        List<Tweet> discarded_results = Filter.inTimespan(
+                input_list, new Timespan(testStart, testEnd));
 
         assertEquals(original_list, input_list);
     }
@@ -188,7 +189,7 @@ public class FilterTest {
         List<Tweet> original_list = Arrays.asList(tweet1, tweet2);
         List<Tweet> input_list = Arrays.asList(tweet1, tweet2);
 
-        input_list = Filter.containing(
+        List<Tweet> discarded_results = Filter.containing(
                 input_list, Collections.singletonList("reasonable"));
 
         assertEquals(original_list, input_list);
