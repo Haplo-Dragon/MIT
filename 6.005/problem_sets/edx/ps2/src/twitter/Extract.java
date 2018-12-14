@@ -94,7 +94,7 @@ public class Extract {
                 // following the end of the username.
                 String found_username = currentText.substring(
                         matcher.start() + 1, matcher.end() - 1);
-                mentionedUsers.add(found_username);
+                mentionedUsers.add(found_username.toLowerCase());
             }
         }
 

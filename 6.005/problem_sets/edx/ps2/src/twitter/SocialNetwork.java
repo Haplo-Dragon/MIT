@@ -1,8 +1,6 @@
 package twitter;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * SocialNetwork provides methods that operate on a social network.
@@ -20,7 +18,7 @@ import java.util.Set;
  * you should implement their method bodies, and you may add new public or
  * private methods or classes if you like.
  */
-public class SocialNetwork {
+class SocialNetwork {
 
     /**
      * Guess who might follow whom, from evidence found in tweets.
@@ -38,7 +36,27 @@ public class SocialNetwork {
      *         either authors or @-mentions in the list of tweets.
      */
     static Map<String, Set<String>> guessFollowsGraph(List<Tweet> tweets) {
-        throw new RuntimeException("not implemented");
+        final Map<String, Set<String>> followsGraph = new HashMap<>();
+
+        // Get all tweet authors.
+        final Set<String> authors = new HashSet<>();
+        for (Tweet tweet : tweets) {
+            authors.add(tweet.getAuthor().toLowerCase());
+        }
+
+        // Look for all tweets by a specific author.
+        for (String current_author : authors) {
+            List<Tweet> current_tweets = Filter.writtenBy(tweets, current_author);
+
+            // Get all @mentions from the current author's tweets.
+            Set<String> mentioned_users = Extract.getMentionedUsers(current_tweets);
+
+            // Add the @mentions for the current author to the follow graph.
+            followsGraph.put(current_author, mentioned_users);
+
+        }
+
+        return followsGraph;
     }
 
     /**
@@ -51,7 +69,58 @@ public class SocialNetwork {
      *         descending order of follower count.
      */
     static List<String> influencers(Map<String, Set<String>> followsGraph) {
-        throw new RuntimeException("not implemented");
+        // Get all usernames from social network.
+        final Set<String> all_usernames = getAllUsernames(followsGraph);
+
+        final TreeMap<String, Integer> follower_count = new TreeMap<>();
+        // Look at each username in the social network.
+        for (String current_username : all_usernames) {
+            // The username starts with zero followers.
+            follower_count.put(current_username, 0);
+
+            // Count the number of @mentions for each username.
+            for (Set<String> mentions : followsGraph.values()) {
+                if (mentions.contains(current_username)) {
+                    follower_count.put(
+                            current_username, follower_count.get(current_username) + 1);
+                }
+            }
+        }
+
+        // Sort influencers by follower count in descending order.
+        return sortInfluencersByFollowerCount(follower_count, true);
+    }
+
+    private static Set<String> getAllUsernames(Map<String, Set<String>> followsGraph) {
+        final Set<String> all_usernames = new HashSet<>(followsGraph.keySet());
+
+        for (String current_author : followsGraph.keySet()) {
+            all_usernames.addAll(followsGraph.get(current_author));
+        }
+
+        return all_usernames;
+    }
+
+    private static List<String> sortInfluencersByFollowerCount(
+            TreeMap<String, Integer> follower_count, boolean descending_order) {
+        // Make a list of map entries from follower_count (initially sorted in ascending
+        // order).
+        List<Map.Entry<String, Integer>> usernames_by_value =
+                new ArrayList<>(follower_count.entrySet());
+        usernames_by_value.sort(Map.Entry.comparingByValue());
+
+        if (descending_order) {
+            // Sort influencers in descending order of follower count.
+            Collections.reverse(usernames_by_value);
+        }
+
+        // Use the sorted list of map entries to create a sorted list of usernames.
+        final List<String> influencers = new ArrayList<>();
+        for (Map.Entry entry : usernames_by_value) {
+            influencers.add((String) entry.getKey());
+        }
+
+        return influencers;
     }
 
     /* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.

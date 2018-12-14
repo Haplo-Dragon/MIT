@@ -62,7 +62,7 @@ public class ExtractTest {
     private static final Tweet many_mentions = new Tweet(
             7,
             "bbitdiddle",
-            "@alyssa and @bbitdiddle are cool - their email is cool@mit.edu",
+            "@Alyssa and @bbitdiddle are cool - their email is cool@mit.edu",
             d1
     );
 

@@ -135,8 +135,8 @@ public class SocialNetworkTest {
 
         List<String> influencers = SocialNetwork.influencers(followsGraph);
 
-        assertEquals(1, influencers.size());
-        assertEquals(0, influencers.indexOf("alyssa"));
+        assertEquals(2, influencers.size());
+        assertEquals(0, influencers.indexOf("bbitdiddle"), "Actual result:" + influencers);
     }
 
     @Test
@@ -158,9 +158,9 @@ public class SocialNetworkTest {
 
         List<String> influencers = SocialNetwork.influencers(followsGraph);
 
-        assertEquals(3, influencers.size());
+        assertEquals(4, influencers.size());
         assertEquals(0, influencers.indexOf("alyssa"));
-        assertTrue(influencers.indexOf("alyssa") > influencers.indexOf("bbitdiddle"));
+        assertTrue(influencers.indexOf("alyssa") < influencers.indexOf("bbitdiddle"));
 
         assertTrue(influencers.contains("alyssa"));
         assertTrue(influencers.contains("bbitdiddle"));
