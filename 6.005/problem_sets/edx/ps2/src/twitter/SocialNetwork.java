@@ -1,5 +1,6 @@
 package twitter;
 
+import java.time.Instant;
 import java.util.*;
 
 /**
@@ -20,6 +21,10 @@ import java.util.*;
  */
 class SocialNetwork {
 
+    // The span of time (in seconds) two tweets must fall into to be considered
+    // "concurrent".
+    private static final long CONCURRENCE_THRESHOLD_IN_SECONDS = 10;
+
     /**
      * Guess who might follow whom, from evidence found in tweets.
      * 
@@ -30,10 +35,14 @@ class SocialNetwork {
      *         if and only if there is evidence for it in the given list of
      *         tweets.
      *         One kind of evidence that Ernie follows Bert is if Ernie
-     *         @-mentions Bert in a tweet. This must be implemented. Other kinds
+     *         @ mentions Bert in a tweet. This must be implemented. Other kinds
      *         of evidence may be used at the implementor's discretion.
      *         All the Twitter usernames in the returned social network must be
      *         either authors or @-mentions in the list of tweets.
+     *
+     *         Another kind of evidence that Ernie follows Bert is if Bert's tweet is
+     *         closely followed by Ernie's. Concurrent tweets could imply that Ernie saw
+     *         Bert's tweet (because Ernie follows Bert), then tweeted his own.
      */
     static Map<String, Set<String>> guessFollowsGraph(List<Tweet> tweets) {
         final Map<String, Set<String>> followsGraph = new HashMap<>();
@@ -44,19 +53,63 @@ class SocialNetwork {
             authors.add(tweet.getAuthor().toLowerCase());
         }
 
+        // Initially, all authors follow no one.
+        for (String author : authors) {
+            followsGraph.put(author, new HashSet<>());
+        }
+
         // Look for all tweets by a specific author.
         for (String current_author : authors) {
-            List<Tweet> current_tweets = Filter.writtenBy(tweets, current_author);
+            List<Tweet> tweets_by_current_author = Filter.writtenBy(tweets, current_author);
 
             // Get all @mentions from the current author's tweets.
-            Set<String> mentioned_users = Extract.getMentionedUsers(current_tweets);
+            Set<String> mentioned_users =
+                    Extract.getMentionedUsers(tweets_by_current_author);
+
+            // You can't follow yourself.
+            if (mentioned_users.contains(current_author)) {
+                mentioned_users.remove(current_author);
+            }
 
             // Add the @mentions for the current author to the follow graph.
+            mentioned_users.addAll(followsGraph.get(current_author));
             followsGraph.put(current_author, mentioned_users);
 
+            // Look for all tweets that fall within a specified number of seconds.
+            for (Tweet source_tweet : tweets_by_current_author) {
+                // Get all tweets that fall within the specified time interval.
+                List<Tweet> concurrent_tweets = getConcurrentTweets(source_tweet, tweets);
+
+                // Add the current author to the follows graph of each author of a
+                // concurrent tweet.
+                for (Tweet concurrent_tweet : concurrent_tweets) {
+                    String following_author = concurrent_tweet.getAuthor();
+                    Set<String> current_follows = followsGraph.get(following_author);
+                    current_follows.add(current_author);
+                    followsGraph.put(following_author, current_follows);
+                }
+            }
         }
 
         return followsGraph;
+    }
+
+    private static List<Tweet> getConcurrentTweets(
+            Tweet source_tweet, List<Tweet> all_tweets) {
+        Instant current_timestamp = source_tweet.getTimestamp();
+        Timespan concurrence_timespan = new Timespan(
+                current_timestamp,
+                current_timestamp.plusSeconds(CONCURRENCE_THRESHOLD_IN_SECONDS));
+
+        List<Tweet> concurrent_tweets = Filter.inTimespan(
+                all_tweets, concurrence_timespan);
+
+        // Remove any tweets from the source tweet's author (you can't follow yourself).
+        concurrent_tweets.removeIf(
+                concurrent_tweet ->
+                        concurrent_tweet.getAuthor().equals(source_tweet.getAuthor()));
+
+        return concurrent_tweets;
     }
 
     /**
