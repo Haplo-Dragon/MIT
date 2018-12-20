@@ -10,11 +10,24 @@ import java.util.List;
  */
 public class Book {
 
-    // TODO: rep
-    
-    // TODO: rep invariant
-    // TODO: abstraction function
-    // TODO: safety from rep exposure argument
+    private final String title;
+    private final List<String> authors;
+    private final int year;
+
+    /*
+      REP INVARIANT:
+      Title must contain at least one non-space character
+      Authors must contain at least one name
+           Each name must contain at least one non-space character
+      Year represented in conventional CE calendar, must be nonnegative.
+
+      ABSTRACTION FUNCTION:
+      Represents an edition of a book (not the physical object that there may be many
+      copies of). Uniquely identified by title, authors, and publication year.
+
+      SAFETY FROM REP EXPOSURE:
+
+     */
     
     /**
      * Make a Book.
@@ -23,13 +36,15 @@ public class Book {
      * at least one non-space character.
      * @param year Year when this edition was published in the conventional (Common Era) calendar.  Must be nonnegative. 
      */
-    public Book(String title, List<String> authors, int year) {
+    Book(String title, List<String> authors, int year) {
         throw new RuntimeException("not implemented yet");
     }
     
     // assert the rep invariant
     private void checkRep() {
-        throw new RuntimeException("not implemented yet");
+        assert !(title.isEmpty());
+        assert !(authors.isEmpty());
+        assert year >= 0;
     }
     
     /**
