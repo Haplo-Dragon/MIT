@@ -9,9 +9,9 @@ public class BookCopy {
     private final Book book;
     private Condition condition;
 
-    public static enum Condition {
+    public enum Condition {
         GOOD, DAMAGED
-    };
+    }
 
     /*
         REP INVARIANT:
@@ -22,7 +22,7 @@ public class BookCopy {
         Represents a particular copy of a book in a library's collection.
 
         SAFETY FROM REP EXPOSURE:
-
+        All fields are private.
      */
     
     /**
