@@ -6,15 +6,24 @@ package library;
  */
 public class BookCopy {
 
-    // TODO: rep
-    
-    // TODO: rep invariant
-    // TODO: abstraction function
-    // TODO: safety from rep exposure argument
-    
+    private final Book book;
+    private final Condition condition;
+
     public static enum Condition {
         GOOD, DAMAGED
     };
+
+    /*
+        REP INVARIANT:
+        Book must be a valid Book object.
+        Condition must be either GOOD or DAMAGED.
+
+        ABSTRACTION FUNCTION:
+        Represents a particular copy of a book in a library's collection.
+
+        SAFETY FROM REP EXPOSURE:
+
+     */
     
     /**
      * Make a new BookCopy, initially in good condition.
@@ -26,7 +35,8 @@ public class BookCopy {
     
     // assert the rep invariant
     private void checkRep() {
-        throw new RuntimeException("not implemented yet");
+        assert (this.condition.equals(Condition.GOOD)) ||
+               (this.condition.equals(Condition.DAMAGED));
     }
     
     /**
@@ -39,7 +49,7 @@ public class BookCopy {
     /**
      * @return the condition of this book copy
      */
-    public Condition getCondition() {
+    Condition getCondition() {
         throw new RuntimeException("not implemented yet");
     }
 
@@ -59,19 +69,6 @@ public class BookCopy {
     public String toString() {
         throw new RuntimeException("not implemented yet");
     }
-
-    // uncomment the following methods if you need to implement equals and hashCode,
-    // or delete them if you don't
-     @Override
-     public boolean equals(Object that) {
-         throw new RuntimeException("not implemented yet");
-     }
-
-     @Override
-     public int hashCode() {
-         throw new RuntimeException("not implemented yet");
-     }
-
 
     /* Copyright (c) 2016 MIT 6.005 course staff, all rights reserved.
      * Redistribution of original or derived work requires explicit permission.
