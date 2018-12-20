@@ -20,7 +20,7 @@ public class BookCopy {
      * Make a new BookCopy, initially in good condition.
      * @param book the Book of which this is a copy
      */
-    public BookCopy(Book book) {
+    BookCopy(Book book) {
         throw new RuntimeException("not implemented yet");
     }
     
@@ -32,7 +32,7 @@ public class BookCopy {
     /**
      * @return the Book of which this is a copy
      */
-    public Book getBook() {
+    Book getBook() {
         throw new RuntimeException("not implemented yet");
     }
     
@@ -44,7 +44,8 @@ public class BookCopy {
     }
 
     /**
-     * Set the condition of a book copy.  This typically happens when a book copy is returned and a librarian inspects it.
+     * Set the condition of a book copy.  This typically happens when a book copy is
+     * returned and a librarian inspects it.
      * @param condition the latest condition of the book copy
      */
     public void setCondition(Condition condition) {
@@ -61,15 +62,15 @@ public class BookCopy {
 
     // uncomment the following methods if you need to implement equals and hashCode,
     // or delete them if you don't
-    // @Override
-    // public boolean equals(Object that) {
-    //     throw new RuntimeException("not implemented yet");
-    // }
-    // 
-    // @Override
-    // public int hashCode() {
-    //     throw new RuntimeException("not implemented yet");
-    // }
+     @Override
+     public boolean equals(Object that) {
+         throw new RuntimeException("not implemented yet");
+     }
+
+     @Override
+     public int hashCode() {
+         throw new RuntimeException("not implemented yet");
+     }
 
 
     /* Copyright (c) 2016 MIT 6.005 course staff, all rights reserved.
