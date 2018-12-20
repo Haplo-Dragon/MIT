@@ -7,7 +7,7 @@ package library;
 public class BookCopy {
 
     private final Book book;
-    private final Condition condition;
+    private Condition condition;
 
     public static enum Condition {
         GOOD, DAMAGED
@@ -30,7 +30,10 @@ public class BookCopy {
      * @param book the Book of which this is a copy
      */
     BookCopy(Book book) {
-        throw new RuntimeException("not implemented yet");
+        this.book = book;
+        this.condition = Condition.GOOD;
+
+        checkRep();
     }
     
     // assert the rep invariant
@@ -43,14 +46,14 @@ public class BookCopy {
      * @return the Book of which this is a copy
      */
     Book getBook() {
-        throw new RuntimeException("not implemented yet");
+        return this.book;
     }
     
     /**
      * @return the condition of this book copy
      */
     Condition getCondition() {
-        throw new RuntimeException("not implemented yet");
+        return this.condition;
     }
 
     /**
@@ -58,8 +61,8 @@ public class BookCopy {
      * returned and a librarian inspects it.
      * @param condition the latest condition of the book copy
      */
-    public void setCondition(Condition condition) {
-        throw new RuntimeException("not implemented yet");
+    void setCondition(Condition condition) {
+        this.condition = condition;
     }
     
     /**
@@ -67,7 +70,8 @@ public class BookCopy {
      *    and the words "good" or "damaged" depending on its condition
      */
     public String toString() {
-        throw new RuntimeException("not implemented yet");
+        return this.book.toString() +
+                "\nCondition: " + this.condition.toString().toLowerCase();
     }
 
     /* Copyright (c) 2016 MIT 6.005 course staff, all rights reserved.
