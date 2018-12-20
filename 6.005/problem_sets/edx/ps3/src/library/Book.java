@@ -26,7 +26,7 @@ public class Book {
       copies of). Uniquely identified by title, authors, and publication year.
 
       SAFETY FROM REP EXPOSURE:
-      
+      All fields are private, and all types in the rep are immutable.
      */
     
     /**
