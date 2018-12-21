@@ -25,7 +25,9 @@ public class SmallLibrary implements Library {
     //      where if a book copy is in inLibrary then it is available,
     //      and if a copy is in checkedOut then it is checked out
 
-    // TODO: safety from rep exposure argument
+    // safety from rep exposure:
+    //     All fields are private. allCopies and availableCopies both return defensive
+    //     copies of their respective fields.
     
     public SmallLibrary() {
         this.inLibrary = new HashSet<>();
