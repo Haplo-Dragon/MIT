@@ -29,7 +29,7 @@ public class BookCopy {
      * Make a new BookCopy, initially in good condition.
      * @param book the Book of which this is a copy
      */
-    BookCopy(Book book) {
+    public BookCopy(Book book) {
         this.book = book;
         this.condition = Condition.GOOD;
 
@@ -45,14 +45,14 @@ public class BookCopy {
     /**
      * @return the Book of which this is a copy
      */
-    Book getBook() {
+    public Book getBook() {
         return this.book;
     }
     
     /**
      * @return the condition of this book copy
      */
-    Condition getCondition() {
+    public Condition getCondition() {
         return this.condition;
     }
 
@@ -61,7 +61,7 @@ public class BookCopy {
      * returned and a librarian inspects it.
      * @param condition the latest condition of the book copy
      */
-    void setCondition(Condition condition) {
+    public void setCondition(Condition condition) {
         this.condition = condition;
     }
     

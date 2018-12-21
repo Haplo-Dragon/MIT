@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Test suite for Book ADT.
  */
-class BookTest {
+public class BookTest {
 
     /*
      * Testing strategy
@@ -26,14 +26,14 @@ class BookTest {
      */
     
     @Test
-    void testAssertionsEnabled() {
+    public void testAssertionsEnabled() {
         assertThrows(AssertionError.class, () -> {
             assert false;
         }); // make sure assertions are enabled with VM argument: -ea
     }
 
     @Test
-    void testBookOneAuthor() {
+    public void testBookOneAuthor() {
         Book book = new Book("Traveller", Collections.singletonList("Mark Miller"), 0);
 
         assertEquals("Traveller", book.getTitle());
@@ -42,7 +42,7 @@ class BookTest {
     }
 
     @Test
-    void testBookManyAuthors() {
+    public void testBookManyAuthors() {
         Book book = new Book(
                 "Traveller: The New Era",
                 Arrays.asList("Some Guy", "Mark Miller"),
@@ -56,7 +56,7 @@ class BookTest {
     }
 
     @Test
-    void testBookComparison() {
+    public void testBookComparison() {
         Book book_1 = new Book("T", Collections.singletonList("Mark Miller"), 1971);
         Book book_2 = new Book("T", Collections.singletonList("mark miller"), 1971);
 

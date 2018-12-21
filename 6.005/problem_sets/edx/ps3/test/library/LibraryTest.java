@@ -161,10 +161,9 @@ public class LibraryTest {
 
         List<Book> found_travellers = library.find("Traveller");
 
-        assertEquals(3, found_travellers.size());
+        assertEquals(2, found_travellers.size());
         assertTrue(found_travellers.contains(traveller));
         assertTrue(found_travellers.contains(traveller_new_edition));
-        assertTrue(found_travellers.contains(traveller_new_era));
 
         assertTrue(
                 found_travellers.indexOf(traveller_new_edition) <
@@ -190,6 +189,39 @@ public class LibraryTest {
                 found_millers.indexOf(traveller_new_edition) <
                         found_millers.indexOf(traveller),
                 "Expected newer books to appear earlier in search results.");
+    }
+
+    @Test
+    public void testFindStaffTest() {
+        Library library = makeLibrary();
+        Book book1 = new Book("Ulysses", Collections.singletonList("James Joyce"), 1922);
+        Book book2 = new Book("Infinite Jest", Collections.singletonList("David Foster " +
+                "Wallace"), 1996);
+        Book book3 = new Book("Consider the Lobster and Other Essays", Collections.singletonList("David Foster Wallace"), 2005);
+
+        // empty library, no matches
+        assertEquals(0, library.find("Ulysses").size());
+
+        // one-book library, one match, one copy of match, title search
+        library.buy(book1);
+        assertEquals(Collections.singletonList(book1), library.find("Ulysses"));
+
+        // >1 book library, >1 match, >1 copy of each match, author search
+        library.buy(book2);
+        library.buy(book2);
+        library.buy(book3);
+        List<Book> result = library.find("David Foster Wallace");
+        assertEquals("Expected find to disregard duplicate books." + result, 2, result.size());
+        assertEquals(new HashSet<>(Arrays.asList(book2, book3)), new HashSet<>(result));
+
+        // 4 matched books with same title/author but different dates must return in decreasing date order
+        Book book4 = new Book("Ulysses", Collections.singletonList("James Joyce"), 1942);
+        Book book5 = new Book("Ulysses", Collections.singletonList("James Joyce"), 1965);
+        Book book6 = new Book("Ulysses", Collections.singletonList("James Joyce"), 2008);
+        library.buy(book6);
+        library.buy(book4);
+        library.buy(book5);
+        assertEquals(Arrays.asList(book6, book5, book4, book1), library.find("Ulysses"));
     }
 
     

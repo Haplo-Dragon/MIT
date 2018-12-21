@@ -119,10 +119,11 @@ public class SmallLibrary implements Library {
         // Check only for exact matches of title or author name.
         for (Book current_book : all_books) {
             if ((current_book.getTitle().equals(query)) ||
-                (current_book.getAuthors().contains(query))); {
+                (current_book.getAuthors().contains(query))) {
                 found_books.add(current_book);
             }
         }
+
         // Sort the found books by publication year in descending order.
         found_books.sort(Comparator.comparing(Book::getYear).reversed());
         return found_books;

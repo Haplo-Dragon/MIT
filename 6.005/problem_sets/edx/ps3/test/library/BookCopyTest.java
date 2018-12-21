@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Test suite for BookCopy ADT.
  */
-class BookCopyTest {
+public class BookCopyTest {
 
     /*
      * Testing strategy
@@ -25,14 +25,14 @@ class BookCopyTest {
      */
 
     @Test
-    void testAssertionsEnabled() {
+    public void testAssertionsEnabled() {
         assertThrows(AssertionError.class, () -> {
             assert false;
         }); // make sure assertions are enabled with VM argument: -ea
     }
 
     @Test
-    void testBookCopy() {
+    public void testBookCopy() {
         Book book = new Book("Traveller", Collections.singletonList("Mark Miller"), 1971);
         BookCopy copy = new BookCopy(book);
 
@@ -41,7 +41,7 @@ class BookCopyTest {
     }
 
     @Test
-    void testBookCopySetCondition() {
+    public void testBookCopySetCondition() {
         Book book = new Book("Traveller", Collections.singletonList("Mark Miller"), 1971);
         BookCopy copy = new BookCopy(book);
 

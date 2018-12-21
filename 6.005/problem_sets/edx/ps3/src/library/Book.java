@@ -37,7 +37,7 @@ public class Book {
      * @param year Year when this edition was published in the conventional (Common Era)
      *            calendar.  Must be non-negative.
      */
-    Book(String title, List<String> authors, int year) {
+    public Book(String title, List<String> authors, int year) {
         this.title = title;
         this.authors = Collections.unmodifiableList(authors);
         this.year = year;
@@ -55,21 +55,21 @@ public class Book {
     /**
      * @return the title of this book
      */
-    String getTitle() {
+    public String getTitle() {
         return this.title;
     }
     
     /**
      * @return the authors of this book
      */
-    List<String> getAuthors() {
+    public List<String> getAuthors() {
         return new ArrayList<>(this.authors);
     }
 
     /**
      * @return the year that this book was published
      */
-    int getYear() {
+    public int getYear() {
         return this.year;
     }
 
@@ -78,7 +78,7 @@ public class Book {
      *    authors, and publication year
      */
     public String toString() {
-        return "Authors: " + this.authors +
+        return "\nAuthors: " + this.authors +
                 "\nTitle: " + this.title +
                 "\nYear: " + this.year;
     }
