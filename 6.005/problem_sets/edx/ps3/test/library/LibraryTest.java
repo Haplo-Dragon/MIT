@@ -1,9 +1,11 @@
 package library;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -66,23 +68,126 @@ public class LibraryTest {
      * Testing strategy
      * ==================
      * 
-     * TODO: your testing strategy for this ADT should go here.
-     * Make sure you have partitions.
+     * Partition input space as follows:
+     * buy
+     * checkout
+     * checkin
+     * isAvailable
+     * allCopies
+     * availableCopies
+     *      BookCopy: 0 copies in library, 1 copy in library, >1 copy in library
+     * find
+     *      query: title, author, title + author
+     *             1 word, >1 word
+     *
+     *
      */
-    
-    // TODO: put JUnit @Test methods here that you developed from your testing strategy
+
+    final private Book traveller = new Book(
+            "Traveller", Collections.singletonList("Marc Miller"), 1971);
+    final private Book traveller_new_edition = new Book(
+            "Traveller", Collections.singletonList("Marc Miller"), 2005);
+    final private Book traveller_new_era = new Book(
+            "Traveller: The New Era", Arrays.asList("Some Guy", "Marc Miller"), 1991);
+
     @Test
-    public void testExampleTest() {
+    void testAssertionsEnabled() {
+        assertThrows(AssertionError.class, () -> {
+            assert false;
+        }); // make sure assertions are enabled with VM argument: -ea
+    }
+
+    @Test
+    void testBuyFirstBook() {
         Library library = makeLibrary();
-        Book book = new Book("This Test Is Just An Example", Arrays.asList("You Should", "Replace It", "With Your Own Tests"), 1990);
-        assertEquals(Collections.emptySet(), library.availableCopies(book));
+        final BookCopy traveller_copy = library.buy(traveller);
+
+        assertEquals(BookCopy.Condition.GOOD, traveller_copy.getCondition());
+        assertTrue(library.isAvailable(traveller_copy));
     }
-    
-    
-    @Test(expected=AssertionError.class)
-    public void testAssertionsEnabled() {
-        assert false; // make sure assertions are enabled with VM argument: -ea
+
+    @Test
+    void testBuyMoreBooks() {
+        Library library = makeLibrary();
+        final BookCopy traveller_copy = library.buy(traveller);
+
+        Set<BookCopy> total_travellers = library.allCopies(traveller);
+        assertEquals(1, total_travellers.size());
+
+        final BookCopy traveller_copy_2 = library.buy(traveller);
+        total_travellers = library.allCopies(traveller);
+        assertEquals(2, total_travellers.size());
     }
+
+    @Test
+    void testCheckinCheckout() {
+        Library library = makeLibrary();
+        final BookCopy traveller_copy = library.buy(traveller);
+
+        assertTrue(library.isAvailable(traveller_copy));
+
+        library.checkout(traveller_copy);
+        assertFalse(library.isAvailable(traveller_copy));
+
+        library.checkin(traveller_copy);
+        assertTrue(library.isAvailable(traveller_copy));
+    }
+
+    @Test
+    void testCopies() {
+        Library library = makeLibrary();
+        final BookCopy traveller_copy = library.buy(traveller);
+
+        assertTrue(library.isAvailable(traveller_copy));
+
+        Set<BookCopy> available_travellers = library.availableCopies(traveller);
+        assertTrue(available_travellers.contains(traveller_copy));
+
+        library.checkout(traveller_copy);
+
+        Set<BookCopy> all_travelers = library.allCopies(traveller);
+        available_travellers = library.availableCopies(traveller);
+
+        assertTrue(all_travelers.contains(traveller_copy));
+        assertFalse(available_travellers.contains(traveller_copy));
+    }
+
+    @Test
+    void testFindOneWordQueryTitle() {
+        Library library = makeLibrary();
+        final BookCopy traveller_copy = library.buy(traveller);
+        final BookCopy TNE_copy = library.buy(traveller_new_era);
+        final BookCopy new_edition_copy = library.buy(traveller_new_edition);
+
+        List<Book> found_travellers = library.find("Traveller");
+
+        assertEquals(3, found_travellers.size());
+        assertTrue(found_travellers.contains(traveller));
+        assertTrue(found_travellers.contains(traveller_new_edition));
+        assertTrue(found_travellers.contains(traveller_new_era));
+
+        assertTrue(
+                found_travellers.indexOf(traveller_new_edition) < found_travellers.indexOf(traveller));
+    }
+
+    @Test
+    void testFindMultiWordQueryAuthor() {
+        Library library = makeLibrary();
+        final BookCopy traveller_copy = library.buy(traveller);
+        final BookCopy TNE_copy = library.buy(traveller_new_era);
+        final BookCopy new_edition_copy = library.buy(traveller_new_edition);
+
+        List<Book> found_millers = library.find("Marc Miller");
+
+        assertEquals(3, found_millers.size());
+        assertTrue(found_millers.contains(traveller));
+        assertTrue(found_millers.contains(traveller_new_edition));
+        assertTrue(found_millers.contains(traveller_new_era));
+
+        assertTrue(
+                found_millers.indexOf(traveller_new_edition) < found_millers.indexOf(traveller));
+    }
+
     
 
     /* Copyright (c) 2016 MIT 6.005 course staff, all rights reserved.
