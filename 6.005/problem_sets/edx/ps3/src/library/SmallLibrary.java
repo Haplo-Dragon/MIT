@@ -1,9 +1,6 @@
 package library;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /** 
  * SmallLibrary represents a small collection of books, like a single person's home collection.
@@ -31,7 +28,10 @@ public class SmallLibrary implements Library {
     // TODO: safety from rep exposure argument
     
     public SmallLibrary() {
-        throw new RuntimeException("not implemented yet");
+        this.inLibrary = new HashSet<>();
+        this.checkedOut = new HashSet<>();
+
+        checkRep();
     }
     
     // assert the rep invariant
@@ -52,56 +52,102 @@ public class SmallLibrary implements Library {
 
     @Override
     public BookCopy buy(Book book) {
-        throw new RuntimeException("not implemented yet");
+        final BookCopy new_book = new BookCopy(book);
+        this.inLibrary.add(new_book);
+
+        checkRep();
+        return new_book;
     }
     
     @Override
     public void checkout(BookCopy copy) {
-        throw new RuntimeException("not implemented yet");
+        this.inLibrary.remove(copy);
+        this.checkedOut.add(copy);
+        checkRep();
     }
     
     @Override
     public void checkin(BookCopy copy) {
-        throw new RuntimeException("not implemented yet");
+        this.checkedOut.remove(copy);
+        this.inLibrary.add(copy);
+        checkRep();
     }
     
     @Override
     public boolean isAvailable(BookCopy copy) {
-        throw new RuntimeException("not implemented yet");
+        return this.inLibrary.contains(copy);
     }
     
     @Override
     public Set<BookCopy> allCopies(Book book) {
-        throw new RuntimeException("not implemented yet");
+        // Find all copies of the book that are in the library.
+        final Set<BookCopy> foundCopies = new HashSet<>(availableCopies(book));
+
+        // Find all copies of the book that are checked out.
+        for (BookCopy copy: this.checkedOut) {
+            if (copy.getBook().equals(book)) {
+                foundCopies.add(copy);
+            }
+        }
+
+        return foundCopies;
     }
     
     @Override
     public Set<BookCopy> availableCopies(Book book) {
-        throw new RuntimeException("not implemented yet");
+        final Set<BookCopy> availableCopies = new HashSet<>();
+
+        // Find all copies of book in library.
+        for (BookCopy copy : this.inLibrary) {
+            if (copy.getBook().equals(book)) {
+                availableCopies.add(copy);
+            }
+        }
+
+        return availableCopies;
     }
 
     @Override
     public List<Book> find(String query) {
-        throw new RuntimeException("not implemented yet");
+        final List<Book> found_books = new ArrayList<>();
+
+        // Get all unique books in the library's collection.
+        final Set<Book> all_books = getAllUniqueBooks();
+
+        // Check only for exact matches of title or author name.
+        for (Book current_book : all_books) {
+            if ((current_book.getTitle().equals(query)) ||
+                (current_book.getAuthors().contains(query))); {
+                found_books.add(current_book);
+            }
+        }
+        // Sort the found books by publication year in descending order.
+        found_books.sort(Comparator.comparing(Book::getYear).reversed());
+        return found_books;
     }
     
     @Override
     public void lose(BookCopy copy) {
-        throw new RuntimeException("not implemented yet");
+        this.inLibrary.remove(copy);
+        this.checkedOut.remove(copy);
+        checkRep();
     }
 
-    // uncomment the following methods if you need to implement equals and hashCode,
-    // or delete them if you don't
-    // @Override
-    // public boolean equals(Object that) {
-    //     throw new RuntimeException("not implemented yet");
-    // }
-    // 
-    // @Override
-    // public int hashCode() {
-    //     throw new RuntimeException("not implemented yet");
-    // }
-    
+    private Set<Book> getAllUniqueBooks() {
+        // Get a set of all the COPIES in the library's collection, both in library and
+        // checked out.
+        final Set<BookCopy> all_copies = new HashSet<>();
+        all_copies.addAll(this.inLibrary);
+        all_copies.addAll(this.checkedOut);
+
+        // Get all unique books in the library's collection.
+        final Set<Book> all_books = new HashSet<>();
+        for (BookCopy copy : all_copies) {
+            all_books.add(copy.getBook());
+        }
+
+        return all_books;
+    }
 
     /* Copyright (c) 2016 MIT 6.005 course staff, all rights reserved.
      * Redistribution of original or derived work requires explicit permission.

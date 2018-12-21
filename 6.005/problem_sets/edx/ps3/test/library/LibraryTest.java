@@ -167,7 +167,9 @@ public class LibraryTest {
         assertTrue(found_travellers.contains(traveller_new_era));
 
         assertTrue(
-                found_travellers.indexOf(traveller_new_edition) < found_travellers.indexOf(traveller));
+                found_travellers.indexOf(traveller_new_edition) <
+                        found_travellers.indexOf(traveller),
+                "Expected newer books to appear earlier in search results.");
     }
 
     @Test
@@ -185,7 +187,9 @@ public class LibraryTest {
         assertTrue(found_millers.contains(traveller_new_era));
 
         assertTrue(
-                found_millers.indexOf(traveller_new_edition) < found_millers.indexOf(traveller));
+                found_millers.indexOf(traveller_new_edition) <
+                        found_millers.indexOf(traveller),
+                "Expected newer books to appear earlier in search results.");
     }
 
     
