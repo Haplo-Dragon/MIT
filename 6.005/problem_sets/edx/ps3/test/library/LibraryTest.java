@@ -91,14 +91,14 @@ public class LibraryTest {
             "Traveller: The New Era", Arrays.asList("Some Guy", "Marc Miller"), 1991);
 
     @Test
-    void testAssertionsEnabled() {
+    public void testAssertionsEnabled() {
         assertThrows(AssertionError.class, () -> {
             assert false;
         }); // make sure assertions are enabled with VM argument: -ea
     }
 
     @Test
-    void testBuyFirstBook() {
+    public void testBuyFirstBook() {
         Library library = makeLibrary();
         final BookCopy traveller_copy = library.buy(traveller);
 
@@ -107,7 +107,7 @@ public class LibraryTest {
     }
 
     @Test
-    void testBuyMoreBooks() {
+    public void testBuyMoreBooks() {
         Library library = makeLibrary();
         final BookCopy traveller_copy = library.buy(traveller);
 
@@ -120,7 +120,7 @@ public class LibraryTest {
     }
 
     @Test
-    void testCheckinCheckout() {
+    public void testCheckinCheckout() {
         Library library = makeLibrary();
         final BookCopy traveller_copy = library.buy(traveller);
 
@@ -134,7 +134,7 @@ public class LibraryTest {
     }
 
     @Test
-    void testCopies() {
+    public void testCopies() {
         Library library = makeLibrary();
         final BookCopy traveller_copy = library.buy(traveller);
 
@@ -153,7 +153,7 @@ public class LibraryTest {
     }
 
     @Test
-    void testFindOneWordQueryTitle() {
+    public void testFindOneWordQueryTitle() {
         Library library = makeLibrary();
         final BookCopy traveller_copy = library.buy(traveller);
         final BookCopy TNE_copy = library.buy(traveller_new_era);
@@ -171,7 +171,7 @@ public class LibraryTest {
     }
 
     @Test
-    void testFindMultiWordQueryAuthor() {
+    public void testFindMultiWordQueryAuthor() {
         Library library = makeLibrary();
         final BookCopy traveller_copy = library.buy(traveller);
         final BookCopy TNE_copy = library.buy(traveller_new_era);

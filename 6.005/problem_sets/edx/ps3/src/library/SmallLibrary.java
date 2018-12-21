@@ -1,5 +1,7 @@
 package library;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -34,7 +36,18 @@ public class SmallLibrary implements Library {
     
     // assert the rep invariant
     private void checkRep() {
-        throw new RuntimeException("not implemented yet");
+        // We're making copies because Java's intersection method mutates the sets.
+        // Side note: it is INCREDIBLY FRUSTRATING that Java implements Sets but doesn't
+        // include a non-destructive intersection operation! Holy fuck. Guava has it, but
+        // I'm using vanilla Java here.
+        // See, Java? This is why Kotlin gets all the chicks.
+        Set<BookCopy> inLibraryCopy = new HashSet<>(inLibrary);
+        Set<BookCopy> checkedOutCopy = new HashSet<>(checkedOut);
+
+        // Calculate the intersection of the two sets.
+        inLibraryCopy.retainAll(checkedOutCopy);
+
+        assert inLibraryCopy.equals(Collections.emptySet());
     }
 
     @Override
