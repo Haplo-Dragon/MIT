@@ -1,7 +1,6 @@
 package library;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * BigLibrary represents a large collection of books that might be held by a city or
@@ -12,10 +11,17 @@ import java.util.Set;
  */
 public class BigLibrary implements Library {
 
-    // TODO: rep
+    private final TreeMap<Book, SortedSet<BookCopy>> inLibrary;
+    private final TreeMap<Book, SortedSet<BookCopy>> checkedOut;
     
-    // TODO: rep invariant
-    // TODO: abstraction function
+    // Rep invariant:
+    //      For any given Book, the intersection of the inLibrary SortedSet and the
+    //      checkedOut SortedSet is the empty set.
+    //
+    // Abstraction function:
+    //      Represents the collection of books owned by a library. Books in the library's
+    //      possession are in the inLibrary SortedSet. Books that are checked out are in
+    //      the checkedOut SortedSet.
     // TODO: safety from rep exposure argument
     
     public BigLibrary() {
@@ -66,18 +72,6 @@ public class BigLibrary implements Library {
     public void lose(BookCopy copy) {
         throw new RuntimeException("not implemented yet");
     }
-
-    // uncomment the following methods if you need to implement equals and hashCode,
-    // or delete them if you don't
-    // @Override
-    // public boolean equals(Object that) {
-    //     throw new RuntimeException("not implemented yet");
-    // }
-    // 
-    // @Override
-    // public int hashCode() {
-    //     throw new RuntimeException("not implemented yet");
-    // }
 
 
     /* Copyright (c) 2016 MIT 6.005 course staff, all rights reserved.
