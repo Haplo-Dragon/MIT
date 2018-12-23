@@ -11,8 +11,8 @@ import java.util.*;
  */
 public class BigLibrary implements Library {
 
-    private final TreeMap<Book, SortedSet<BookCopy>> inLibrary;
-    private final TreeMap<Book, SortedSet<BookCopy>> checkedOut;
+    private final TreeMap<Book, TreeSet<BookCopy>> inLibrary;
+    private final TreeMap<Book, TreeSet<BookCopy>> checkedOut;
     
     // Rep invariant:
     //      For any given Book, the intersection of the inLibrary SortedSet and the
@@ -30,7 +30,21 @@ public class BigLibrary implements Library {
     
     // assert the rep invariant
     private void checkRep() {
-        throw new RuntimeException("not implemented yet");
+        for (Book current_book : inLibrary.keySet()){
+            // Get all the copies of the current book, both in the library's possession
+            // and checked out. We're making copies here because vanilla Java doesn't
+            // have a non-destructive set intersection operation.
+            TreeSet<BookCopy> inLibraryCopy = new TreeSet<>(
+                    inLibrary.get(current_book));
+            final TreeSet<BookCopy> checkedOutCopy = new TreeSet<>(
+                    checkedOut.get(current_book));
+
+            // Calculate the intersection of the two sets - it should be empty (i.e.,
+            // every book that is not checked out is in the library's possession).
+            inLibraryCopy.retainAll(checkedOutCopy);
+
+            assert inLibraryCopy.equals(Collections.emptySet());
+        }
     }
 
     @Override
