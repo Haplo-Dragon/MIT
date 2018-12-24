@@ -1,8 +1,6 @@
 package library;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -61,6 +59,25 @@ public class BookTest {
         Book book_2 = new Book("T", Collections.singletonList("mark miller"), 1971);
 
         assertNotEquals(book_1.getAuthors(), book_2.getAuthors());
+    }
+
+    @Test
+    public void testBookHashability() {
+        Book traveller_original = new Book(
+                "Traveller", Collections.singletonList("Marc Miller"), 1971);
+        Book traveller_2005 = new Book(
+                "Traveller", Collections.singletonList("Marc Miller"), 2005);
+
+        assertNotEquals(traveller_original.hashCode(), traveller_2005.hashCode());
+
+//        final TreeMap<Book, Integer> book_collection = new TreeMap<>(
+//                Comparator.comparing(book -> book.getAuthors().get(0)));
+        final HashMap<Book, Integer> book_collection = new HashMap<>();
+
+        book_collection.put(traveller_original, 0);
+        book_collection.put(traveller_2005, 1);
+
+        assertEquals(2, book_collection.size());
     }
 
 

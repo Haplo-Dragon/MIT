@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="1" failures="0" hostname="Otto" id="0" name="BigLibraryTest" package="library" skipped="0" tests="2" time="0.079" timestamp="2018-12-21T09:28:08">
+  <testsuite errors="0" failures="0" hostname="Otto" id="0" name="BigLibraryTest" package="library" skipped="0" tests="3" time="0.134" timestamp="2018-12-24T09:11:11">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -98,7 +98,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BigLibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BigLibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher1342591026809231820.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit6946165368178107218.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BigLibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BigLibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher6129830437768958062.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit5080038862403268901.properties" />
 
           <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
 
@@ -154,22 +154,18 @@
 
       </properties>
 
+      <testcase classname="library.BigLibraryTest" name="testBuyMoreBooks" time="0.054" />
+
       <testcase classname="library.BigLibraryTest" name="testAssertionsEnabled" time="0.0" />
 
-      <testcase classname="library.BigLibraryTest" name="testExampleTest" time="0.004">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at library.BigLibraryTest.testExampleTest(BigLibraryTest.java:31)
-</error>
-
-      </testcase>
+      <testcase classname="library.BigLibraryTest" name="testBuySecondCopyOfBook" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="1" failures="0" hostname="Otto" id="1" name="BookCopyTest" package="library" skipped="0" tests="1" time="0.08" timestamp="2018-12-21T09:28:08">
+  <testsuite errors="1" failures="0" hostname="Otto" id="1" name="BookCopyTest" package="library" skipped="0" tests="1" time="0.081" timestamp="2018-12-24T09:11:12">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -267,7 +263,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BookCopyTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher2724760260352932873.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit4792087014361829761.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BookCopyTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher2408498282233249416.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit2463047592935931845.properties" />
 
           <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
 
@@ -335,7 +331,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="1" failures="0" hostname="Otto" id="2" name="BookTest" package="library" skipped="0" tests="1" time="0.074" timestamp="2018-12-21T09:28:09">
+  <testsuite errors="1" failures="0" hostname="Otto" id="2" name="BookTest" package="library" skipped="0" tests="1" time="0.078" timestamp="2018-12-24T09:11:12">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -433,7 +429,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BookTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher7967518862335152231.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit2746517562470272822.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BookTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher5339015431777987527.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit5503872086506892226.properties" />
 
           <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
 
@@ -501,7 +497,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="7" failures="0" hostname="Otto" id="3" name="LibraryTest" package="library" skipped="0" tests="16" time="0.141" timestamp="2018-12-21T09:28:09">
+  <testsuite errors="0" failures="0" hostname="Otto" id="3" name="LibraryTest" package="library" skipped="0" tests="24" time="0.16" timestamp="2018-12-24T09:11:12">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -599,7 +595,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher8500998912557515441.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit6375638216903265789.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher7036906255799028470.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit1349485366836521017.properties" />
 
           <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
 
@@ -655,11 +651,15 @@
 
       </properties>
 
-      <testcase classname="library.LibraryTest" name="testBuyMoreBooks[library.SmallLibrary]" time="0.002" />
+      <testcase classname="library.LibraryTest" name="testBuyBooksSameTitle[library.SmallLibrary]" time="0.003" />
 
-      <testcase classname="library.LibraryTest" name="testFindOneWordQueryTitle[library.SmallLibrary]" time="0.047" />
+      <testcase classname="library.LibraryTest" name="testAllCopiesAvailableCopiesStaffTest[library.SmallLibrary]" time="0.001" />
 
-      <testcase classname="library.LibraryTest" name="testFindMultiWordQueryAuthor[library.SmallLibrary]" time="0.0" />
+      <testcase classname="library.LibraryTest" name="testBuyMoreBooks[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testFindOneWordQueryTitle[library.SmallLibrary]" time="0.049" />
+
+      <testcase classname="library.LibraryTest" name="testFindMultiWordQueryAuthor[library.SmallLibrary]" time="0.001" />
 
       <testcase classname="library.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.002" />
 
@@ -667,95 +667,44 @@
 
       <testcase classname="library.LibraryTest" name="testCheckinCheckout[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.LibraryTest" name="testBuyFirstBook[library.SmallLibrary]" time="0.001" />
+      <testcase classname="library.LibraryTest" name="testBuyFirstBook[library.SmallLibrary]" time="0.0" />
 
       <testcase classname="library.LibraryTest" name="testCopies[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.LibraryTest" name="testBuyMoreBooks[library.BigLibrary]" time="0.004">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.LibraryTest.makeLibrary(LibraryTest.java:56)
-	at library.LibraryTest.testBuyMoreBooks(LibraryTest.java:111)
-</error>
+      <testcase classname="library.LibraryTest" name="testBuySecondCopyOfBook[library.SmallLibrary]" time="0.0" />
 
-      </testcase>
+      <testcase classname="library.LibraryTest" name="testBuySameAuthorNewBook[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.LibraryTest" name="testFindOneWordQueryTitle[library.BigLibrary]" time="0.001">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.LibraryTest.makeLibrary(LibraryTest.java:56)
-	at library.LibraryTest.testFindOneWordQueryTitle(LibraryTest.java:157)
-</error>
+      <testcase classname="library.LibraryTest" name="testBuyBooksSameTitle[library.BigLibrary]" time="0.004" />
 
-      </testcase>
+      <testcase classname="library.LibraryTest" name="testAllCopiesAvailableCopiesStaffTest[library.BigLibrary]" time="0.001" />
 
-      <testcase classname="library.LibraryTest" name="testFindMultiWordQueryAuthor[library.BigLibrary]" time="0.001">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.LibraryTest.makeLibrary(LibraryTest.java:56)
-	at library.LibraryTest.testFindMultiWordQueryAuthor(LibraryTest.java:176)
-</error>
+      <testcase classname="library.LibraryTest" name="testBuyMoreBooks[library.BigLibrary]" time="0.001" />
 
-      </testcase>
+      <testcase classname="library.LibraryTest" name="testFindOneWordQueryTitle[library.BigLibrary]" time="0.002" />
 
-      <testcase classname="library.LibraryTest" name="testAssertionsEnabled[library.BigLibrary]" time="0.0" />
+      <testcase classname="library.LibraryTest" name="testFindMultiWordQueryAuthor[library.BigLibrary]" time="0.001" />
 
-      <testcase classname="library.LibraryTest" name="testFindStaffTest[library.BigLibrary]" time="0.0">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.LibraryTest.makeLibrary(LibraryTest.java:56)
-	at library.LibraryTest.testFindStaffTest(LibraryTest.java:196)
-</error>
+      <testcase classname="library.LibraryTest" name="testAssertionsEnabled[library.BigLibrary]" time="0.001" />
 
-      </testcase>
+      <testcase classname="library.LibraryTest" name="testFindStaffTest[library.BigLibrary]" time="0.002" />
 
-      <testcase classname="library.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.0">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.LibraryTest.makeLibrary(LibraryTest.java:56)
-	at library.LibraryTest.testCheckinCheckout(LibraryTest.java:124)
-</error>
+      <testcase classname="library.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.001" />
 
-      </testcase>
+      <testcase classname="library.LibraryTest" name="testBuyFirstBook[library.BigLibrary]" time="0.0" />
 
-      <testcase classname="library.LibraryTest" name="testBuyFirstBook[library.BigLibrary]" time="0.0">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.LibraryTest.makeLibrary(LibraryTest.java:56)
-	at library.LibraryTest.testBuyFirstBook(LibraryTest.java:102)
-</error>
+      <testcase classname="library.LibraryTest" name="testCopies[library.BigLibrary]" time="0.0" />
 
-      </testcase>
+      <testcase classname="library.LibraryTest" name="testBuySecondCopyOfBook[library.BigLibrary]" time="0.0" />
 
-      <testcase classname="library.LibraryTest" name="testCopies[library.BigLibrary]" time="0.0">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.LibraryTest.makeLibrary(LibraryTest.java:56)
-	at library.LibraryTest.testCopies(LibraryTest.java:138)
-</error>
-
-      </testcase>
+      <testcase classname="library.LibraryTest" name="testBuySameAuthorNewBook[library.BigLibrary]" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Otto" id="4" name="BookCopyTest" package="library.beta" skipped="0" tests="4" time="0.08" timestamp="2018-12-21T09:28:09">
+  <testsuite errors="0" failures="0" hostname="Otto" id="4" name="BookCopyTest" package="library.beta" skipped="0" tests="4" time="0.08" timestamp="2018-12-24T09:11:13">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -853,7 +802,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.BookCopyTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher8401105860923247460.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit6618292380743652336.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.BookCopyTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher4627747268198701596.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit1327405758993942480.properties" />
 
           <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
 
@@ -909,11 +858,11 @@
 
       </properties>
 
-      <testcase classname="library.beta.BookCopyTest" name="testEqualsHashcode" time="0.001" />
+      <testcase classname="library.beta.BookCopyTest" name="testEqualsHashcode" time="0.002" />
 
-      <testcase classname="library.beta.BookCopyTest" name="testGetBook" time="0.0" />
+      <testcase classname="library.beta.BookCopyTest" name="testGetBook" time="0.001" />
 
-      <testcase classname="library.beta.BookCopyTest" name="testAssertionsEnabled" time="0.0" />
+      <testcase classname="library.beta.BookCopyTest" name="testAssertionsEnabled" time="0.001" />
 
       <testcase classname="library.beta.BookCopyTest" name="testCondition" time="0.0" />
 
@@ -922,7 +871,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Otto" id="5" name="BookTest" package="library.beta" skipped="0" tests="4" time="0.078" timestamp="2018-12-21T09:28:10">
+  <testsuite errors="0" failures="0" hostname="Otto" id="5" name="BookTest" package="library.beta" skipped="0" tests="4" time="0.077" timestamp="2018-12-24T09:11:13">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -1020,7 +969,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.BookTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher2879481907901327844.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit1125539767034423223.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.BookTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher5758394245667555755.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit6362346219105179705.properties" />
 
           <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
 
@@ -1089,7 +1038,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="7" failures="0" hostname="Otto" id="6" name="LibraryTest" package="library.beta" skipped="0" tests="16" time="0.14" timestamp="2018-12-21T09:28:10">
+  <testsuite errors="0" failures="0" hostname="Otto" id="6" name="LibraryTest" package="library.beta" skipped="0" tests="16" time="0.14" timestamp="2018-12-24T09:11:13">
       <properties>
           <property name="java.vendor" value="Oracle Corporation" />
 
@@ -1187,7 +1136,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher1236176068236469608.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit6066680227788186960.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher4325339850133582413.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit2605718527016684773.properties" />
 
           <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
 
@@ -1251,7 +1200,7 @@
 
       <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.SmallLibrary]" time="0.001" />
+      <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.SmallLibrary]" time="0.0" />
 
       <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.0" />
 
@@ -1259,84 +1208,21 @@
 
       <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.beta.LibraryTest" name="testBuy[library.BigLibrary]" time="0.004">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.beta.LibraryTest.makeLibrary(LibraryTest.java:57)
-	at library.beta.LibraryTest.testBuy(LibraryTest.java:96)
-</error>
+      <testcase classname="library.beta.LibraryTest" name="testBuy[library.BigLibrary]" time="0.003" />
 
-      </testcase>
+      <testcase classname="library.beta.LibraryTest" name="testFind[library.BigLibrary]" time="0.003" />
 
-      <testcase classname="library.beta.LibraryTest" name="testFind[library.BigLibrary]" time="0.0">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.beta.LibraryTest.makeLibrary(LibraryTest.java:57)
-	at library.beta.LibraryTest.testFind(LibraryTest.java:190)
-</error>
+      <testcase classname="library.beta.LibraryTest" name="testLose[library.BigLibrary]" time="0.0" />
 
-      </testcase>
+      <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.BigLibrary]" time="0.0" />
 
-      <testcase classname="library.beta.LibraryTest" name="testLose[library.BigLibrary]" time="0.0">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.beta.LibraryTest.makeLibrary(LibraryTest.java:57)
-	at library.beta.LibraryTest.testLose(LibraryTest.java:222)
-</error>
-
-      </testcase>
-
-      <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.BigLibrary]" time="0.0">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.beta.LibraryTest.makeLibrary(LibraryTest.java:57)
-	at library.beta.LibraryTest.testAllCopiesAvailableCopies(LibraryTest.java:156)
-</error>
-
-      </testcase>
-
-      <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.BigLibrary]" time="0.0">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.beta.LibraryTest.makeLibrary(LibraryTest.java:57)
-	at library.beta.LibraryTest.testEqualsHashcode(LibraryTest.java:241)
-</error>
-
-      </testcase>
+      <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.BigLibrary]" time="0.0" />
 
       <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.BigLibrary]" time="0.0" />
 
-      <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.BigLibrary]" time="0.001">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.beta.LibraryTest.makeLibrary(LibraryTest.java:57)
-	at library.beta.LibraryTest.testIsAvailable(LibraryTest.java:135)
-</error>
+      <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.BigLibrary]" time="0.0" />
 
-      </testcase>
-
-      <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.001">
-          <error message="not implemented yet" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented yet
-	at library.BigLibrary.&lt;init&gt;(BigLibrary.java:22)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at java.lang.Class.newInstance(Class.java:442)
-	at library.beta.LibraryTest.makeLibrary(LibraryTest.java:57)
-	at library.beta.LibraryTest.testCheckinCheckout(LibraryTest.java:113)
-</error>
-
-      </testcase>
+      <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.0" />
 
       <system-out><![CDATA[]]></system-out>
 

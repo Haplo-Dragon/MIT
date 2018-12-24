@@ -85,10 +85,12 @@ public class LibraryTest {
 
     final private Book traveller = new Book(
             "Traveller", Collections.singletonList("Marc Miller"), 1971);
-    final private Book traveller_new_edition = new Book(
+    final private Book traveller_2005_edition = new Book(
             "Traveller", Collections.singletonList("Marc Miller"), 2005);
     final private Book traveller_new_era = new Book(
             "Traveller: The New Era", Arrays.asList("Some Guy", "Marc Miller"), 1991);
+    final private Book miller_memoir = new Book(
+            "Remembering Space", Collections.singletonList("Marc Miller"), 2010);
 
     @Test
     public void testAssertionsEnabled() {
@@ -107,6 +109,18 @@ public class LibraryTest {
     }
 
     @Test
+    public void testBuySecondCopyOfBook() {
+        Library library = makeLibrary();
+        final BookCopy traveller_copy = library.buy(traveller);
+        final BookCopy traveller_copy_2 = library.buy(traveller);
+
+        assertTrue(library.availableCopies(traveller).contains(traveller_copy));
+        assertTrue(library.availableCopies(traveller).contains(traveller_copy_2));
+
+        assertEquals(2, library.availableCopies(traveller).size());
+    }
+
+    @Test
     public void testBuyMoreBooks() {
         Library library = makeLibrary();
         final BookCopy traveller_copy = library.buy(traveller);
@@ -116,7 +130,20 @@ public class LibraryTest {
 
         final BookCopy traveller_copy_2 = library.buy(traveller);
         total_travellers = library.allCopies(traveller);
-        assertEquals(2, total_travellers.size());
+
+        assertEquals("Expected two copies of Traveller in: " + total_travellers,
+                2, total_travellers.size());
+    }
+
+    @Test
+    public void testBuySameAuthorNewBook() {
+        Library library = makeLibrary();
+
+        final BookCopy traveller_copy = library.buy(traveller);
+        final BookCopy memoir_copy = library.buy(miller_memoir);
+
+        assertTrue(library.isAvailable(traveller_copy));
+        assertTrue(library.isAvailable(memoir_copy));
     }
 
     @Test
@@ -153,20 +180,32 @@ public class LibraryTest {
     }
 
     @Test
+    public void testBuyBooksSameTitle() {
+        Library library = makeLibrary();
+
+        final BookCopy traveller_copy = library.buy(traveller);
+        final BookCopy traveller_2005_copy = library.buy(traveller_2005_edition);
+
+        assertTrue(library.isAvailable(traveller_copy));
+        assertTrue(library.isAvailable(traveller_2005_copy));
+    }
+
+    @Test
     public void testFindOneWordQueryTitle() {
         Library library = makeLibrary();
-        final BookCopy traveller_copy = library.buy(traveller);
-        final BookCopy TNE_copy = library.buy(traveller_new_era);
-        final BookCopy new_edition_copy = library.buy(traveller_new_edition);
+        library.buy(traveller);
+        library.buy(traveller_new_era);
+        library.buy(traveller_2005_edition);
 
         List<Book> found_travellers = library.find("Traveller");
 
-        assertEquals(2, found_travellers.size());
+        assertEquals("Expected to find two books separated by publishing date. " +
+                found_travellers, 2, found_travellers.size());
         assertTrue(found_travellers.contains(traveller));
-        assertTrue(found_travellers.contains(traveller_new_edition));
+        assertTrue(found_travellers.contains(traveller_2005_edition));
 
         assertTrue(
-                found_travellers.indexOf(traveller_new_edition) <
+                found_travellers.indexOf(traveller_2005_edition) <
                         found_travellers.indexOf(traveller),
                 "Expected newer books to appear earlier in search results.");
     }
@@ -176,17 +215,17 @@ public class LibraryTest {
         Library library = makeLibrary();
         final BookCopy traveller_copy = library.buy(traveller);
         final BookCopy TNE_copy = library.buy(traveller_new_era);
-        final BookCopy new_edition_copy = library.buy(traveller_new_edition);
+        final BookCopy new_edition_copy = library.buy(traveller_2005_edition);
 
         List<Book> found_millers = library.find("Marc Miller");
 
         assertEquals(3, found_millers.size());
         assertTrue(found_millers.contains(traveller));
-        assertTrue(found_millers.contains(traveller_new_edition));
+        assertTrue(found_millers.contains(traveller_2005_edition));
         assertTrue(found_millers.contains(traveller_new_era));
 
         assertTrue(
-                found_millers.indexOf(traveller_new_edition) <
+                found_millers.indexOf(traveller_2005_edition) <
                         found_millers.indexOf(traveller),
                 "Expected newer books to appear earlier in search results.");
     }
@@ -222,6 +261,40 @@ public class LibraryTest {
         library.buy(book4);
         library.buy(book5);
         assertEquals(Arrays.asList(book6, book5, book4, book1), library.find("Ulysses"));
+    }
+
+    @Test
+    public void testAllCopiesAvailableCopiesStaffTest() {
+        Library library = makeLibrary();
+        Book book = new Book("Sense and Sensibility", Arrays.asList("Jane Austen"), 1811);
+
+        // no copies owned
+        Set<BookCopy> noCopies = Collections.emptySet();
+        assertEquals(noCopies, library.allCopies(book));
+        assertEquals(noCopies, library.availableCopies(book));
+
+        // 1 copy owned, available
+        BookCopy copy1 = library.buy(book);
+        Set<BookCopy> justCopy1 = new HashSet<>(Arrays.asList(copy1));
+        assertEquals(justCopy1, library.allCopies(book));
+        assertEquals(justCopy1, library.availableCopies(book));
+
+        // 1 copy owned, checked out
+        library.checkout(copy1);
+        assertEquals(justCopy1, library.allCopies(book));
+        assertEquals(noCopies, library.availableCopies(book));
+
+        // >1 copy owned, >1 available
+        library.checkin(copy1);
+        BookCopy copy2 = library.buy(book);
+        Set<BookCopy> copy1and2 = new HashSet<>(Arrays.asList(copy1, copy2));
+        assertEquals(copy1and2, library.allCopies(book));
+        assertEquals(copy1and2, library.availableCopies(book));
+
+        // >1 copy owned, 1 available
+        library.checkout(copy2);
+        assertEquals(copy1and2, library.allCopies(book));
+        assertEquals(justCopy1, library.availableCopies(book));
     }
 
     

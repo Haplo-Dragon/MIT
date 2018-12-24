@@ -85,7 +85,7 @@ public class Book {
 
     // Uncomment the following methods if you need to implement equals and hashCode,
     // or delete them if you don't
-     @Override
+    @Override
      public boolean equals(Object that) {
          if (!(that instanceof Book)) return false;
          Book thatBook = (Book) that;
