@@ -25,7 +25,10 @@ public class BigLibrary implements Library {
     //      possession are in the inLibrary SortedSet. Books that are checked out are in
     //      the checkedOut SortedSet. Books in the library are sorted alphabetically by
     //      their first listed author, then by title, then by year.
-    // TODO: safety from rep exposure argument
+    //
+    // Safety from rep exposure:
+    //      All fields are private. allCopies and availableCopies both return defensive
+    //      copies of their respective fields.
     
     public BigLibrary() {
         // Books in the library are sorted alphabetically by their first listed
