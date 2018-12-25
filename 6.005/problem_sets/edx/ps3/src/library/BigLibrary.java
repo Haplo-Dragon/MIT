@@ -224,7 +224,7 @@ public class BigLibrary implements Library {
     
     @Override
     public List<Book> find(String query) {
-        // First, find any exact matches in authors or titles.
+        // First find any exact matches in authors or titles.
         final List<Book> found_books = new ArrayList<>(findExactMatches(query));
 
         // Then we'll find any partial matches in authors or titles.
@@ -302,6 +302,19 @@ public class BigLibrary implements Library {
 
         this.inLibrary.get(book).remove(copy);
         this.checkedOut.get(book).remove(copy);
+
+        // If this is the last copy of the book, its metadata should be removed, too.
+        if (allCopies(book).isEmpty()) {
+            for (Set<Book> authors_data : this.authors.values()) {
+                authors_data.remove(book);
+            }
+            for (Set<Book> title_data : this.titles.values()) {
+                title_data.remove(book);
+            }
+            for (Set<Book> keyword_data : this.keywords.values()) {
+                keyword_data.remove(book);
+            }
+        }
 
         checkRep();
     }

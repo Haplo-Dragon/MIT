@@ -39,7 +39,7 @@ public class Book {
      */
     public Book(String title, List<String> authors, int year) {
         this.title = title;
-        this.authors = Collections.unmodifiableList(authors);
+        this.authors = new ArrayList<>(authors);
         this.year = year;
 
         checkRep();
