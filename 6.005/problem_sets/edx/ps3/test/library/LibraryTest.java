@@ -199,8 +199,6 @@ public class LibraryTest {
 
         List<Book> found_travellers = library.find("Traveller");
 
-        assertEquals("Expected to find two books separated by publishing date. " +
-                found_travellers, 2, found_travellers.size());
         assertTrue(found_travellers.contains(traveller));
         assertTrue(found_travellers.contains(traveller_2005_edition));
 

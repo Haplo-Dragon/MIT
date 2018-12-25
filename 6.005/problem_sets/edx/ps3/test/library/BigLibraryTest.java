@@ -29,8 +29,10 @@ public class BigLibraryTest {
             "Traveller", Collections.singletonList("Marc Miller"), 2005);
     final private Book traveller_new_era = new Book(
             "Traveller: The New Era", Arrays.asList("Some Guy", "Marc Miller"), 1991);
-
-    // TODO: put JUnit @Test methods here that you developed from your testing strategy
+    final private Book name_of_wind = new Book(
+            "The Name of the Wind", Collections.singletonList("Patrick Rothfuss"), 2008);
+    final private Book marcus_test = new Book(
+            "I'm a Cool Guy, Too", Collections.singletonList("Marcus D00D"), 2010);
 
     @Test(expected=AssertionError.class)
     public void testAssertionsEnabled() {
@@ -62,6 +64,62 @@ public class BigLibraryTest {
         assertTrue(library.availableCopies(traveller).contains(traveller_copy_2));
 
         assertEquals(2, library.availableCopies(traveller).size());
+    }
+
+    @Test
+    public void testFindPartialMatches() {
+        Library library = new BigLibrary();
+        library.buy(traveller);
+        library.buy(traveller_new_era);
+        library.buy(marcus_test);
+        library.buy(name_of_wind);
+
+        final List<Book> author_found_books = library.find("Marc");
+
+        assertEquals("Expected all books with Marc in authors: " + author_found_books,
+                3, author_found_books.size());
+        assertTrue(author_found_books.contains(traveller));
+        assertTrue(author_found_books.contains(traveller_new_era));
+        assertTrue(author_found_books.contains(marcus_test));
+
+        assertFalse(author_found_books.contains(name_of_wind));
+
+        final List<Book> title_found_books = library.find("Trav");
+
+        assertEquals(2, title_found_books.size());
+        assertTrue(title_found_books.contains(traveller));
+        assertTrue(title_found_books.contains(traveller_new_era));
+
+        assertFalse(title_found_books.contains(marcus_test));
+        assertFalse(title_found_books.contains(name_of_wind));
+    }
+
+    @Test
+    public void testFindPartialAuthors() {
+        Library library = new BigLibrary();
+        library.buy(marcus_test);
+
+        final List<Book> author_found_books = library.find("Marc");
+
+        assertTrue("Expected to see Marcus Test book: " + author_found_books,
+                author_found_books.contains(marcus_test));
+    }
+
+    @Test
+    public void testFindPartialMatchesMultiWordQuery() {
+        Library library = new BigLibrary();
+        library.buy(traveller);
+        library.buy(traveller_new_era);
+        library.buy(name_of_wind);
+
+        final List<Book> found_books = library.find("The New");
+
+        assertEquals("Expected TNE and Name of the Wind: " + found_books,
+                2, found_books.size());
+        assertTrue(found_books.contains(traveller_new_era));
+        assertTrue(found_books.contains(name_of_wind));
+
+        assertFalse(found_books.contains(traveller));
     }
 
 
