@@ -303,7 +303,8 @@ public class BigLibrary implements Library {
         this.inLibrary.get(book).remove(copy);
         this.checkedOut.get(book).remove(copy);
 
-        // If this is the last copy of the book, its metadata should be removed, too.
+        // If this is the last copy of the book, its metadata should be removed, and its
+        // key in the inLibrary and checkedOut maps should be removed, too.
         if (allCopies(book).isEmpty()) {
             for (Set<Book> authors_data : this.authors.values()) {
                 authors_data.remove(book);
@@ -314,6 +315,9 @@ public class BigLibrary implements Library {
             for (Set<Book> keyword_data : this.keywords.values()) {
                 keyword_data.remove(book);
             }
+
+            this.inLibrary.remove(book);
+            this.checkedOut.remove(book);
         }
 
         checkRep();

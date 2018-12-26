@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Otto" name="library.beta.LibraryTest" skipped="0" tests="16" time="0.141" timestamp="2018-12-25T10:17:40">
+<testsuite errors="0" failures="0" hostname="Otto" name="library.beta.LibraryTest" skipped="0" tests="16" time="0.145" timestamp="2018-12-26T04:11:23">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -50,7 +50,7 @@
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher6060645160265137165.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit6026397323490862774.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher4514692181801993929.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit3981546073771076808.properties" />
     <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
     <property name="project.name" value="ps3-library" />
@@ -78,21 +78,21 @@
     <property name="grader.dir" value=".grader" />
     <property name="ant.project.invoked-targets" value="all" />
   </properties>
-  <testcase classname="library.beta.LibraryTest" name="testBuy[library.SmallLibrary]" time="0.003" />
-  <testcase classname="library.beta.LibraryTest" name="testFind[library.SmallLibrary]" time="0.045" />
+  <testcase classname="library.beta.LibraryTest" name="testBuy[library.SmallLibrary]" time="0.002" />
+  <testcase classname="library.beta.LibraryTest" name="testFind[library.SmallLibrary]" time="0.046" />
   <testcase classname="library.beta.LibraryTest" name="testLose[library.SmallLibrary]" time="0.0" />
   <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.SmallLibrary]" time="0.0" />
   <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.SmallLibrary]" time="0.0" />
   <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.0" />
   <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.SmallLibrary]" time="0.0" />
-  <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.SmallLibrary]" time="0.0" />
+  <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.SmallLibrary]" time="0.001" />
   <testcase classname="library.beta.LibraryTest" name="testBuy[library.BigLibrary]" time="0.004" />
   <testcase classname="library.beta.LibraryTest" name="testFind[library.BigLibrary]" time="0.005" />
-  <testcase classname="library.beta.LibraryTest" name="testLose[library.BigLibrary]" time="0.001" />
-  <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.BigLibrary]" time="0.0" />
-  <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.BigLibrary]" time="0.0" />
-  <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.BigLibrary]" time="0.001" />
-  <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.BigLibrary]" time="0.0" />
+  <testcase classname="library.beta.LibraryTest" name="testLose[library.BigLibrary]" time="0.0" />
+  <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.BigLibrary]" time="0.001" />
+  <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.BigLibrary]" time="0.001" />
+  <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.BigLibrary]" time="0.0" />
+  <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.BigLibrary]" time="0.001" />
   <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

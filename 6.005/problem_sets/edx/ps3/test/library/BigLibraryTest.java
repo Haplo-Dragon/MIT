@@ -122,6 +122,25 @@ public class BigLibraryTest {
         assertFalse(found_books.contains(traveller));
     }
 
+    @Test
+    public void testFindAfterLosingAndRebuyingBookStaff() {
+        Library library = new BigLibrary();
+        Book book = new Book(
+                "Cannery Row", Collections.singletonList("John Steinbeck"), 1945);
+        BookCopy copy = library.buy(book);
+        assertEquals(Collections.singletonList(book), library.find(book.getTitle()));
+
+        library.lose(copy);
+        assertEquals(
+                "losing last copy of a book should remove it from find() results",
+                Collections.emptyList(), library.find(book.getTitle()));
+
+        library.buy(book);
+
+        assertEquals(Collections.singletonList(book), library.find(book.getTitle()));
+    }
+
+
 
     /* Copyright (c) 2016 MIT 6.005 course staff, all rights reserved.
      * Redistribution of original or derived work requires explicit permission.
