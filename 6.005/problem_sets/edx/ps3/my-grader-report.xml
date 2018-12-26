@@ -1,0 +1,1767 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="Otto" id="0" name="BigLibraryTest" package="library" skipped="0" tests="7" time="0.152" timestamp="2018-12-26T04:11:20">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BigLibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BigLibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher1847075277274622070.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit2896737426016362331.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running your tests against your implementation." />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.BigLibraryTest" name="testBuyMoreBooks" time="0.052" />
+
+      <testcase classname="library.BigLibraryTest" name="testFindPartialMatches" time="0.005" />
+
+      <testcase classname="library.BigLibraryTest" name="testAssertionsEnabled" time="0.0" />
+
+      <testcase classname="library.BigLibraryTest" name="testFindAfterLosingAndRebuyingBookStaff" time="0.001" />
+
+      <testcase classname="library.BigLibraryTest" name="testFindPartialMatchesMultiWordQuery" time="0.001" />
+
+      <testcase classname="library.BigLibraryTest" name="testFindPartialAuthors" time="0.001" />
+
+      <testcase classname="library.BigLibraryTest" name="testBuySecondCopyOfBook" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="1" failures="0" hostname="Otto" id="1" name="BookCopyTest" package="library" skipped="0" tests="1" time="0.079" timestamp="2018-12-26T04:11:21">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BookCopyTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher586912168226468268.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit6276855876471175267.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running your tests against your implementation." />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.BookCopyTest" name="initializationError" time="0.005">
+          <error message="No runnable methods" type="java.lang.Exception">java.lang.Exception: No runnable methods
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+</error>
+
+      </testcase>
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="1" failures="0" hostname="Otto" id="2" name="BookTest" package="library" skipped="0" tests="1" time="0.076" timestamp="2018-12-26T04:11:21">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.BookTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher1270384375147922055.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit8195142943883469697.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running your tests against your implementation." />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.BookTest" name="initializationError" time="0.005">
+          <error message="No runnable methods" type="java.lang.Exception">java.lang.Exception: No runnable methods
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+</error>
+
+      </testcase>
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Otto" id="3" name="LibraryTest" package="library" skipped="0" tests="24" time="0.158" timestamp="2018-12-26T04:11:22">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher5899207916263282200.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit1162702097362016773.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running your tests against your implementation." />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.LibraryTest" name="testBuyBooksSameTitle[library.SmallLibrary]" time="0.004" />
+
+      <testcase classname="library.LibraryTest" name="testAllCopiesAvailableCopiesStaffTest[library.SmallLibrary]" time="0.001" />
+
+      <testcase classname="library.LibraryTest" name="testBuyMoreBooks[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testFindOneWordQueryTitle[library.SmallLibrary]" time="0.046" />
+
+      <testcase classname="library.LibraryTest" name="testFindMultiWordQueryAuthor[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.002" />
+
+      <testcase classname="library.LibraryTest" name="testFindStaffTest[library.SmallLibrary]" time="0.001" />
+
+      <testcase classname="library.LibraryTest" name="testCheckinCheckout[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testBuyFirstBook[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testCopies[library.SmallLibrary]" time="0.001" />
+
+      <testcase classname="library.LibraryTest" name="testBuySecondCopyOfBook[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testBuySameAuthorNewBook[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testBuyBooksSameTitle[library.BigLibrary]" time="0.004" />
+
+      <testcase classname="library.LibraryTest" name="testAllCopiesAvailableCopiesStaffTest[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testBuyMoreBooks[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testFindOneWordQueryTitle[library.BigLibrary]" time="0.003" />
+
+      <testcase classname="library.LibraryTest" name="testFindMultiWordQueryAuthor[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.LibraryTest" name="testAssertionsEnabled[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testFindStaffTest[library.BigLibrary]" time="0.003" />
+
+      <testcase classname="library.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testBuyFirstBook[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testCopies[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.LibraryTest" name="testBuySecondCopyOfBook[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.LibraryTest" name="testBuySameAuthorNewBook[library.BigLibrary]" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Otto" id="4" name="BookCopyTest" package="library.beta" skipped="0" tests="4" time="0.079" timestamp="2018-12-26T04:11:22">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.BookCopyTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher1701109645458587239.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit7770126126964236770.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our beta tests against your implementation." />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.beta.BookCopyTest" name="testEqualsHashcode" time="0.002" />
+
+      <testcase classname="library.beta.BookCopyTest" name="testGetBook" time="0.001" />
+
+      <testcase classname="library.beta.BookCopyTest" name="testAssertionsEnabled" time="0.0" />
+
+      <testcase classname="library.beta.BookCopyTest" name="testCondition" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Otto" id="5" name="BookTest" package="library.beta" skipped="0" tests="4" time="0.076" timestamp="2018-12-26T04:11:22">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.BookTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher4265326461379546651.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit7737808263249015808.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our beta tests against your implementation." />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.beta.BookTest" name="testNormalBook" time="0.002" />
+
+      <testcase classname="library.beta.BookTest" name="testEqualsHashCode" time="0.0" />
+
+      <testcase classname="library.beta.BookTest" name="testAssertionsEnabled" time="0.0" />
+
+      <testcase classname="library.beta.BookTest" name="testMinimalBook" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Otto" id="6" name="LibraryTest" package="library.beta" skipped="0" tests="16" time="0.145" timestamp="2018-12-26T04:11:23">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.beta.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher4514692181801993929.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit3981546073771076808.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our beta tests against your implementation." />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.beta.LibraryTest" name="testBuy[library.SmallLibrary]" time="0.002" />
+
+      <testcase classname="library.beta.LibraryTest" name="testFind[library.SmallLibrary]" time="0.046" />
+
+      <testcase classname="library.beta.LibraryTest" name="testLose[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.SmallLibrary]" time="0.001" />
+
+      <testcase classname="library.beta.LibraryTest" name="testBuy[library.BigLibrary]" time="0.004" />
+
+      <testcase classname="library.beta.LibraryTest" name="testFind[library.BigLibrary]" time="0.005" />
+
+      <testcase classname="library.beta.LibraryTest" name="testLose[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Otto" id="7" name="BookTest" package="library.staff" skipped="0" tests="2" time="0.075" timestamp="2018-12-26T04:11:23">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.staff.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.staff.BookTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher3183732397239373583.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit528370573800957458.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-tests-final;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our tests against your implementation" />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.staff.BookTest" name="testRepExposureInGetAuthors" time="0.002" />
+
+      <testcase classname="library.staff.BookTest" name="testRepExposureInConstructor" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Otto" id="8" name="LibraryTest" package="library.staff" skipped="0" tests="12" time="0.135" timestamp="2018-12-26T04:11:24">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.staff.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.staff.LibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher1909850515160375499.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit7456244564684368323.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-tests-final;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our tests against your implementation" />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.staff.LibraryTest" name="testDifferentObjectsRepresentingSameBook[library.SmallLibrary]" time="0.002" />
+
+      <testcase classname="library.staff.LibraryTest" name="testFindAfterLosingLastCopy[library.SmallLibrary]" time="0.046" />
+
+      <testcase classname="library.staff.LibraryTest" name="testFindAfterLosingAndRebuyingBook[library.SmallLibrary]" time="0.001" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInAllCopies[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInAvailableCopies[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInFind[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.staff.LibraryTest" name="testDifferentObjectsRepresentingSameBook[library.BigLibrary]" time="0.004" />
+
+      <testcase classname="library.staff.LibraryTest" name="testFindAfterLosingLastCopy[library.BigLibrary]" time="0.002" />
+
+      <testcase classname="library.staff.LibraryTest" name="testFindAfterLosingAndRebuyingBook[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInAllCopies[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInAvailableCopies[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInFind[library.BigLibrary]" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Otto" id="9" name="SmallLibraryTest" package="library.staff" skipped="0" tests="1" time="0.075" timestamp="2018-12-26T04:11:24">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Windows 7" />
+
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_102\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_102\jre\classes" />
+
+          <property name="sun.desktop" value="windows" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant" />
+
+          <property name="java.runtime.version" value="1.8.0_102-b14" />
+
+          <property name="user.name" value="Haplo" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_102" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\endorsed" />
+
+          <property name="sun.cpu.isalist" value="amd64" />
+
+          <property name="sun.jnu.encoding" value="Cp1252" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="\" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_102\jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\grader.xml" />
+
+          <property name="os.version" value="6.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=";" />
+
+          <property name="java.vm.version" value="25.102-b14" />
+
+          <property name="user.variant" value="" />
+
+          <property name="ant.library.dir" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib" />
+
+          <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+
+          <property name="user.script" value="" />
+
+          <property name="user.home" value="C:\Users\Haplo" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_102\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.7-Q16;C:\RailsInstaller\Ruby2.3.0\bin;C:\Ruby24-x64\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;I:\Program Files\Calibre2\;C:\Program Files (x86)\PuTTY\;C:\Program Files\WorldPainter;C:\Program Files (x86)\PDFtk\bin\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\curl;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\Git\cmd;I:\Users\Haplo\adb-fastboot\platform-tools;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python37\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python36\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\Haplo\AppData\Local\Programs\Python\Python35-32\;C:\Users\Haplo\AppData\Roaming\npm;C:\Program Files\Heroku\bin;." />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.staff.SmallLibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\TEST-library.staff.SmallLibraryTest.xml crashfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junitvmwatcher198232993793364214.properties propsfile=I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\junit7058541350261860655.properties" />
+
+          <property name="java.class.path" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-4.12.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\hamcrest-core-1.3.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\apiguardian-api-1.0.0.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-jupiter-api-5.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\junit-platform-commons-1.3.2.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\lib\opentest4j-1.1.1.jar;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-tests-final;I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3\.grader\bin-student;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-launcher.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit.jar;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our tests against your implementation" />
+
+          <property name="sun.os.patch.level" value="Service Pack 1" />
+
+          <property name="java.io.tmpdir" value="C:\Users\Haplo\AppData\Local\Temp\" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+
+          <property name="user.dir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="line.separator" value="&#xd;&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="I:\Users\Haplo\Documents\GitHub\MIT\6.005\problem_sets\edx\ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3\lib\ant\lib\ant.jar" />
+
+          <property name="file.encoding" value="Cp1252" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.staff.SmallLibraryTest" name="testUsesTheGivenRep" time="0.002" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+</testsuites>
