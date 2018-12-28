@@ -1,0 +1,46 @@
+Practice Quiz 1
+=================
+FINAL GRADE 71
+=================
+
+1
+    .a D
+    .b A[X], D
+    .c A, B, C, D[X]
+
+2
+[X] .a @param values - array in which at least one value occurs three or more times.
+    .b @returns      - the first occurence of a number that appears most often in values.
+
+3
+    .a  n = 0, 1, >1
+        n = 10^x, n != 10^x
+    .b  result = 0, 1, >1
+
+4
+    .a  creator        StringCollection()
+        producer       StringCollection(StringCollection oldCollection)
+        mutator        void addCollection(Set<String> newCollection)
+        observer       List<Set<String>> fetchAll()
+[X]     producer       void filter(String filterWord, List<Set<String>> result)
+
+    .b 10: The field is public. Make the field private.
+    .c 20: The constructor takes rep from the old object. Defensively copy the old object.
+    .d 32: fetchAll() returns a field from the rep. Defensively copy this field instead.
+    .e 26: addCollection() adds a mutable type (Set) when collections are supposed to be
+           immutable. Make an immutable Set copy of the collection, assign that to collections.
+[X] .f
+    .g
+
+5   
+[X] .a C, D, E
+    .b  max, move to line number 5
+        i, move to line number 18
+
+6
+[X] .a One suit of a deck of playing cards.
+    .b The 12 cards in a suit within a standard deck of playing cards.
+    .c An integer representing the suit, ranging from 0-3
+
+
+
