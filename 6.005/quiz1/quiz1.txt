@@ -1,0 +1,52 @@
+Quiz 1
+=================
+FINAL GRADE 76.7
+=================
+
+1
+    .a C D[X]
+    .b B
+    .c A B[X] D
+    .d C [X] [X]
+    .e B
+
+2
+    .a Type signature           Type of ADT operation           Java impl. strategy
+        char, int -> Tetromino      creator                         public constructor
+        void -> void                mutator                         instance method
+        void -> char                observer                        instance method
+    .b  A is stronger than B because its precondition is weaker (any char vs. any English
+        alpha char)
+[X]     B is incomparable to C because although B's precondition is weaker, C returns the
+        same value for all inputs.
+
+3
+    .a  EXP
+[X]     NONE
+        NONE
+        RI
+        NONE
+        AF
+        NONE
+        NONE
+        AF
+        RI
+        NONE
+        NONE
+    .b Exposes implementation details
+    .c The function does not return anything, it only mutates the object it's called on
+    .d Too specific?
+
+4
+    .a input shapes = 1, >1, all legal tetromino shapes
+    .b No, because X is not a tetromino shape letter.
+[X] .c Yes
+    .d Yes
+
+5
+    .a  3 - Map of Tetromino locations is public, make it private
+        8 - Returns mutable Tetromino from map - defensively copy this tetromino to avoid
+        client mutation
+[X]
+
+
