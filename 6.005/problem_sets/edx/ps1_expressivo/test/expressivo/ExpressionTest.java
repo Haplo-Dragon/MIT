@@ -4,7 +4,11 @@
 package expressivo;
 
 
+import lib6005.parser.UnableToParseException;
 import org.junit.Test;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -67,8 +71,13 @@ public class ExpressionTest {
 
         assertNotEquals(var_x, var_big_x);
         assertNotEquals(var_x.hashCode(), var_big_x.hashCode());
-    }
 
+        final Variable var_regex = new Variable("12x");
+        assertEquals("12x", var_regex.toString());
+
+        final Variable var_decimal = new Variable("4.603zed");
+        assertEquals("4.603zed", var_decimal.toString());
+    }
 
     @Test
     public void testVarToString() {
@@ -103,6 +112,29 @@ public class ExpressionTest {
         final Expression multi = Expression.times(plus_empty, nums_only);
 
         assertEquals("(3x^2 * (572 + 0.75))", multi.toString());
+    }
+
+    @Test
+    public void testParse() {
+        final Expression expr = Expression.parse("4 * 2x");
+
+        final Expression staff = Expression.parse("3 + 2.4");
+        assertTrue(staff.toString().contains("3 + 2.4"));
+
+        final Expression staff_2 = Expression.parse("3 * x + 2.4");
+
+        final Expression staff_3 = Expression.parse("3 * (x + 2.4)");
+
+        final Expression staff_oops = Expression.parse("((3 + 4) * x * x)");
+        final Expression staff_4 = Expression.parse("foo + bar+baz");
+        final Expression staff_5 = Expression.parse("(2*x    )+    (    y*x    )");
+        final Expression staff_6 = Expression.parse("4 + 3 * x + 2 * x * x + 1 * x * x * (((x)))");
+
+        final Expression expr2 = Expression.parse("x*x + 10x^2 * 4.5y");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            final Expression invalid = Expression.parse("3 *");
+        });
     }
 
 }

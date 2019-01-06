@@ -14,6 +14,16 @@ public class Number implements Expression {
         this.double_n = n;
     }
 
+    public Number(String n) {
+        if (n.contains(".")) {
+            this.n = 0;
+            this.double_n = Double.valueOf(n);
+        } else {
+            this.n = Integer.valueOf(n);
+            this.double_n = 0;
+        }
+    }
+
     private double value(){
         if (this.n == 0) {
             return this.double_n;

@@ -1,9 +1,16 @@
 package expressivo;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Variable implements Expression {
     private final String name;
     private final double coefficient;
     private final int power;
+
+    private final Pattern NAME_PATTERN = Pattern.compile("[a-zA-Z]+");
+    private final Pattern COEFFICIENT_PATTERN = Pattern.compile("[0-9]*(\\.[0-9]*)?");
+    private final Pattern POWER_PATTERN = Pattern.compile("\\^[0-9]*");
 
     public Variable(String name, double coefficient, int power) {
         this.name = name;
@@ -11,8 +18,50 @@ public class Variable implements Expression {
         this.power = power;
     }
 
-    public Variable(String name) {
-        this(name, 1, 1);
+    public Variable(String input) {
+        this.name = getName(input);
+        this.coefficient = getCoefficient(input);
+        this.power = getPower(input);
+    }
+
+    private String getName(String input) {
+        return match(input, NAME_PATTERN);
+    }
+
+    private double getCoefficient(String input) {
+        double coeff;
+
+        try {
+            coeff = Double.valueOf(match(input, COEFFICIENT_PATTERN));
+        } catch (IllegalArgumentException e) {
+            coeff = 1.0;
+        }
+
+        return coeff;
+    }
+
+    private int getPower(String input) {
+        int pow;
+
+        try {
+            pow = Integer.valueOf(match(input, POWER_PATTERN));
+        } catch (IllegalArgumentException e) {
+            pow = 1;
+        }
+
+        return pow;
+    }
+
+    private String match(String input, Pattern pattern) {
+        final Matcher m = pattern.matcher(input);
+
+        if (m.find()) {
+            return m.group(0);
+        } else {
+            throw new IllegalArgumentException(
+                    "Variables must have non-negative double coefficients and non-empty " +
+                            "names consisting of alphabetic characters.");
+        }
     }
 
     @Override
