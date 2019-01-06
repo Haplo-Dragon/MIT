@@ -44,7 +44,10 @@ public class Variable implements Expression {
         int pow;
 
         try {
-            pow = Integer.valueOf(match(input, POWER_PATTERN));
+            // This will return the exponent with its operator, e.g. "^10" for "x^10".
+            final String exponent = match(input, POWER_PATTERN);
+            // Now we'll grab just the numeric bit.
+            pow = Integer.valueOf(exponent.substring(1));
         } catch (IllegalArgumentException e) {
             pow = 1;
         }
@@ -60,7 +63,7 @@ public class Variable implements Expression {
         } else {
             throw new IllegalArgumentException(
                     "Variables must have non-negative double coefficients and non-empty " +
-                            "names consisting of alphabetic characters.");
+                            "names consisting of alphabetic characters." + input);
         }
     }
 

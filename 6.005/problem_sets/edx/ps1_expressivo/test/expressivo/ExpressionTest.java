@@ -63,41 +63,6 @@ public class ExpressionTest {
     }
 
     @Test
-    public void testVariable() {
-        final Variable var_x = new Variable("x");
-        final Variable var_big_x = new Variable("X", 1, 1);
-
-        final Variable var_max = new Variable("Max", 1, Integer.MAX_VALUE);
-
-        assertNotEquals(var_x, var_big_x);
-        assertNotEquals(var_x.hashCode(), var_big_x.hashCode());
-
-        final Variable var_regex = new Variable("12x");
-        assertEquals("12x", var_regex.toString());
-
-        final Variable var_decimal = new Variable("4.603zed");
-        assertEquals("4.603zed", var_decimal.toString());
-    }
-
-    @Test
-    public void testVarToString() {
-        final Variable x = new Variable("x");
-        assertEquals("x", x.toString());
-
-        final Variable x_squared = new Variable("x", 1, 2);
-        assertEquals("x^2", x_squared.toString());
-
-        final Variable x_to_zeroth_power = new Variable("x", 1, 0);
-        assertEquals("1", x_to_zeroth_power.toString());
-
-        final Expression y_thirteenth = Expression.make("y", 3.2, 13);
-        assertEquals("3.2y^13", y_thirteenth.toString());
-
-        final Expression zero_anything = Expression.make("var", 0, 4);
-        assertEquals("0", zero_anything.toString());
-    }
-
-    @Test
     public void testPlus() {
         final Expression three_x_squared = Expression.make("x", 3, 2);
         final Expression empty = Expression.empty();
