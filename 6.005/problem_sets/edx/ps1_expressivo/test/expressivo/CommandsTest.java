@@ -4,6 +4,8 @@
 package expressivo;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Test;
 
@@ -13,14 +15,26 @@ import org.junit.Test;
 public class CommandsTest {
 
     // Testing strategy
-    //   TODO
-    
-    @Test(expected=AssertionError.class)
+
+    @Test
     public void testAssertionsEnabled() {
-        assert false; // make sure assertions are enabled with VM argument: -ea
+        assertThrows(AssertionError.class, () -> {
+            assert false;
+        }); // make sure assertions are enabled with VM argument: -ea
     }
-    
-    
-    // TODO tests for Commands.differentiate() and Commands.simplify()
-    
+
+    @Test
+    public void testDifferentiate() {
+        final String constant = "14";
+        assertEquals("0", Commands.differentiate(constant, "x"));
+
+        final String one_term = "5x^3";
+        final String one_term_diff = "15x^2";
+        assertEquals(one_term_diff, Commands.differentiate(one_term, "x"));
+
+        final String orig = "4x^2 * 4.37 + 3y";
+        final String diff_x = "((4.37 * 8x) + 3y)";
+        assertEquals(diff_x, Commands.differentiate(orig, "x"));
+
+    }
 }
