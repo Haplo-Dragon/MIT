@@ -77,6 +77,13 @@ public class ExpressionTest {
         final Expression multi = Expression.times(plus_empty, nums_only);
 
         assertEquals("(3x^2 * (572 + 0.75))", multi.toString());
+
+        final Expression zero = Expression.make(0);
+        assertEquals("0", zero.toString());
+
+        final Expression twenty_five = Expression.make(25);
+        final Expression plus_zero = Expression.plus(zero, twenty_five);
+        assertEquals(twenty_five, plus_zero);
     }
 
     @Test
@@ -100,6 +107,28 @@ public class ExpressionTest {
         assertThrows(IllegalArgumentException.class, () -> {
             final Expression invalid = Expression.parse("3 *");
         });
+    }
+
+    @Test
+    public void testDifferentiate() {
+        final Expression constant = Expression.parse("14");
+        assertEquals(Expression.make(0), constant.differentiate("x"));
+
+        final Expression one_term = Expression.parse("5x^3");
+        final Expression one_term_diff = Expression.parse("15x^2");
+        assertEquals(one_term_diff, one_term.differentiate("x"));
+
+        final Expression orig = Expression.parse("4x^2 * 4.37 + 3y");
+        final Expression diff_x = Expression.parse("4.37 * 8x + 3y");
+        assertEquals(diff_x, orig.differentiate("x"));
+    }
+
+    @Test
+    public void testEquality() {
+        final Expression orig = Expression.parse("4 * 2x + 3");
+        final Expression same = Expression.parse("(4) * (2x) + (3)");
+
+        assertEquals(orig, same);
     }
 
 }

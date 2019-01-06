@@ -105,6 +105,18 @@ public class Variable implements Expression {
     }
 
     @Override
+    public Expression differentiate(String variable) {
+        if (variable.equals(this.name)) {
+            // We're differentiating with respect to this variable.
+            final double new_coefficient = this.power * this.coefficient;
+            return new Variable(this.name, new_coefficient, this.power - 1);
+        } else {
+            // We're holding this variable constant.
+            return new Variable(this.name, this.coefficient, this.power);
+        }
+    }
+
+    @Override
     public boolean equals(Object that){
         if (!(that instanceof Variable)) return false;
 

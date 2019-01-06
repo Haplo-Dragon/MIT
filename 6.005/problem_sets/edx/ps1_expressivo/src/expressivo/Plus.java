@@ -20,12 +20,19 @@ public class Plus implements Expression {
     }
 
     @Override
+    public Expression differentiate(String variable) {
+        return Expression.plus(
+                this.left.differentiate(variable),
+                this.right.differentiate(variable));
+    }
+
+    @Override
     public boolean equals(Object that) {
         if (!(that instanceof Plus)) return false;
 
         final Plus plus_that = (Plus) that;
-        return ((this.left == plus_that.left) &&
-                (this.right == plus_that.right));
+        return ((this.left.equals(plus_that.left)) &&
+                (this.right.equals(plus_that.right)));
     }
 
     @Override

@@ -12,6 +12,11 @@ public class EmptyExpression implements Expression {
     }
 
     @Override
+    public Expression differentiate(String variable) {
+        return new EmptyExpression();
+    }
+
+    @Override
     public boolean equals(Object that) {
         return that instanceof EmptyExpression;
     }

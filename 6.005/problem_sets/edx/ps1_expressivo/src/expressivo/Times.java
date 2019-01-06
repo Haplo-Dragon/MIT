@@ -20,12 +20,28 @@ public class Times implements Expression{
     }
 
     @Override
+    public Expression differentiate(String variable) {
+        // Derivative of left * right = left * right' + right * left'
+
+        // This is the left term times the derivative of the right term.
+        final Expression left_times_d_right =
+                Expression.times(this.left, this.right.differentiate(variable));
+
+        // This is the right term times the derivative of the left term.
+        final Expression right_times_d_left =
+                Expression.times(this.right, this.left.differentiate(variable));
+
+        // And finally we'll add them together.
+        return Expression.plus(left_times_d_right, right_times_d_left);
+    }
+
+    @Override
     public boolean equals(Object that) {
         if (!(that instanceof Times)) return false;
 
         final Times times_that = (Times) that;
-        return ((this.left == times_that.left) &&
-                (this.right == times_that.right));
+        return ((this.left.equals(times_that.left)) &&
+                (this.right.equals(times_that.right)));
     }
 
     @Override

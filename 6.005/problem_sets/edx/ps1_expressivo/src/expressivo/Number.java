@@ -46,6 +46,11 @@ public class Number implements Expression {
     }
 
     @Override
+    public Expression differentiate(String variable) {
+        return Expression.make(0);
+    }
+
+    @Override
     public boolean equals(Object that) {
         if (!(that instanceof Number)) return false;
 

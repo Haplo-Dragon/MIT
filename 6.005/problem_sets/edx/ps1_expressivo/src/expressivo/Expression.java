@@ -33,6 +33,7 @@ public interface Expression {
     //
 
     final String GRAMMAR_FILE_PATH = "src/expressivo/Expression.g";
+    final Expression ZERO = Expression.make(0);
 
     enum ExpressionGrammar {
         ROOT,
@@ -61,11 +62,11 @@ public interface Expression {
     }
 
     public static Expression plus(Expression left, Expression right) {
-        if (left.isEmpty()) {
+        if (left.isEmpty() || left.equals(ZERO)) {
             return right;
         }
 
-        if (right.isEmpty()) {
+        if (right.isEmpty() || right.equals(ZERO)) {
             return left;
         }
 
@@ -73,6 +74,11 @@ public interface Expression {
     }
 
     public static Expression times(Expression left, Expression right) {
+
+        if (left.equals(ZERO) || right.equals(ZERO)) {
+            return Expression.make(0);
+        }
+
         if (left.isEmpty()) {
             return right;
         }
@@ -152,7 +158,8 @@ public interface Expression {
                         result_sum = buildAST(child);
                         first_sum = false;
                     } else {
-                        result_sum = new Plus(result_sum, buildAST(child));
+//                        result_sum = new Plus(result_sum, buildAST(child));
+                        result_sum = plus(result_sum, buildAST(child));
                     }
                 }
 
@@ -176,7 +183,8 @@ public interface Expression {
                         result_product = buildAST(child);
                         first_product = false;
                     } else {
-                        result_product = new Times(result_product, buildAST(child));
+//                        result_product = new Times(result_product, buildAST(child));
+                        result_product = times(result_product, buildAST(child));
                     }
                 }
 
@@ -207,7 +215,15 @@ public interface Expression {
         throw new RuntimeException("Past end of switch statement while parsing, you" +
                 " should never reach here." + tree);
     }
-    
+
+    /**
+     * Differentiate the expression with respect to the given variable.
+     * @param variable The variable to differentiate by.
+     * @return The expression's derivative with respect to var, not necessarily in
+     *         canonical or simplest form.
+     */
+    public Expression differentiate(String variable);
+
     /**
      * @return a parsable representation of this expression, such that
      * for all e:Expression, e.equals(Expression.parse(e.toString())).
