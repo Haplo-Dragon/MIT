@@ -36,7 +36,7 @@ public class CommandsTest {
         assertEquals(one_term_diff, Commands.differentiate(one_term, "x"));
 
         final String orig = "4x^2 * 4.37 + 3y";
-        final String diff_x = "((4.37 * 8x) + 3y)";
+        final String diff_x = "(4.37 * 8x)";
         assertEquals(diff_x, Commands.differentiate(orig, "x"));
 
     }

@@ -30,7 +30,7 @@
 }
 
 // A number is numerals, possibly followed by a decimal and more numerals.
-number ::= [0-9]+('.'[0-9]+)*;
+number ::= ([0-9]+)*('.'[0-9]+)*;
 
 // A variable is an optional coefficient, followed by an alphabetic name and an optional
 // exponent.

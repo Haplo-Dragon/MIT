@@ -118,7 +118,7 @@ public class Variable implements Expression {
             return new Variable(this.name, new_coefficient, this.power - 1);
         } else {
             // We're holding this variable constant.
-            return new Variable(this.name, this.coefficient, this.power);
+            return new Number(0);
         }
     }
 

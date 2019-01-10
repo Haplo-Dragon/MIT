@@ -122,7 +122,7 @@ public class ExpressionTest {
         assertEquals(one_term_diff, one_term.differentiate("x"));
 
         final Expression orig = Expression.parse("4x^2 * 4.37 + 3y");
-        final Expression diff_x = Expression.parse("4.37 * 8x + 3y");
+        final Expression diff_x = Expression.parse("4.37 * 8x");
         assertEquals(diff_x, orig.differentiate("x"));
     }
 
