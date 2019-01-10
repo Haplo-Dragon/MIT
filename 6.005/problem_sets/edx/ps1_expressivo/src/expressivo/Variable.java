@@ -142,7 +142,8 @@ public class Variable implements Expression {
     }
 
     private double value(double value) {
-        return Math.pow((this.coefficient * value), this.power);
+        final double power = Math.pow(value, this.power);
+        return this.coefficient * power;
     }
 
     @Override

@@ -146,6 +146,10 @@ public class ExpressionTest {
         final Expression simple_x_3 = Expression.parse("27");
 
         assertEquals(simple_x_3, unsimplified.simplify(x_equals_3));
+
+        final Expression order_of_ops = Expression.parse("3x^2");
+
+        assertEquals(simple_x_3, order_of_ops.simplify(x_equals_3));
     }
 
     @Test
