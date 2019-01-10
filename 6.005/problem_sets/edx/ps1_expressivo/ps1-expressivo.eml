@@ -7,10 +7,10 @@
 	<lib name="parserlib.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/parserlib.jar!/"/>
 	</lib>
-	<lib name="junit-jupiter-api-5.4.0-M1.jar" scope="TEST">
+	<lib name="junit-jupiter-api-5.4.0-M1.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/junit-jupiter-api-5.4.0-M1.jar!/"/>
 	</lib>
-	<lib name="junit-4.12.jar" scope="TEST">
+	<lib name="junit-4.12.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/"/>
 	</lib>
 	<levels>

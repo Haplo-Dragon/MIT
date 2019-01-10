@@ -1,12 +1,9 @@
 package expressivo;
 
 import lib6005.parser.*;
-import org.junit.platform.commons.util.CollectionUtils;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -33,8 +30,8 @@ public interface Expression {
     //          EmptyExpression: creates empty expression
     //
 
-    final String GRAMMAR_FILE_PATH = "src/expressivo/Expression.g";
-    final Expression ZERO = Expression.make(0);
+    String GRAMMAR_FILE_PATH = "src/expressivo/Expression.g";
+    Expression ZERO = Expression.make(0);
 
     enum ExpressionGrammar {
         ROOT,
@@ -46,23 +43,23 @@ public interface Expression {
         WHITESPACE
     }
 
-    public static Expression empty() {
+    static Expression empty() {
         return new EmptyExpression();
     }
 
-    public static Expression make(int n) {
+    static Expression make(int n) {
         return new Number(n);
     }
 
-    public static Expression make(double n) {
+    static Expression make(double n) {
         return new Number(n);
     }
 
-    public static Expression make(String name, double coefficient, int power) {
+    static Expression make(String name, double coefficient, int power) {
         return new Variable(name, coefficient, power);
     }
 
-    public static Expression plus(Expression left, Expression right) {
+    static Expression plus(Expression left, Expression right) {
         if (left.isEmpty() || left.equals(ZERO)) {
             return right;
         }
@@ -78,7 +75,7 @@ public interface Expression {
         return new Plus(left, right);
     }
 
-    public static Expression times(Expression left, Expression right) {
+    static Expression times(Expression left, Expression right) {
 
         if (left.equals(ZERO) || right.equals(ZERO)) {
             return Expression.make(0);
@@ -99,7 +96,7 @@ public interface Expression {
         return new Times(left, right);
     }
 
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Determines if an expression has a literal numeric value in the given environment.
@@ -107,7 +104,7 @@ public interface Expression {
      *                    whether or not the expression has a literal value.
      * @return true if the expression has a literal numeric value in the given environment.
      */
-    public boolean hasValue(Map<String, Double> environment);
+    boolean hasValue(Map<String, Double> environment);
 
     /**
      * Calculates the literal numeric value of an expression in the given environment.
@@ -115,7 +112,7 @@ public interface Expression {
      *                    whether or not the expression has a literal value.
      * @return The numeric value of the expression in the current environment as a double.
      */
-    public double getValue(Map<String ,Double> environment);
+    double getValue(Map<String ,Double> environment);
 
     /**
      * Parse an expression.
@@ -123,7 +120,7 @@ public interface Expression {
      * @return expression AST for the input
      * @throws IllegalArgumentException if the expression is invalid
      */
-    public static Expression parse(String input) throws IllegalArgumentException {
+    static Expression parse(String input) throws IllegalArgumentException {
         Expression result = Expression.empty();
 
         try {
@@ -247,7 +244,7 @@ public interface Expression {
      * @return The expression's derivative with respect to var, not necessarily in
      *         canonical or simplest form.
      */
-    public Expression differentiate(String variable);
+    Expression differentiate(String variable);
 
     /**
      * Simplify the expression using the provided variables.
@@ -257,14 +254,14 @@ public interface Expression {
      * @return The expression, with values substituted for variables where possible,
      *         simplified as much as possible.
      */
-    public Expression simplify(Map<String, Double> environment);
+    Expression simplify(Map<String, Double> environment);
 
     /**
      * @return a parsable representation of this expression, such that
      * for all e:Expression, e.equals(Expression.parse(e.toString())).
      */
     @Override 
-    public String toString();
+    String toString();
 
     /**
      * @param thatObject any object
@@ -272,7 +269,7 @@ public interface Expression {
      * Expressions, as defined in the PS1 handout.
      */
     @Override
-    public boolean equals(Object thatObject);
+    boolean equals(Object thatObject);
     
     /**
      * @return hash code value consistent with the equals() definition of structural
@@ -280,7 +277,7 @@ public interface Expression {
      *     e1.equals(e2) implies e1.hashCode() == e2.hashCode()
      */
     @Override
-    public int hashCode();
+    int hashCode();
     
     /* Copyright (c) 2015-2017 MIT 6.005 course staff, all rights reserved.
      * Redistribution of original or derived work requires permission of course staff.
