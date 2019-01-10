@@ -7,6 +7,9 @@ package expressivo;
 import lib6005.parser.UnableToParseException;
 import org.junit.Test;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -129,6 +132,57 @@ public class ExpressionTest {
         final Expression same = Expression.parse("(4) * (2x) + (3)");
 
         assertEquals(orig, same);
+    }
+
+    @Test
+    public void testSimplifySingleVariable() {
+        final Expression unsimplified = Expression.parse("x*x*x");
+        final Expression simplified = Expression.parse("x^2 * x");
+
+        assertEquals(simplified, unsimplified.simplify(Collections.EMPTY_MAP));
+
+        final Map<String, Double> x_equals_3 = new HashMap<>();
+        x_equals_3.put("x", 3.0);
+        final Expression simple_x_3 = Expression.parse("27");
+
+        assertEquals(simple_x_3, unsimplified.simplify(x_equals_3));
+    }
+
+    @Test
+    public void testSimplifyMultiVariable() {
+        final Expression unsimplified = Expression.parse("x*x*x + y*y*y");
+        final Expression simplified = Expression.parse("x^2 * x + y^2 * y");
+
+        assertEquals(simplified, unsimplified.simplify(Collections.EMPTY_MAP));
+
+        final Map<String, Double> y_equals_10 = new HashMap<>();
+        y_equals_10.put("y", 10.0);
+        y_equals_10.put("z", 250.0);
+        y_equals_10.put("var", 2.3);
+        final Expression simple_y_10 = Expression.parse("x^2 * x + 1000");
+
+        assertEquals(simple_y_10, unsimplified.simplify(y_equals_10));
+    }
+
+    @Test
+    public void testSimplifyPlus() {
+        final Expression unsimplified = Expression.parse("x + x + x");
+        final Expression simplified = Expression.parse("2x + x");
+
+        assertEquals(simplified, unsimplified.simplify(Collections.EMPTY_MAP));
+    }
+
+    @Test
+    public void testSimplifyNumbersOnly() {
+        final Expression plus = Expression.parse("1+2");
+        final Expression simple = Expression.parse("3");
+
+        assertEquals(simple, plus.simplify(Collections.EMPTY_MAP));
+
+        final Expression unsimplified = Expression.parse("1+2*3+8*0.5");
+        final Expression simplified = Expression.parse("11.0");
+
+        assertEquals(simplified, unsimplified.simplify(Collections.EMPTY_MAP));
     }
 
 }

@@ -1,5 +1,6 @@
 package expressivo;
 
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -105,6 +106,11 @@ public class Variable implements Expression {
     }
 
     @Override
+    public boolean hasValue(Map<String, Double> environment) {
+        return environment.containsKey(this.name);
+    }
+
+    @Override
     public Expression differentiate(String variable) {
         if (variable.equals(this.name)) {
             // We're differentiating with respect to this variable.
@@ -114,6 +120,29 @@ public class Variable implements Expression {
             // We're holding this variable constant.
             return new Variable(this.name, this.coefficient, this.power);
         }
+    }
+
+    @Override
+    public Expression simplify(Map<String, Double> environment) {
+        // If this variable has a value in the environment, we'll return its value.
+        if (this.hasValue(environment)) {
+            return new Number(this.value(environment.get(this.name)));
+        } else {
+            return this;
+        }
+    }
+
+    @Override
+    public double getValue(Map<String, Double> environment) {
+        if (this.hasValue(environment)) {
+            return this.value(environment.get(this.name));
+        } else {
+            return 0;
+        }
+    }
+
+    private double value(double value) {
+        return Math.pow((this.coefficient * value), this.power);
     }
 
     @Override

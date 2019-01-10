@@ -7,6 +7,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Map;
 
 /**
  * An immutable data type representing a polynomial expression of:
@@ -70,6 +71,10 @@ public interface Expression {
             return left;
         }
 
+        if (left.equals(right)) {
+            return Expression.parse("2" + left.toString());
+        }
+
         return new Plus(left, right);
     }
 
@@ -87,10 +92,30 @@ public interface Expression {
             return left;
         }
 
+        if (left.equals(right)) {
+            return Expression.parse(left.toString() + "^2");
+        }
+
         return new Times(left, right);
     }
 
     public boolean isEmpty();
+
+    /**
+     * Determines if an expression has a literal numeric value in the given environment.
+     * @param environment The set of variables and their values to be used in determining
+     *                    whether or not the expression has a literal value.
+     * @return true if the expression has a literal numeric value in the given environment.
+     */
+    public boolean hasValue(Map<String, Double> environment);
+
+    /**
+     * Calculates the literal numeric value of an expression in the given environment.
+     * @param environment The set of variables and their values to be used in determining
+     *                    whether or not the expression has a literal value.
+     * @return The numeric value of the expression in the current environment as a double.
+     */
+    public double getValue(Map<String ,Double> environment);
 
     /**
      * Parse an expression.
@@ -223,6 +248,16 @@ public interface Expression {
      *         canonical or simplest form.
      */
     public Expression differentiate(String variable);
+
+    /**
+     * Simplify the expression using the provided variables.
+     * @param environment The set of variables and their values to be used in simplifying
+     *                    the expression. The set of variables in the environment and the
+     *                    expression are allowed to be different.
+     * @return The expression, with values substituted for variables where possible,
+     *         simplified as much as possible.
+     */
+    public Expression simplify(Map<String, Double> environment);
 
     /**
      * @return a parsable representation of this expression, such that

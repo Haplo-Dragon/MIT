@@ -1,5 +1,7 @@
 package expressivo;
 
+import java.util.Map;
+
 public class Number implements Expression {
     private final int n;
     private final double double_n;
@@ -10,8 +12,14 @@ public class Number implements Expression {
     }
 
     public Number(double n) {
-        this.n = 0;
-        this.double_n = n;
+        // If the number is a perfect integer, we'll ditch the unnecessary decimal point.
+        if (n == (int) n) {
+            this.n = (int) n;
+            this.double_n = 0;
+        } else {
+            this.n = 0;
+            this.double_n = n;
+        }
     }
 
     public Number(String n) {
@@ -22,6 +30,11 @@ public class Number implements Expression {
             this.n = Integer.valueOf(n);
             this.double_n = 0;
         }
+    }
+
+    @Override
+    public double getValue(Map<String, Double> environment) {
+        return this.value();
     }
 
     private double value(){
@@ -46,8 +59,18 @@ public class Number implements Expression {
     }
 
     @Override
+    public boolean hasValue(Map<String, Double> environment) {
+        return true;
+    }
+
+    @Override
     public Expression differentiate(String variable) {
         return Expression.make(0);
+    }
+
+    @Override
+    public Expression simplify(Map<String, Double> environment) {
+        return this;
     }
 
     @Override
