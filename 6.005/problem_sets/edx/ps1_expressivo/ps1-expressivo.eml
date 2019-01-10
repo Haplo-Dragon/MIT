@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<testFolder url="file://$MODULE_DIR$/test"/>
+	</contentEntry>
+	<lib name="parserlib.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/parserlib.jar!/"/>
+	</lib>
+	<lib name="junit-jupiter-api-5.4.0-M1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/junit-jupiter-api-5.4.0-M1.jar!/"/>
+	</lib>
+	<lib name="junit-4.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/"/>
+	</lib>
+	<levels>
+		<level name="apiguardian-api-1.0.0" value="project"/>
+		<level name="junit-platform-commons-1.4.0-M1" value="project"/>
+		<level name="opentest4j-1.1.1" value="project"/>
+	</levels>
+</component>
