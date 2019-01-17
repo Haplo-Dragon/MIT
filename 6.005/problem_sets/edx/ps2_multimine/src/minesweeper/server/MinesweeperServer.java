@@ -78,68 +78,66 @@ public class MinesweeperServer {
         }
     }
 
-    /**
-     * Handle a single client connection. Returns when client disconnects.
-     * 
-     * @param socket socket where the client is connected
-     * @throws IOException if the connection encounters an error or terminates unexpectedly
-     */
-    private void handleConnection(Socket socket) throws IOException {
-
-        try (BufferedReader in =
-                     new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter out =
-                     new PrintWriter(socket.getOutputStream(), true)) {
-            for (String line = in.readLine(); line != null; line = in.readLine()) {
-                String output = handleRequest(line);
-                if (output != null) {
-                    // TODO: Consider improving spec of handleRequest to avoid use of null
-                    out.println(output);
-                }
-            }
-        }
-    }
-
-    /**
-     * Handler for client input, performing requested operations and returning an output message.
-     * 
-     * @param input message from client
-     * @return message to client, or null if none
-     */
-    private String handleRequest(String input) {
-        String regex = "(look)|(help)|(bye)|"
-                     + "(dig -?\\d+ -?\\d+)|(flag -?\\d+ -?\\d+)|(deflag -?\\d+ -?\\d+)";
-        if ( ! input.matches(regex)) {
-            // invalid input
-            // TODO Problem 5
-        }
-        String[] tokens = input.split(" ");
-        if (tokens[0].equals("look")) {
-            // 'look' request
-            // TODO Problem 5
-        } else if (tokens[0].equals("help")) {
-            // 'help' request
-            // TODO Problem 5
-        } else if (tokens[0].equals("bye")) {
-            // 'bye' request
-            // TODO Problem 5
-        } else {
-            int x = Integer.parseInt(tokens[1]);
-            int y = Integer.parseInt(tokens[2]);
-            if (tokens[0].equals("dig")) {
-                // 'dig x y' request
-                // TODO Problem 5
-            } else if (tokens[0].equals("flag")) {
-                // 'flag x y' request
-                // TODO Problem 5
-            } else if (tokens[0].equals("deflag")) {
-                // 'deflag x y' request
-                // TODO Problem 5
-            }
-        }
-        // TODO: Should never get here, make sure to return in each of the cases above
-        throw new UnsupportedOperationException();
-    }
+//    /**
+//     * Handle a single client connection. Returns when client disconnects.
+//     *
+//     * @param socket socket where the client is connected
+//     * @throws IOException if the connection encounters an error or terminates unexpectedly
+//     */
+//    private void handleConnection(Socket socket) throws IOException {
+//
+//        try (BufferedReader in =
+//                     new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//             PrintWriter out =
+//                     new PrintWriter(socket.getOutputStream(), true)) {
+//            for (String line = in.readLine(); line != null; line = in.readLine()) {
+//                String output = handleRequest(line);
+//                if (output != null) {
+//                    out.println(output);
+//                }
+//            }
+//        }
+//    }
+//
+//    /**
+//     * Handler for client input, performing requested operations and returning an output message.
+//     *
+//     * @param input message from client
+//     * @return message to client, or null if none
+//     */
+//    private String handleRequest(String input) {
+//        String regex = "(look)|(help)|(bye)|"
+//                     + "(dig -?\\d+ -?\\d+)|(flag -?\\d+ -?\\d+)|(deflag -?\\d+ -?\\d+)";
+//        if ( ! input.matches(regex)) {
+//            // invalid input
+//            // Problem 5
+//        }
+//        String[] tokens = input.split(" ");
+//        if (tokens[0].equals("look")) {
+//            // 'look' request
+//            // Problem 5
+//        } else if (tokens[0].equals("help")) {
+//            // 'help' request
+//            // Problem 5
+//        } else if (tokens[0].equals("bye")) {
+//            // 'bye' request
+//            // Problem 5
+//        } else {
+//            int x = Integer.parseInt(tokens[1]);
+//            int y = Integer.parseInt(tokens[2]);
+//            if (tokens[0].equals("dig")) {
+//                // 'dig x y' request
+//                // Problem 5
+//            } else if (tokens[0].equals("flag")) {
+//                // 'flag x y' request
+//                // Problem 5
+//            } else if (tokens[0].equals("deflag")) {
+//                // 'deflag x y' request
+//                // Problem 5
+//            }
+//        }
+//        throw new UnsupportedOperationException();
+//    }
 
     /**
      * Start a MinesweeperServer using the given arguments.

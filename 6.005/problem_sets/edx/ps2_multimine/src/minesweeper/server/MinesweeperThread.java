@@ -91,7 +91,7 @@ public class MinesweeperThread implements Runnable {
                 }
                 break;
         }
-        // TODO: Should never get here, make sure to return in each of the cases above
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(
+                "End of handleRequest, this code should be unreachable.");
     }
 }

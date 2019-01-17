@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * TODO
+ * Test the basic functionality of the minesweeper server.
  */
 public class MinesweeperServerTest {
 
