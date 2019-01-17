@@ -7,18 +7,20 @@ import java.io.*;
 import java.util.*;
 
 /**
- * A multiplayer minesweeper board, a grid of squares with X_SIZE x Y_SIZE squares in it,
- * each of which may or may not conceal a mine.
+ * A threadsafe multiplayer minesweeper board, a grid of squares with X_SIZE x Y_SIZE
+ * squares in it, each of which may or may not conceal a mine.
  * Squares are mined with a probability of 25%.
  *
  * Squares are numbered starting from the top left, which is (0,0).
  * The bottom right square would be at (X_SIZE - 1, Y_SIZE - 1).
  */
 public class Board {
-    
-    // TODO: thread safety
     /*
     * X_SIZE >= 1, Y_SIZE >= 1
+    *
+    * Thread safety:
+    *   All methods which mutate or depend upon the rep are synchronized. Only one thread
+    *   can change the grid at any given time.
     *
     * Operations:
     *
@@ -228,7 +230,7 @@ public class Board {
      * @param y 0 <= y < board.y_size, the Y coordinate of the square to search.
      * @return true iff the given position contains a mine.
      */
-    public boolean hasMine(int x, int y) {
+    public synchronized boolean hasMine(int x, int y) {
         if (isValidPosition(x, y)) {
             final Square target_square = this.grid.get(x).get(y);
             return target_square.hasMine();
@@ -242,7 +244,7 @@ public class Board {
      * @param y 0 <= y < board.y_size, the Y coordinate of the square to check.
      * @return true iff the square at the given position is flagged.
      */
-    public boolean isFlagged(int x, int y) {
+    public synchronized boolean isFlagged(int x, int y) {
         if (isValidPosition(x, y)) {
             final Square target_square = this.grid.get(x).get(y);
             return target_square.isFlagged();
@@ -256,7 +258,7 @@ public class Board {
      * @param x 0 <= x < board.x_size, the X coordinate of the square to flag.
      * @param y 0 <= y < board.y_size, the Y coordinate of the square to flag.
      */
-    public void flag(int x, int y) {
+    public synchronized void flag(int x, int y) {
         if (isValidPosition(x, y)) {
             final Square target_square = this.grid.get(x).get(y);
             target_square.flag();
@@ -277,7 +279,7 @@ public class Board {
      * @param x 0 <= x < board.x_size, the X coordinate of the square to flag.
      * @param y 0 <= y < board.y_size, the Y coordinate of the square to flag.
      */
-    public void deflag(int x, int y) {
+    public synchronized void deflag(int x, int y) {
         if (isValidPosition(x, y)) {
             final Square target_square = this.grid.get(x).get(y);
             target_square.deflag();
@@ -298,7 +300,7 @@ public class Board {
      * @param y 0 <= y < board.y_size, the Y coordinate of the square to check.
      * @return true iff the square at the given position has been dug.
      */
-    public boolean isDug(int x, int y) {
+    public synchronized boolean isDug(int x, int y) {
         if (isValidPosition(x, y)) {
             final Square target_square = this.grid.get(x).get(y);
             return target_square.isDug();
@@ -313,7 +315,7 @@ public class Board {
      * @param x 0 <= x < board.x_size, the X coordinate of the square to dig.
      * @param y 0 <= y < board.y_size, the Y coordinate of the square to dig.
      */
-    public void dig(int x, int y) {
+    public synchronized void dig(int x, int y) {
         if (isValidPosition(x, y)) {
             final Square target_square = this.grid.get(x).get(y);
             boolean boom = false;
@@ -447,7 +449,7 @@ public class Board {
      * @return true iff the given position represents a valid square within the
      *         current board.
      */
-    private boolean isValidPosition(int x, int y) {
+    public boolean isValidPosition(int x, int y) {
         return (isValidColumn(x) && isValidRow(y));
     }
 
@@ -469,7 +471,7 @@ public class Board {
         return ((0 <= x) && (x < this.x_size));
     }
 
-    public String toString() {
+    public synchronized String toString() {
         final StringBuilder s = new StringBuilder();
 
         // We're working across each row, then down. Y coordinates are the rows.
