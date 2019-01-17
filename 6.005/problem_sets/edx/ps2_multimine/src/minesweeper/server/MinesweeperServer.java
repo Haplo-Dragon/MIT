@@ -28,6 +28,7 @@ public class MinesweeperServer {
     private final ServerSocket serverSocket;
     /** True if the server should *not* disconnect a client after a BOOM message. */
     private final boolean debug;
+    private final Board board;
 
     /**
      * Make a MinesweeperServer that listens for connections on port.
@@ -36,9 +37,10 @@ public class MinesweeperServer {
      * @param debug debug mode flag
      * @throws IOException if an error occurs opening the server socket
      */
-    public MinesweeperServer(int port, boolean debug) throws IOException {
+    public MinesweeperServer(int port, boolean debug, Board board) throws IOException {
         serverSocket = new ServerSocket(port);
         this.debug = debug;
+        this.board = board;
     }
 
     /**
@@ -69,7 +71,11 @@ public class MinesweeperServer {
             while (listening) {
                 // When a connection comes in, run a new thread to handle it, giving the
                 // thread a unique connection ID.
-                new MinesweeperThread(serverSocket.accept(), String.valueOf(thread_id))
+                new MinesweeperThread(
+                        serverSocket.accept(),
+                        String.valueOf(thread_id),
+                        this.board,
+                        this.debug)
                         .run();
                 thread_id++;
             }
@@ -253,11 +259,23 @@ public class MinesweeperServer {
      * @param port The network port on which the server should listen, requires 0 <= port <= 65535.
      * @throws IOException if a network error occurs
      */
-    public static void runMinesweeperServer(boolean debug, Optional<File> file, int sizeX, int sizeY, int port) throws IOException {
+    public static void runMinesweeperServer(
+            boolean debug, Optional<File> file, int sizeX, int sizeY, int port)
+            throws IOException {
         
-        // TODO: Continue implementation here in problem 4
+        final Board board;
+        if (file.isPresent()) {
+            // Create a new board from the given file.
+            board = new Board(file.get());
+        }else if ((sizeX > 0) && (sizeY > 0)) {
+            // Create a random board of the given size.
+            board = new Board(sizeX, sizeY);
+        } else {
+            // Otherwise, create a random board of size 10 x 10.
+            board = new Board(10,10);
+        }
         
-        MinesweeperServer server = new MinesweeperServer(port, debug);
+        MinesweeperServer server = new MinesweeperServer(port, debug, board);
         server.serve();
     }
 }

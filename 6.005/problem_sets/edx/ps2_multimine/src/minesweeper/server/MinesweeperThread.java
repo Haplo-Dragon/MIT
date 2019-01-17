@@ -1,5 +1,7 @@
 package minesweeper.server;
 
+import minesweeper.Board;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,14 +11,18 @@ import java.net.Socket;
 public class MinesweeperThread implements Runnable {
     private final Socket socket;
     private final String id;
+    private final Board board;
+    private final boolean debug;
     private final String MESSAGE_THREAD_ID = "Hi, I'm the number %s thread!";
 
     private final String MESSAGE_BYE = "Bye.";
     private final String MESSAGE_BOOM = "BOOM!";
 
-    public MinesweeperThread(Socket socket, String id) {
+    public MinesweeperThread(Socket socket, String id, Board board, boolean debug) {
         this.socket = socket;
         this.id = id;
+        this.board = board;
+        this.debug = debug;
     }
 
     @Override
