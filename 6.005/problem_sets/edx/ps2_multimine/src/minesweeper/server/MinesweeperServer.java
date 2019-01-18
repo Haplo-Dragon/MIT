@@ -14,8 +14,11 @@ import minesweeper.Board;
  */
 public class MinesweeperServer {
 
-    // System thread safety argument
-    //   TODO Problem 5
+    // System thread safety argument:
+    // The system is threadsafe because the board data structure is threadsafe. Thus,
+    // no matter how many threads are connected, the board can only be modified by one
+    // thread at a time. This ensures that no race conditions or other concurrency issues
+    // arise as a result of multiple thread actions interleaving.
 
     /** Default server port. */
     private static final int DEFAULT_PORT = 4444;
@@ -64,23 +67,22 @@ public class MinesweeperServer {
 //                socket.close();
 //            }
 //        }
-        boolean listening = true;
         int thread_id = 0;
 
-        try {
-            while (listening) {
+        while(true) {
+            try {
                 // When a connection comes in, run a new thread to handle it, giving the
                 // thread a unique connection ID.
                 new MinesweeperThread(
                         serverSocket.accept(),
-                        String.valueOf(thread_id),
+                        thread_id,
                         this.board,
                         this.debug)
                         .run();
                 thread_id++;
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
             }
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
         }
     }
 

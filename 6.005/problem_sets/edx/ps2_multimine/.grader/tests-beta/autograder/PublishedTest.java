@@ -1,7 +1,7 @@
 /* Copyright (c) 2007-2017 MIT 6.005 course staff, all rights reserved.
  * Redistribution of original or derived work requires permission of course staff.
  */
-package minesweeper;
+package autograder;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -31,11 +31,11 @@ public class PublishedTest {
 
     private static final int MAX_CONNECTION_ATTEMPTS = 10;
 
-    private static final String BOARDS_PKG = "minesweeper/";
+    private static final String BOARDS_PKG = "autograder/boards/";
 
     /**
      * Start a MinesweeperServer in debug mode with a board file from BOARDS_PKG.
-     *
+     * 
      * @param boardFile board to load
      * @return thread running the server
      * @throws IOException if the board file cannot be found
@@ -63,7 +63,7 @@ public class PublishedTest {
 
     /**
      * Connect to a MinesweeperServer and return the connected socket.
-     *
+     * 
      * @param server abort connection attempts if the server thread dies
      * @return socket connected to the server
      * @throws IOException if the connection fails
@@ -100,34 +100,34 @@ public class PublishedTest {
         assertTrue("expected HELLO message", in.readLine().startsWith("Welcome"));
 
         out.println("look");
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
         assertEquals("- - - - - - -", in.readLine());
 
         out.println("dig 3 1");
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - 1 - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
-        assertEquals("- - - - - - - ", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - 1 - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
+        assertEquals("- - - - - - -", in.readLine());
         assertEquals("- - - - - - -", in.readLine());
 
         out.println("dig 4 1");
         assertEquals("BOOM!", in.readLine());
 
-//        out.println("look"); // debug mode is on
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("1 1          ", in.readLine());
-//        assertEquals("- 1          ", in.readLine());
+        out.println("look"); // debug mode is on
+        assertEquals("             ", in.readLine());
+        assertEquals("             ", in.readLine());
+        assertEquals("             ", in.readLine());
+        assertEquals("             ", in.readLine());
+        assertEquals("             ", in.readLine());
+        assertEquals("1 1          ", in.readLine());
+        assertEquals("- 1          ", in.readLine());
 
         out.println("bye");
         socket.close();

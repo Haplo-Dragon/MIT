@@ -8,8 +8,6 @@ import org.junit.Test;
 import java.io.*;
 import java.net.ConnectException;
 import java.net.Socket;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
@@ -24,6 +22,19 @@ public class MinesweeperServerTest {
     private static final int PORT = 4000 + new Random().nextInt(1 << 15);
 
     private static final int MAX_CONNECTION_ATTEMPTS = 10;
+
+    private final String MESSAGE_WELCOME =
+            "Welcome to Minesweeper. Players: %d including " +
+                    " you. Board: %d columns by %d rows. Type 'help' for help. " +
+                    "You're player #%d.\n";
+
+    private final String MESSAGE_BYE = "Bye.\n";
+    private final String MESSAGE_BOOM = "BOOM!\n";
+    private final String MESSAGE_HELP =
+            "It's Minesweeper! You're probably familiar with " +
+                    " the rules. Commands: 'look' to see the board. 'dig X Y' to dig a space. " +
+                    "'flag X Y' to flag a space, 'deflag X Y' to deflag a space. 'help' to show" +
+                    "this help message. 'bye' to disconnect.";
 
     /**
      * Start a MinesweeperServer in debug mode with a board file from BOARDS_PKG.
@@ -78,50 +89,18 @@ public class MinesweeperServerTest {
 
         assertTrue(
                 "Expected thread identification message.",
-                in.readLine().startsWith("Hi, I'm the"));
+                in.readLine().startsWith("Welcome to Minesweeper"));
+
+        out.println("help");
+        assertEquals(MESSAGE_HELP, in.readLine());
 
         out.println("look");
         assertTrue(
-                "Expected look message.",
-                in.readLine().startsWith("Look request"));
-
-        out.println("help");
-        assertTrue(
-                "Expected help message.",
-                in.readLine().startsWith("YOU DON'T NEED HELP"));
+                "Expected look message." + in.readLine(),
+                in.readLine().startsWith("- -"));
 
         out.println("bye");
         socket.close();
-
-//        out.println("look");
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//
-//        out.println("dig 3 1");
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - 1 - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//        assertEquals("- - - - - - -", in.readLine());
-//
-//        out.println("dig 4 1");
-//        assertEquals("BOOM!", in.readLine());
-//
-//        out.println("look"); // debug mode is on
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("1 1          ", in.readLine());
-//        assertEquals("- 1          ", in.readLine());
     }
 
     @Test(timeout = 10000)
@@ -135,17 +114,17 @@ public class MinesweeperServerTest {
 
         assertTrue(
                 "Expected thread identification message.",
-                in_1.readLine().startsWith("Hi, I'm the"));
+                in_1.readLine().startsWith("Welcome to Minesweeper"));
 
         out_1.println("look");
-        assertTrue(
-                "Expected look message.",
-                in_1.readLine().startsWith("Look request"));
+        for (int row = 0; row < 10; row++) {
+            assertTrue(
+                    String.format("Expected look message for row %d, thread 1.", row),
+                    in_1.readLine().startsWith("- - - - -"));
+        }
 
         out_1.println("help");
-        assertTrue(
-                "Expected help message.",
-                in_1.readLine().startsWith("YOU DON'T NEED HELP"));
+        assertEquals(MESSAGE_HELP, in_1.readLine());
 
         final int port_2 = 4000 + new Random().nextInt(1 << 15);
         Thread thread_2 = startMinesweeperServer(port_2);
@@ -156,17 +135,17 @@ public class MinesweeperServerTest {
 
         assertTrue(
                 "Expected thread identification message.",
-                in_2.readLine().startsWith("Hi, I'm the"));
+                in_2.readLine().startsWith("Welcome to Minesweeper"));
 
         out_2.println("look");
-        assertTrue(
-                "Expected look message.",
-                in_2.readLine().startsWith("Look request"));
+        for (int row = 0; row < 10; row++) {
+            assertTrue(
+                    String.format("Expected look message for row %d, thread 2.", row),
+                    in_2.readLine().startsWith("- - - - -"));
+        }
 
         out_2.println("help");
-        assertTrue(
-                "Expected help message.",
-                in_2.readLine().startsWith("YOU DON'T NEED HELP"));
+        assertEquals(MESSAGE_HELP, in_2.readLine());
 
         out_1.println("bye");
         socket_1.close();

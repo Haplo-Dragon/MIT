@@ -4,9 +4,6 @@
 package minesweeper;
 
 import org.junit.Test;
-import org.junit.jupiter.api.TestTemplate;
-
-import java.io.File;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,8 +22,9 @@ public class BoardTest {
     * File: using board file, using no board file
     */
 
-    private final String BOARD_FILE = "I:\\Users\\Haplo\\Documents\\GitHub\\MIT\\6" +
-            ".005\\problem_sets\\edx\\ps2_multimine\\test\\minesweeper\\test_board.txt";
+//    private final String BOARD_FILE = "I:\\Users\\Haplo\\Documents\\GitHub\\MIT\\6" +
+//            ".005\\problem_sets\\edx\\ps2_multimine\\test\\minesweeper\\test_board.txt";
+    private final String BOARD_FILE = "test/minesweeper/test_board.txt";
     
     @Test(expected=AssertionError.class)
     public void testAssertionsEnabled() {
@@ -36,13 +34,6 @@ public class BoardTest {
     @Test
     public void testMinimumBoard() {
         final Board board = new Board(1,1);
-
-//        // Make sure the board has at least one mine.
-//        assertTrue(board.hasMinesRemaining());
-//        assertTrue(board.numMinesRemaining() >= 1);
-//
-//        // The board has only one square, so we'll test it. It must contain a mine.
-//        assertTrue(board.hasMine(1,1));
 
         // Test flagging the square.
         assertFalse(board.isFlagged(0,0));
@@ -55,21 +46,11 @@ public class BoardTest {
         assertFalse(board.isDug(0,0));
         board.dig(0,0);
         assertTrue(board.isDug(0,0));
-
-//        // After digging a square with a bomb, the bomb explodes and that square no
-//        // longer contains a bomb.
-//        assertFalse(board.hasMine(1,1));
-//        assertFalse(board.hasMinesRemaining());
-//        assertEquals(0, board.numMinesRemaining());
     }
 
     @Test
     public void testRandomBoard() {
         final Board board = new Board(10, 20);
-
-//        // Make sure the board has at least one mine.
-//        assertTrue(board.hasMinesRemaining());
-//        assertTrue(board.numMinesRemaining() >= 1);
 
         // Test flagging a square.
         assertFalse(board.isFlagged(5, 17));
@@ -97,7 +78,7 @@ public class BoardTest {
                 "- - - - \n" +
                 "- - - - \n" +
                 "- - - - \n" +
-                "- - - - \n";
+                "- - - -";
         assertEquals(expected_board, board.toString());
 
         // Dig a square that has a mined neighbor.
@@ -107,7 +88,7 @@ public class BoardTest {
                 "- - 1 - \n" +
                 "- - - - \n" +
                 "- - - - \n" +
-                "- - - - \n";
+                "- - - -";
         assertEquals(expected_board, board.toString());
 
         // Dig a square that does NOT have a mined neighbor. In this case, the dig state
@@ -118,7 +99,7 @@ public class BoardTest {
                 "1 - 1   \n" +
                 "1 1 1   \n" +
                 "  1 1 1 \n" +
-                "  1 - 1 \n";
+                "  1 - 1";
         assertEquals(expected_board, board.toString());
 
         // Dig a mined square. This should explode the mine, updating the mine counts of
@@ -129,7 +110,7 @@ public class BoardTest {
                 "1 - 1   \n" +
                 "1 1 1   \n" +
                 "        \n" +
-                "        \n";
+                "       ";
         assertEquals(expected_board, board.toString());
         assertEquals(1, board.numMinesRemaining());
 
@@ -140,7 +121,7 @@ public class BoardTest {
                 "1 F 1   \n" +
                 "1 1 1   \n" +
                 "        \n" +
-                "        \n";
+                "       ";
         assertEquals(expected_board, board.toString());
         assertEquals(0, board.numMinesRemaining());
     }
@@ -155,18 +136,18 @@ public class BoardTest {
             "- - - - - - - \n" +
             "- - - - - - - \n" +
             "- - - - - - - \n" +
-            "- - - - - - - \n";
+            "- - - - - - -";
         assertEquals(expected_board, board.toString());
 
         board.flag(5, 2);
         final String expected_board_with_flag =
-                "- - - - - - - \n" +
-                "- - - - - - - \n" +
-                "- - - - - F - \n" +
-                "- - - - - - - \n" +
-                "- - - - - - - \n" +
-                "- - - - - - - \n" +
-                "- - - - - - - \n";
+            "- - - - - - - \n" +
+            "- - - - - - - \n" +
+            "- - - - - F - \n" +
+            "- - - - - - - \n" +
+            "- - - - - - - \n" +
+            "- - - - - - - \n" +
+            "- - - - - - -";
         assertEquals(expected_board_with_flag, board.toString());
     }
 

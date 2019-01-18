@@ -24,8 +24,10 @@ public class SquareTest {
         assertEquals(5, square.numNeighborsWithMines());
 
         // A square starts unflagged and undug.
+        assertTrue(square.isUntouched());
         assertFalse(square.isFlagged());
         square.flag();
+        assertFalse(square.isUntouched());
         assertTrue(square.isFlagged());
         square.deflag();
         assertFalse(square.isFlagged());
@@ -35,5 +37,6 @@ public class SquareTest {
         assertFalse(square.isDug());
         square.dig();
         assertTrue(square.isDug());
+        assertFalse(square.isUntouched());
     }
 }

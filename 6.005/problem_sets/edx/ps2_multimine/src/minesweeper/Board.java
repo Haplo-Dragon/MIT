@@ -78,6 +78,9 @@ public class Board {
         // Calculate neighbor counts for all squares without mines.
         calculateMinedNeighborCounts();
 
+//        System.out.println(String.format("%d X %d grid created with %d mines.",
+//                this.x_size, this.y_size, this.total_num_mines));
+
         checkRep();
     }
 
@@ -208,6 +211,14 @@ public class Board {
         checkRep();
     }
 
+    public int getX_size() {
+        return this.x_size;
+    }
+
+    public int getY_size() {
+        return this.y_size;
+    }
+
     /**
      * Determine if the board has mines remaining.
      * @return true iff the board has undiscovered/unexploded mines remaining.
@@ -238,6 +249,14 @@ public class Board {
         return false;
     }
 
+    public synchronized boolean isUntouched(int x, int y) {
+        if (isValidPosition(x, y)) {
+            final Square target_square = this.grid.get(x).get(y);
+            return target_square.isUntouched();
+        }
+        return false;
+    }
+
     /**
      * Determine if the square at the given position is flagged.
      * @param x 0 <= x < board.x_size, the X coordinate of the square to check.
@@ -259,7 +278,7 @@ public class Board {
      * @param y 0 <= y < board.y_size, the Y coordinate of the square to flag.
      */
     public synchronized void flag(int x, int y) {
-        if (isValidPosition(x, y)) {
+        if ((isUntouched(x, y)) && (isValidPosition(x, y))) {
             final Square target_square = this.grid.get(x).get(y);
             target_square.flag();
 
@@ -374,17 +393,27 @@ public class Board {
         // counts of its neighbors.
         if (mine_exploded) {
             for (Square neighbor : neighbors) {
+//                System.out.println(
+//                        String.format(
+//                                "Mine BOOM, updating neighbor at (%d,%d)...",
+//                                neighbor.getX(),
+//                                neighbor.getY()));
                 final int old_num_mines = neighbor.numNeighborsWithMines();
                 neighbor.setNeighborsWithMines(old_num_mines - 1);
             }
-        }
-
-        // Otherwise, a safe square has been dug, and we need to propagate the dig to all
-        // adjacent, safe, untouched squares.
-        for (Square neighbor : neighbors) {
-            if (neighbor.isUntouched() && neighbor.isSafe()) {
-                neighbor.dig();
-                updateNeighbors(neighbor.getX(), neighbor.getY(), false);
+        } else {
+            // Otherwise, a safe square has been dug, and we need to propagate the dig to all
+            // adjacent, safe, untouched squares.
+            for (Square neighbor : neighbors) {
+//                System.out.println(
+//                        String.format(
+//                                "Safe square, updating neighbor at (%d,%d)...",
+//                                neighbor.getX(),
+//                                neighbor.getY()));
+                if (neighbor.isUntouched() && neighbor.isSafe()) {
+                    neighbor.dig();
+                    updateNeighbors(neighbor.getX(), neighbor.getY(), false);
+                }
             }
         }
     }
@@ -471,6 +500,7 @@ public class Board {
         return ((0 <= x) && (x < this.x_size));
     }
 
+    @Override
     public synchronized String toString() {
         final StringBuilder s = new StringBuilder();
 
@@ -501,6 +531,7 @@ public class Board {
             // the next row.
             s.append("\n");
         }
+        s.replace(s.length() - 2, s.length(), "");
         return s.toString();
     }
 }
