@@ -401,21 +401,21 @@ public class Board {
                 final int old_num_mines = neighbor.numNeighborsWithMines();
                 neighbor.setNeighborsWithMines(old_num_mines - 1);
             }
-        } else {
-            // Otherwise, a safe square has been dug, and we need to propagate the dig to all
-            // adjacent, safe, untouched squares.
-            for (Square neighbor : neighbors) {
+        }
+        // Otherwise, a safe square has been dug, and we need to propagate the dig to all
+        // adjacent, safe, untouched squares.
+        for (Square neighbor : neighbors) {
+            if (neighbor.isUntouched() && neighbor.isSafe()) {
 //                System.out.println(
 //                        String.format(
 //                                "Safe square, updating neighbor at (%d,%d)...",
 //                                neighbor.getX(),
 //                                neighbor.getY()));
-                if (neighbor.isUntouched() && neighbor.isSafe()) {
-                    neighbor.dig();
-                    updateNeighbors(neighbor.getX(), neighbor.getY(), false);
-                }
+                neighbor.dig();
+                updateNeighbors(neighbor.getX(), neighbor.getY(), false);
             }
         }
+
     }
 
     /**

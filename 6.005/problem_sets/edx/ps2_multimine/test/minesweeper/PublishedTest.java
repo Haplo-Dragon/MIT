@@ -120,14 +120,14 @@ public class PublishedTest {
         out.println("dig 4 1");
         assertEquals("BOOM!", in.readLine());
 
-//        out.println("look"); // debug mode is on
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("             ", in.readLine());
-//        assertEquals("1 1          ", in.readLine());
-//        assertEquals("- 1          ", in.readLine());
+        out.println("look"); // debug mode is on
+        assertEquals("              ", in.readLine());
+        assertEquals("              ", in.readLine());
+        assertEquals("              ", in.readLine());
+        assertEquals("              ", in.readLine());
+        assertEquals("              ", in.readLine());
+        assertEquals("1 1           ", in.readLine());
+        assertEquals("- 1          ", in.readLine());
 
         out.println("bye");
         socket.close();

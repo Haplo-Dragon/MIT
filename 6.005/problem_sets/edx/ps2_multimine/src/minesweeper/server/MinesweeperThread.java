@@ -51,6 +51,9 @@ public class MinesweeperThread implements Runnable {
             boolean listening = true;
             while(listening) {
                 String line = in.readLine();
+//                System.out.println(String.format(
+//                        "Message received from thread %d: %s",
+//                        this.id, line));
                 String output = handleRequest(line);
                 // If the user isn't requesting a disconnect or getting blown up, show the
                 // response.
@@ -85,7 +88,7 @@ public class MinesweeperThread implements Runnable {
     private String handleRequest(String input) {
         final String regex = "(look)|(help)|(bye)|"
                 + "(dig -?\\d+ -?\\d+)|(flag -?\\d+ -?\\d+)|(deflag -?\\d+ -?\\d+)";
-        if ( ! input.matches(regex)) {
+        if ( ! (input.matches(regex))) {
             // Invalid input, so we'll show a help message.
             return MESSAGE_HELP;
         }
