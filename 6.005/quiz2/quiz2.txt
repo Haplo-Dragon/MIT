@@ -1,0 +1,49 @@
+Quiz 2
+=================
+FINAL GRADE 89.75
+=================
+
+1
+-4  .a A[X] B[X] C[X] 
+    .b B D
+    .c A B C D 
+    .d A C 
+2
+    .a passwords.stream()
+                .filter(lambda p: p.strength() >= minStrength)
+                .map(lambda p: p.plainText())
+    .b passwords.stream()
+                .filter(lambda p: p.plainText().contains(substring))
+                .map(lambda p: p.plainText())
+    .c passwords.stream()
+                .map(lambda p: p.strength())
+                .reduce(0, lambda (p1, p2): p1 + p2)
+3
+    .a  AF: B C F G
+-1.25   RI: D E[X]
+    .b Simon uses the magic number 0 in size to represent an empty tree instead of
+        creating an Empty variant.
+    .c IntBinaryTree = EmptyIntBinaryTree() + IntBinaryTree(IntBinaryTree left, IntBinaryTree right) + Node(int n)
+    .d  private final List<List<Integer>> nodes = Collections.emptyList();    
+        AF: Represents an empty binary integer tree.
+        RI: .size() must be 0.
+    .e 
+        AF: Represents a binary tree of integers. nodes.get(0).get(0) is the root node.
+        RI: .size() > 0
+            nodes.get(i).size() == 2^i
+            nodes.size() == 2^k for some nonnegative integer k
+4
+    .a producer
+    .b  VARIABLE
+            return new Variable(this.name, !this.isNegated);
+        AND
+            return new Or(this.left.negate(), this.right.negate());
+        OR
+            return new And(this.left.negat(), this.right.negate());
+5
+    .a If two threads are simultaneously trying to cast votes for the same voter ID, it's
+        possible for thread 1 to check voters for the given ID, then interleave with 
+        thread 2 checking voters, adding the voter ID to voters, and then casting votes.
+        This would result in the given voter ID being given 4 votes instead of 2.
+-4  .b [X] [X] F G[X]
+-1  .c A C [X]
