@@ -1,0 +1,70 @@
+Practice Quiz 2
+=================
+FINAL GRADE 81.3
+=================
+
+1
+-2  .a A[X] D
+    .b A C D E
+    .c B
+    .d A C
+2
+-2.5.a  RI
+        EXP
+        EXP
+        AF
+        NONE
+[X]     RI
+        RI
+[X]     NONE
+-2  .b D E[X]
+3
+-1.6.a B C[X]
+    .b 
+        Sequence
+            |
+        List<HTML>
+        |        |
+        HTML     HTML
+        |          |
+        Text       Bold
+        |            |
+        "Good"      HTML
+                      |
+                     Italic
+                        |
+                       HTML
+                        |
+                       Text
+                        |
+                       "bye!"   
+    .c  TEXT
+        bolded() {return 0;}
+        italicized() {return 0;}
+        overemphasized() {return 0;}
+-3.3.d  BOLD
+        bolded() {return this.html.length();}
+        italicized() {return 0;}
+        overemphasized() {return 0;}
+-3.3.e  ITALIC
+        bolded() {return 0;}
+        italicized() {return this.html.length()}
+        overemphasized() {return 0;}
+4
+    .a  thread 1
+            east.join(alyssa);
+            east.migrate(west, alyssa);
+        thread 2
+            west.join(ben);
+            west.migrate(east, ben);
+
+    .b  Deadlock could occur if timeslicing occurs between the two threads such that
+        thread 1 begins to migrate alyssa by acquiring the lock on itself, then thread 2
+        attempts to migrate ben by acquiring the lock on itself. At this point, neither
+        thread can call the other thread's join method, as each is waiting for the other
+        to release its lock.
+5
+    .a A B C D
+-2  .b A C B D
+    .c D A B C
+-2  .d C A B D
