@@ -1,0 +1,20 @@
+\documentclass[preview,border=0.3pt]{standalone}
+% import xcolor if available and not already present
+\IfFileExists{xcolor.sty}{\usepackage{xcolor}}{}%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\IfFileExists{latexsym.sty}{\usepackage{latexsym}}{}
+\IfFileExists{mathtools.sty}{\usepackage{mathtools}}{}
+
+\begin{document}
+% set the foreground color
+\IfFileExists{xcolor.sty}{\color[HTML]{F8F8F2}}{}%
+$$
+\begin{array}{rcl}
+f_1(n) &=& 2^{2^{1000000}} \\
+f_2(n) &=& 2^{100000n} \\
+f_3(n) &=& \displaystyle \binom{n}{2} \\
+f_4(n) &=& n \sqrt{n}
+\end{array}
+$$
+\end{document}

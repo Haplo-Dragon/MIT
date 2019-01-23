@@ -1,0 +1,29 @@
+This is makeindex, version 2.15 [MiKTeX 2.9.6930 64-bit] (kpathsea + Thai support).
+Scanning input file test...
+!! Input index error (file = test, line = 1):
+   -- Unknown index keyword \begin.
+!! Input index error (file = test, line = 2):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = test, line = 3):
+   -- Unknown index keyword \IfFileExists.
+!! Input index error (file = test, line = 4):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = test, line = 5):
+   -- Unknown index keyword \begin.
+!! Input index error (file = test, line = 6):
+   -- Unknown index keyword f_1(n)&=&2^.
+!! Input index error (file = test, line = 7):
+   -- Unknown index keyword f_2(n)&=&2^.
+!! Input index error (file = test, line = 8):
+   -- Unknown index keyword f_3(n)&=&\displaystyle\binom.
+!! Input index error (file = test, line = 9):
+   -- Unknown index keyword f_4(n)&=&n\sqrt.
+!! Input index error (file = test, line = 10):
+   -- Unknown index keyword \end.
+!! Input index error (file = test, line = 11):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = test, line = 12):
+   -- Unknown index keyword \end.
+done (0 entries accepted, 12 rejected).
+Nothing written in test.ind.
+Transcript written in test.ilg.
