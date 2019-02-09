@@ -136,22 +136,26 @@ Since we're assuming an initial side length of 1, the $l$ term will disappear, l
 }
 \newcommand{\answerIIa}{ \answer 
 %%% PROBLEM 2(a) ANSWER START %%%
-method\_name
+\texttt{PriorityQueue.\_find\_min()}
 %%% PROBLEM 2(a) ANSWER END %%%
 }
 \newcommand{\answerIIb}{ \answer
 %%% PROBLEM 2(b) ANSWER START %%%
-0
+During the profile test, \texttt{PriorityQueue.\_find\_min()} was called 259,964 times.
+
+In the code itself, \texttt{PriorityQueue.\_find\_min()} is an internal class method, called when the public method \texttt{PriorityQueue.min()} is called (unless the queue size is 0). It is also called through the public method \texttt{PriorityQueue.pop()}. 
+
+This means that, within the code, calls to \texttt{min()} and \texttt{pop()} are essentially calls to \texttt{\_find\_min()}. In the code, \texttt{\_find\_min()} is called in a total of 5 lines of code, including the times it is called through \texttt{min()} and \texttt{pop()}. It is called 3 times for each time step executed by \texttt{Simulation.step()}.
 %%% PROBLEM 2(b) ANSWER END %%%
 }
 \newcommand{\answerIIc}{ \answer
 %%% PROBLEM 2(c) ANSWER START %%%
-0
+3. $O(n)$
 %%% PROBLEM 2(c) ANSWER END %%%
 }
 \newcommand{\answerIId}{ \answer
 %%% PROBLEM 2(d) ANSWER START %%%
-0
+2. $O(\log n)$
 %%% PROBLEM 2(d) ANSWER END %%%
 }
 
