@@ -119,7 +119,7 @@ class Gate:
         """
         self.name = name
         self.gate_type = gate_type
-        self.in_gates = [None for i in range(gate_type.input_count)]
+        self.in_gates = [None for i in xrange(gate_type.input_count)]
         self.out_gates = []
         self.probed = False
         self.output = 0
@@ -257,7 +257,7 @@ class Circuit:
             raise ValueError("Gate name already used")
         gate_type = self.gate_types[type_name]
         self.gates[name] = new_gate = Gate(name, gate_type)
-        for i in range(len(input_names)):
+        for i in xrange(len(input_names)):
             gate = self.gates[input_names[i]]
             new_gate.connect_input(gate, i)
         return new_gate
@@ -270,7 +270,7 @@ class Circuit:
     def as_json(self):
         """A hash that obeys the JSON format, representing the circuit."""
         json = {}
-        json["gates"] = [gate.as_json() for gate in self.gates.values()]
+        json["gates"] = [gate.as_json() for gate in self.gates.itervalues()]
         return json
 
 
@@ -362,6 +362,62 @@ class Transition:
         Transition._next_id += 1
         return id
 
+# class PriorityQueue:
+#     """Array-based priority queue implementation."""
+
+#     def __init__(self):
+#         """Initially empty priority queue."""
+#         self.queue = []
+#         self.min_index = None
+
+#     def __len__(self):
+#         # Number of elements in the queue.
+#         return len(self.queue)
+
+#     # INSERT
+#     def append(self, key):
+#         """Inserts an element in the priority queue."""
+#         if key is None:
+#             raise ValueError("Cannot insert None in the queue")
+#         self.queue.append(key)
+#         self.min_index = None
+
+#     # MIN
+#     def min(self):
+#         """The smallest element in the queue."""
+#         if len(self.queue) == 0:
+#             return None
+#         self._find_min()
+#         return self.queue[self.min_index]
+
+#     # EXTRACT_MIN
+#     def pop(self):
+#         """Removes the minimum element in the queue.
+
+#         Returns:
+#             The value of the removed element.
+#         """
+#         if len(self.queue) == 0:
+#             return None
+#         self._find_min()
+#         popped_key = self.queue.pop(self.min_index)
+#         self.min_index = None
+#         return popped_key
+
+#     def _find_min(self):
+#         # Computes the index of the minimum element in the queue.
+#         #
+#         # This method may crash if called when the queue is empty.
+#         if self.min_index is not None:
+#             return
+#         min = self.queue[0]
+#         self.min_index = 0
+#         for i in xrange(1, len(self.queue)):
+#             key = self.queue[i]
+#             if key < min:
+#                 min = key
+#                 self.min_index = i
+
 
 class PriorityQueue:
     """Min-heap based priority queue implemenation."""
@@ -385,7 +441,7 @@ class PriorityQueue:
         self.queue.append(key)
         # Assign the new node its value, then trickle it up the heap to its correct
         # position.
-        self._decrease_key(len(self.queue) - 1, key)
+        self._decrease_key(-1, key)
 
     def min(self):
         """The smallest element in the queue.
@@ -543,7 +599,7 @@ class Simulation:
 
     def probe_all_gates(self):
         """Turns on probing for all gates in the simulation."""
-        for gate in self.circuit.gates.values():
+        for gate in self.circuit.gates.itervalues():
             if not gate.probed:
                 self.probe_all_undo_log.append(gate)
                 gate.probe()
