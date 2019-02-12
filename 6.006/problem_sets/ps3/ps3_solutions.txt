@@ -1,0 +1,63 @@
+Problem Set 3
+Ethan Fulbright
+
+===============
+FINAL GRADE ??
+===============
+
+3-1 [40/45 points]
+    .a 4 - AVL trees
+    .b 3 - O(log n)
+    .c 3 - O(log n)
+    .d 3 - O(log n)
+    .e 6 - Rank(h) - Rank(l) + 1
+    .f 5 - Rank(h) - Rank(l)
+[-1].g 5 - Rank(h) - Rank(l)
+[-1].h 4 - Rank(h) - Rank(l) - 1
+    .i 4 - # of nodes in subtree rooted at _node_
+[-1].j 1 - O(1) extra bits of storage per node
+    .k 2 - 1
+    .l 3 - 3
+    .m 4 - 6
+    .n 4 - 10
+[-2].o  INSERT - T [X]
+        DELETE - T [X]
+        ROTATE-LEFT - T
+        ROTATE-RIGHT - T
+        REBALANCE - T
+        HEAPIFY - F
+    .p 3 - O(log n)
+    .q 2 - lowest common ancestor
+    .r 3 - O(log n)
+    .s 8 - O(log n) + O(l)
+    .t 8 - O(log n) + O(l)
+    .u Proving LCA is correct:
+        Must return either node or NIL.
+            Starts at root.
+            Only two cases in until loop:
+                Either we examine the left subtree
+                Or we examine the right subtree
+            So, size of problem is strictly decreasing, since subtrees
+            by definition are smaller than their parents.
+            Thus LCA must return either a node or NIL if it reaches 
+            the bottom of the tree.
+        If it returns node, node must be least common ancestor.
+            In addition to NIL check, each iteration of until loop
+            checks whether l is in current node's left subtree AND 
+            h is in current node's right subtree.
+                If l is to the left of or equal to the current node
+                AND h is to the right of or equal to the current node
+                then the current node is a common ancestor of l AND h.
+                    It cannot be any smaller because then h would not
+                    be in its right subtree, making it not an ancestor
+                    of h.
+                    If it cannot be any smaller, then it is the least
+                    common ancestor.
+                If current node is a common ancestor, but could be: 
+                    smaller (that is, if h < current node) 
+                    or larger (that is, if l > current node)
+                    Then LCA compares l to current node and moves left
+                    if l < current node and right otherwise, reducing 
+                    the size of the problem.
+            Thus, IF it returns a node, that node must be the least common
+            ancestor.
