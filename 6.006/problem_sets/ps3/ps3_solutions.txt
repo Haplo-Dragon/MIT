@@ -61,3 +61,21 @@ FINAL GRADE ??
                     the size of the problem.
             Thus, IF it returns a node, that node must be the least common
             ancestor.
+3-2
+    .a Wire.intersects()
+    .b Wire.intersects() is called 187,590,314 times, according to the profiler output.
+    .c 
+        1 F
+        2 F
+        3 F
+        4 T
+        5 T
+    .d 1 - the wire is added to the range index
+    .e 2 - the wire is removed from the range index
+    .f 4 - nothing happens
+    .g 3 - a range index query is performed
+    .h 2 - the range index holds all the horizontal wires "stabbed" by the sweep line
+    .i 2 - the y coordinate of the wire's midpoint
+    .j RangeIndex.count()
+    .k RangeIndex.count() is called 20,000 times, according to the profiler output.
+    .l Implemented AVL trees. See circuit2.py

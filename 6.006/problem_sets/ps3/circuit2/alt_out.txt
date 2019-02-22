@@ -1,0 +1,386 @@
+Added node, index now has 1 nodes.
+Index has 1 nodes.
+Counted nodes between <key: -223.0 wire: None> and <key: -114.0 wire: None>, rank is 0.
+Index has 1 nodes.
+Counted nodes between <key: -2.0 wire: None> and <key: 4.0 wire: None>, rank is 0.
+Added node, index now has 2 nodes.
+Added node, index now has 3 nodes.
+Index has 3 nodes.
+Counted nodes between <key: -213.0 wire: None> and <key: 36.0 wire: None>, rank is 0.
+Index has 3 nodes.
+Counted nodes between <key: -24.0 wire: None> and <key: 98.0 wire: None>, rank is 1.
+Index has 3 nodes.
+Counted nodes between <key: 24.0 wire: None> and <key: 78.0 wire: None>, rank is 1.
+Added node, index now has 4 nodes.
+Added node, index now has 5 nodes.
+Added node, index now has 6 nodes.
+Added node, index now has 7 nodes.
+Index has 7 nodes.
+Counted nodes between <key: -307.0 wire: None> and <key: 92.0 wire: None>, rank is 3.
+Index has 7 nodes.
+Counted nodes between <key: -136.0 wire: None> and <key: 58.0 wire: None>, rank is 3.
+Added node, index now has 8 nodes.
+Added node, index now has 9 nodes.
+Added node, index now has 10 nodes.
+Index has 10 nodes.
+Counted nodes between <key: 307.0 wire: None> and <key: 460.0 wire: None>, rank is 1.
+Added node, index now has 11 nodes.
+Index has 11 nodes.
+Counted nodes between <key: 29.0 wire: None> and <key: 356.0 wire: None>, rank is 3.
+Added node, index now has 12 nodes.
+Added node, index now has 13 nodes.
+Added node, index now has 14 nodes.
+Added node, index now has 15 nodes.
+Index has 15 nodes.
+Counted nodes between <key: -81.0 wire: None> and <key: 116.0 wire: None>, rank is 6.
+Index has 15 nodes.
+Counted nodes between <key: -171.0 wire: None> and <key: 125.0 wire: None>, rank is 6.
+Added node, index now has 16 nodes.
+Added node, index now has 17 nodes.
+Removed node, index now has 16 nodes.
+Removed node, index now has 15 nodes.
+Added node, index now has 16 nodes.
+Index has 16 nodes.
+Counted nodes between <key: -317.0 wire: None> and <key: 110.0 wire: None>, rank is 6.
+Added node, index now has 17 nodes.
+Added node, index now has 18 nodes.
+Index has 18 nodes.
+Counted nodes between <key: -176.0 wire: None> and <key: 167.0 wire: None>, rank is 6.
+Added node, index now has 19 nodes.
+Added node, index now has 20 nodes.
+Added node, index now has 21 nodes.
+Index has 21 nodes.
+Counted nodes between <key: -326.0 wire: None> and <key: 450.0 wire: None>, rank is 14.
+Index has 21 nodes.
+Counted nodes between <key: -372.0 wire: None> and <key: 339.0 wire: None>, rank is 13.
+Removed node, index now has 20 nodes.
+Added node, index now has 21 nodes.
+Removed node, index now has 20 nodes.
+Index has 20 nodes.
+Counted nodes between <key: -35.0 wire: None> and <key: 468.0 wire: None>, rank is 10.
+Index has 20 nodes.
+Counted nodes between <key: -323.0 wire: None> and <key: 26.0 wire: None>, rank is 6.
+Added node, index now has 21 nodes.
+Added node, index now has 22 nodes.
+Added node, index now has 23 nodes.
+Added node, index now has 24 nodes.
+Added node, index now has 25 nodes.
+Removed node, index now has 24 nodes.
+Added node, index now has 25 nodes.
+Removed node, index now has 24 nodes.
+Added node, index now has 25 nodes.
+Index has 25 nodes.
+Counted nodes between <key: -162.0 wire: None> and <key: -13.0 wire: None>, rank is 4.
+Added node, index now has 26 nodes.
+Index has 26 nodes.
+Counted nodes between <key: -214.0 wire: None> and <key: -116.0 wire: None>, rank is 3.
+Index has 26 nodes.
+Counted nodes between <key: 104.0 wire: None> and <key: 117.0 wire: None>, rank is 1.
+Added node, index now has 27 nodes.
+Added node, index now has 28 nodes.
+Removed node, index now has 27 nodes.
+Added node, index now has 28 nodes.
+Added node, index now has 29 nodes.
+Added node, index now has 30 nodes.
+Removed node, index now has 29 nodes.
+Added node, index now has 30 nodes.
+Index has 30 nodes.
+Counted nodes between <key: 152.0 wire: None> and <key: 348.0 wire: None>, rank is 3.
+Index has 30 nodes.
+Counted nodes between <key: -304.0 wire: None> and <key: 297.0 wire: None>, rank is 17.
+Added node, index now has 31 nodes.
+Added node, index now has 32 nodes.
+Removed node, index now has 31 nodes.
+Added node, index now has 32 nodes.
+Removed node, index now has 31 nodes.
+Index has 31 nodes.
+Counted nodes between <key: -385.0 wire: None> and <key: -49.0 wire: None>, rank is 9.
+Added node, index now has 32 nodes.
+Added node, index now has 33 nodes.
+Added node, index now has 34 nodes.
+Index has 34 nodes.
+Counted nodes between <key: 280.0 wire: None> and <key: 325.0 wire: None>, rank is 0.
+Removed node, index now has 33 nodes.
+Added node, index now has 34 nodes.
+Removed node, index now has 33 nodes.
+Added node, index now has 34 nodes.
+Added node, index now has 35 nodes.
+Removed node, index now has 34 nodes.
+Removed node, index now has 33 nodes.
+Added node, index now has 34 nodes.
+Removed node, index now has 33 nodes.
+Added node, index now has 34 nodes.
+Index has 34 nodes.
+Counted nodes between <key: -298.0 wire: None> and <key: 230.0 wire: None>, rank is 18.
+Added node, index now has 35 nodes.
+Added node, index now has 36 nodes.
+Added node, index now has 37 nodes.
+Index has 37 nodes.
+Counted nodes between <key: -413.0 wire: None> and <key: 366.0 wire: None>, rank is 28.
+Index has 37 nodes.
+Counted nodes between <key: -11.0 wire: None> and <key: 268.0 wire: None>, rank is 8.
+Added node, index now has 38 nodes.
+Index has 38 nodes.
+Counted nodes between <key: -418.0 wire: None> and <key: -207.0 wire: None>, rank is 9.
+Removed node, index now has 37 nodes.
+Removed node, index now has 36 nodes.
+Added node, index now has 37 nodes.
+Removed node, index now has 36 nodes.
+Added node, index now has 37 nodes.
+Index has 37 nodes.
+Counted nodes between <key: -115.0 wire: None> and <key: 232.0 wire: None>, rank is 13.
+Added node, index now has 38 nodes.
+Index has 38 nodes.
+Counted nodes between <key: 49.0 wire: None> and <key: 127.0 wire: None>, rank is 2.
+Removed node, index now has 37 nodes.
+Removed node, index now has 36 nodes.
+Added node, index now has 37 nodes.
+Added node, index now has 38 nodes.
+Index has 38 nodes.
+Counted nodes between <key: -190.0 wire: None> and <key: 404.0 wire: None>, rank is 21.
+Index has 38 nodes.
+Counted nodes between <key: -390.0 wire: None> and <key: 113.0 wire: None>, rank is 21.
+Index has 38 nodes.
+Counted nodes between <key: -40.0 wire: None> and <key: 154.0 wire: None>, rank is 7.
+Index has 38 nodes.
+Counted nodes between <key: -490.0 wire: None> and <key: 445.0 wire: None>, rank is 37.
+Added node, index now has 39 nodes.
+Index has 39 nodes.
+Counted nodes between <key: -492.0 wire: None> and <key: -395.0 wire: None>, rank is 9.
+Added node, index now has 40 nodes.
+Removed node, index now has 39 nodes.
+Index has 39 nodes.
+Counted nodes between <key: -302.0 wire: None> and <key: -58.0 wire: None>, rank is 14.
+Added node, index now has 40 nodes.
+Added node, index now has 41 nodes.
+Index has 41 nodes.
+Counted nodes between <key: 311.0 wire: None> and <key: 392.0 wire: None>, rank is 1.
+Index has 41 nodes.
+Counted nodes between <key: -40.0 wire: None> and <key: 203.0 wire: None>, rank is 12.
+Added node, index now has 42 nodes.
+Index has 42 nodes.
+Counted nodes between <key: -38.0 wire: None> and <key: 109.0 wire: None>, rank is 7.
+Removed node, index now has 41 nodes.
+Added node, index now has 42 nodes.
+Index has 42 nodes.
+Counted nodes between <key: -337.0 wire: None> and <key: 10.0 wire: None>, rank is 19.
+Index has 42 nodes.
+Counted nodes between <key: -136.0 wire: None> and <key: 57.0 wire: None>, rank is 9.
+Added node, index now has 43 nodes.
+Removed node, index now has 42 nodes.
+Index has 42 nodes.
+Counted nodes between <key: 230.0 wire: None> and <key: 284.0 wire: None>, rank is 1.
+Removed node, index now has 41 nodes.
+Added node, index now has 42 nodes.
+Index has 42 nodes.
+Counted nodes between <key: -91.0 wire: None> and <key: -81.0 wire: None>, rank is 0.
+Index has 42 nodes.
+Counted nodes between <key: 112.0 wire: None> and <key: 253.0 wire: None>, rank is 6.
+Added node, index now has 43 nodes.
+Index has 43 nodes.
+Counted nodes between <key: -330.0 wire: None> and <key: 368.0 wire: None>, rank is 29.
+Index has 43 nodes.
+Counted nodes between <key: -258.0 wire: None> and <key: -56.0 wire: None>, rank is 14.
+Added node, index now has 44 nodes.
+Index has 44 nodes.
+Counted nodes between <key: -426.0 wire: None> and <key: -19.0 wire: None>, rank is 22.
+Index has 44 nodes.
+Counted nodes between <key: -296.0 wire: None> and <key: -211.0 wire: None>, rank is 2.
+Removed node, index now has 43 nodes.
+Removed node, index now has 42 nodes.
+Added node, index now has 43 nodes.
+Removed node, index now has 42 nodes.
+Removed node, index now has 41 nodes.
+Added node, index now has 42 nodes.
+Removed node, index now has 41 nodes.
+Added node, index now has 42 nodes.
+Added node, index now has 43 nodes.
+Index has 43 nodes.
+Counted nodes between <key: -417.0 wire: None> and <key: -237.0 wire: None>, rank is 8.
+Index has 43 nodes.
+Counted nodes between <key: -209.0 wire: None> and <key: 264.0 wire: None>, rank is 24.
+Added node, index now has 44 nodes.
+Added node, index now has 45 nodes.
+Added node, index now has 46 nodes.
+Added node, index now has 47 nodes.
+Removed node, index now has 46 nodes.
+Index has 46 nodes.
+Counted nodes between <key: -240.0 wire: None> and <key: 481.0 wire: None>, rank is 33.
+Index has 46 nodes.
+Counted nodes between <key: -395.0 wire: None> and <key: 294.0 wire: None>, rank is 33.
+Added node, index now has 47 nodes.
+Removed node, index now has 46 nodes.
+Removed node, index now has 45 nodes.
+Added node, index now has 46 nodes.
+Index has 46 nodes.
+Counted nodes between <key: -193.0 wire: None> and <key: -151.0 wire: None>, rank is 3.
+Added node, index now has 47 nodes.
+Removed node, index now has 46 nodes.
+Added node, index now has 47 nodes.
+Removed node, index now has 46 nodes.
+Added node, index now has 47 nodes.
+Index has 47 nodes.
+Counted nodes between <key: -230.0 wire: None> and <key: 296.0 wire: None>, rank is 28.
+Index has 47 nodes.
+Counted nodes between <key: -90.0 wire: None> and <key: 227.0 wire: None>, rank is 19.
+Index has 47 nodes.
+Counted nodes between <key: 78.0 wire: None> and <key: 494.0 wire: None>, rank is 15.
+Index has 47 nodes.
+Counted nodes between <key: 184.0 wire: None> and <key: 488.0 wire: None>, rank is 5.
+Removed node, index now has 46 nodes.
+Added node, index now has 47 nodes.
+Added node, index now has 48 nodes.
+Index has 48 nodes.
+Counted nodes between <key: -148.0 wire: None> and <key: 176.0 wire: None>, rank is 20.
+Removed node, index now has 47 nodes.
+Index has 47 nodes.
+Counted nodes between <key: -277.0 wire: None> and <key: 456.0 wire: None>, rank is 34.
+Removed node, index now has 46 nodes.
+Added node, index now has 47 nodes.
+Removed node, index now has 46 nodes.
+Removed node, index now has 45 nodes.
+Removed node, index now has 44 nodes.
+Index has 44 nodes.
+Counted nodes between <key: -419.0 wire: None> and <key: -168.0 wire: None>, rank is 14.
+Index has 44 nodes.
+Counted nodes between <key: -91.0 wire: None> and <key: 150.0 wire: None>, rank is 14.
+Index has 44 nodes.
+Counted nodes between <key: -70.0 wire: None> and <key: 75.0 wire: None>, rank is 7.
+Index has 44 nodes.
+Counted nodes between <key: -43.0 wire: None> and <key: 58.0 wire: None>, rank is 6.
+Index has 44 nodes.
+Counted nodes between <key: -83.0 wire: None> and <key: 185.0 wire: None>, rank is 16.
+Removed node, index now has 43 nodes.
+Index has 43 nodes.
+Counted nodes between <key: -54.0 wire: None> and <key: 353.0 wire: None>, rank is 17.
+Added node, index now has 44 nodes.
+Removed node, index now has 43 nodes.
+Index has 43 nodes.
+Counted nodes between <key: -394.0 wire: None> and <key: 221.0 wire: None>, rank is 30.
+Removed node, index now has 42 nodes.
+Index has 42 nodes.
+Counted nodes between <key: -53.0 wire: None> and <key: 238.0 wire: None>, rank is 15.
+Index has 42 nodes.
+Counted nodes between <key: 139.0 wire: None> and <key: 276.0 wire: None>, rank is 5.
+Added node, index now has 43 nodes.
+Removed node, index now has 42 nodes.
+Index has 42 nodes.
+Counted nodes between <key: 115.0 wire: None> and <key: 403.0 wire: None>, rank is 12.
+Removed node, index now has 41 nodes.
+Removed node, index now has 40 nodes.
+Added node, index now has 41 nodes.
+Index has 41 nodes.
+Counted nodes between <key: 163.0 wire: None> and <key: 164.0 wire: None>, rank is 0.
+Removed node, index now has 40 nodes.
+Removed node, index now has 39 nodes.
+Removed node, index now has 38 nodes.
+Index has 38 nodes.
+Counted nodes between <key: -410.0 wire: None> and <key: 293.0 wire: None>, rank is 27.
+Removed node, index now has 37 nodes.
+Index has 37 nodes.
+Counted nodes between <key: -326.0 wire: None> and <key: 246.0 wire: None>, rank is 25.
+Index has 37 nodes.
+Counted nodes between <key: -372.0 wire: None> and <key: -292.0 wire: None>, rank is 1.
+Removed node, index now has 36 nodes.
+Removed node, index now has 35 nodes.
+Index has 35 nodes.
+Counted nodes between <key: -66.0 wire: None> and <key: 237.0 wire: None>, rank is 14.
+Removed node, index now has 34 nodes.
+Index has 34 nodes.
+Counted nodes between <key: -264.0 wire: None> and <key: 82.0 wire: None>, rank is 14.
+Removed node, index now has 33 nodes.
+Added node, index now has 34 nodes.
+Index has 34 nodes.
+Counted nodes between <key: -107.0 wire: None> and <key: 374.0 wire: None>, rank is 20.
+Index has 34 nodes.
+Counted nodes between <key: 140.0 wire: None> and <key: 268.0 wire: None>, rank is 4.
+Removed node, index now has 33 nodes.
+Removed node, index now has 32 nodes.
+Removed node, index now has 31 nodes.
+Index has 31 nodes.
+Counted nodes between <key: -3.0 wire: None> and <key: 434.0 wire: None>, rank is 17.
+Added node, index now has 32 nodes.
+Removed node, index now has 31 nodes.
+Removed node, index now has 30 nodes.
+Removed node, index now has 29 nodes.
+Removed node, index now has 28 nodes.
+Index has 28 nodes.
+Counted nodes between <key: -196.0 wire: None> and <key: -191.0 wire: None>, rank is 0.
+Removed node, index now has 27 nodes.
+Removed node, index now has 26 nodes.
+Removed node, index now has 25 nodes.
+Removed node, index now has 24 nodes.
+Removed node, index now has 23 nodes.
+Index has 23 nodes.
+Counted nodes between <key: -44.0 wire: None> and <key: 54.0 wire: None>, rank is 4.
+Removed node, index now has 22 nodes.
+Index has 22 nodes.
+Counted nodes between <key: -494.0 wire: None> and <key: 440.0 wire: None>, rank is 22.
+Removed node, index now has 21 nodes.
+Index has 21 nodes.
+Counted nodes between <key: -400.0 wire: None> and <key: 324.0 wire: None>, rank is 15.
+Index has 21 nodes.
+Counted nodes between <key: 316.0 wire: None> and <key: 396.0 wire: None>, rank is 3.
+Removed node, index now has 20 nodes.
+Index has 20 nodes.
+Counted nodes between <key: -62.0 wire: None> and <key: 458.0 wire: None>, rank is 12.
+Index has 20 nodes.
+Counted nodes between <key: -445.0 wire: None> and <key: -44.0 wire: None>, rank is 8.
+Index has 20 nodes.
+Counted nodes between <key: -449.0 wire: None> and <key: -58.0 wire: None>, rank is 8.
+Index has 20 nodes.
+Counted nodes between <key: -90.0 wire: None> and <key: 224.0 wire: None>, rank is 8.
+Removed node, index now has 19 nodes.
+Removed node, index now has 18 nodes.
+Removed node, index now has 17 nodes.
+Removed node, index now has 16 nodes.
+Index has 16 nodes.
+Counted nodes between <key: -341.0 wire: None> and <key: 225.0 wire: None>, rank is 10.
+Index has 16 nodes.
+Counted nodes between <key: 55.0 wire: None> and <key: 157.0 wire: None>, rank is 2.
+Removed node, index now has 15 nodes.
+Index has 15 nodes.
+Counted nodes between <key: -95.0 wire: None> and <key: 289.0 wire: None>, rank is 6.
+Index has 15 nodes.
+Counted nodes between <key: 23.0 wire: None> and <key: 52.0 wire: None>, rank is 1.
+Index has 15 nodes.
+Counted nodes between <key: -460.0 wire: None> and <key: 76.0 wire: None>, rank is 9.
+Removed node, index now has 14 nodes.
+Removed node, index now has 13 nodes.
+Removed node, index now has 12 nodes.
+Index has 12 nodes.
+Counted nodes between <key: -230.0 wire: None> and <key: 416.0 wire: None>, rank is 10.
+Index has 12 nodes.
+Counted nodes between <key: -454.0 wire: None> and <key: -123.0 wire: None>, rank is 3.
+Removed node, index now has 11 nodes.
+Removed node, index now has 10 nodes.
+Index has 10 nodes.
+Counted nodes between <key: -391.0 wire: None> and <key: 434.0 wire: None>, rank is 10.
+Removed node, index now has 9 nodes.
+Index has 9 nodes.
+Counted nodes between <key: -436.0 wire: None> and <key: -407.0 wire: None>, rank is 0.
+Index has 9 nodes.
+Counted nodes between <key: -318.0 wire: None> and <key: -240.0 wire: None>, rank is 0.
+Added node, index now has 10 nodes.
+Index has 10 nodes.
+Counted nodes between <key: 308.0 wire: None> and <key: 427.0 wire: None>, rank is 2.
+Index has 10 nodes.
+Counted nodes between <key: -499.0 wire: None> and <key: 457.0 wire: None>, rank is 10.
+Removed node, index now has 9 nodes.
+Index has 9 nodes.
+Counted nodes between <key: -118.0 wire: None> and <key: 7.0 wire: None>, rank is 0.
+Index has 9 nodes.
+Counted nodes between <key: -350.0 wire: None> and <key: 233.0 wire: None>, rank is 8.
+Removed node, index now has 8 nodes.
+Removed node, index now has 7 nodes.
+Removed node, index now has 6 nodes.
+Removed node, index now has 5 nodes.
+Index has 5 nodes.
+Counted nodes between <key: -310.0 wire: None> and <key: 413.0 wire: None>, rank is 5.
+Removed node, index now has 4 nodes.
+Removed node, index now has 3 nodes.
+Removed node, index now has 2 nodes.
+Removed node, index now has 1 nodes.
+Index has 1 nodes.
+Counted nodes between <key: 3.0 wire: None> and <key: 74.0 wire: None>, rank is 0.
+Removed node, index now has 0 nodes.
