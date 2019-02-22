@@ -2,7 +2,7 @@ Problem Set 3
 Ethan Fulbright
 
 ===============
-FINAL GRADE ??
+FINAL GRADE 92
 ===============
 
 3-1 [40/45 points]
@@ -61,14 +61,14 @@ FINAL GRADE ??
                     the size of the problem.
             Thus, IF it returns a node, that node must be the least common
             ancestor.
-3-2
+3-2 [52/55 points]
     .a Wire.intersects()
     .b Wire.intersects() is called 187,590,314 times, according to the profiler output.
     .c 
-        1 F
-        2 F
+[-1]    1 F
+[-1]    2 F
         3 F
-        4 T
+[-1]    4 T
         5 T
     .d 1 - the wire is added to the range index
     .e 2 - the wire is removed from the range index
