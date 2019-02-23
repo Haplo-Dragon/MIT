@@ -1,0 +1,38 @@
+Problem Set 4
+Ethan Fulbright
+
+==============
+FINAL GRADE ??
+==============
+
+4-1 [??/35 points]
+    .a 3 - No, because reordering the words in a string won't produce a different hash.
+    .b 4 - Both are necessary to maintain performance and correctness.
+    .c 3 - Theta(n)
+    .d  Although this approach would technically work, it has several important drawbacks.
+
+        The most important one is that as the table gets larger, the cost of resizing it
+        gets larger as well. This means that the resizing must happen less and less often
+        in order to be spread out evenly among the other insertions. If we only add a
+        constant to the size each time, the size of the table will quickly outgrow the
+        frequency of the resizings. That is, at the ith resizing, the size of the table
+        will be ik + 1, but we will only get k cheap insertions before having to resize
+        again, to (i + 1)k + 1.
+
+        Using a constant has enormous practical drawbacks as well, which become apparent
+        when we consider a very large table (say, billions of items). The size of this
+        table IMMENSELY outweighs any reasonable choice of the constant k, so that when
+        we look at all of the insertion operations as a whole, the vast majority of them
+        are resize operations, and only a tiny fraction are cheap insertions.
+
+4-2
+    .a 1 -  Many insertions right after creation, and then mostly lookups.
+    .b 3 -  A large minimum size and a growth rate of 4 (b/c we want the dict to be
+            as sparse as possible to ensure O(1) lookups as often as possible).
+
+4-3
+    .a 
+    .b 
+    .c 
+    .d 
+    .e 
