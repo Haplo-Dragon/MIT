@@ -9,6 +9,8 @@ matplotlib = "*"
 black = "*"
 pytz = "*"
 "uncompyle6" = "*"
+pillow = "*"
+six = "*"
 
 [dev-packages]
 
