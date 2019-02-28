@@ -2,13 +2,13 @@ Problem Set 4
 Ethan Fulbright
 
 ==============
-FINAL GRADE ??
+FINAL GRADE 91.25
 ==============
 
-4-1 [??/35 points]
+4-1 [26.25/35 points]
     .a 3 - No, because reordering the words in a string won't produce a different hash.
     .b 4 - Both are necessary to maintain performance and correctness.
-    .c 3 - Theta(n)
+[X] .c 3 - Theta(n)
     .d  Although this approach would technically work, it has several important drawbacks.
 
         The most important one is that as the table gets larger, the cost of resizing it
@@ -25,12 +25,12 @@ FINAL GRADE ??
         we look at all of the insertion operations as a whole, the vast majority of them
         are resize operations, and only a tiny fraction are cheap insertions.
 
-4-2
+4-2 [10/10 points]
     .a 1 -  Many insertions right after creation, and then mostly lookups.
     .b 3 -  A large minimum size and a growth rate of 4 (b/c we want the dict to be
             as sparse as possible to ensure O(1) lookups as often as possible).
 
-4-3
+4-3 [55/55 points]
     .a See dnaseq.py.
     .b See dnaseq.py.
     .c See dnaseq.py.
