@@ -31,8 +31,9 @@ FINAL GRADE ??
             as sparse as possible to ensure O(1) lookups as often as possible).
 
 4-3
-    .a 
-    .b 
-    .c 
-    .d 
-    .e 
+    .a See dnaseq.py.
+    .b See dnaseq.py.
+    .c See dnaseq.py.
+    .d See dnaseq.py.
+    .e See paternal_maternal.png, paternal_chimp.png, paternal_dog.png, 
+       and paternal_mouse.png.

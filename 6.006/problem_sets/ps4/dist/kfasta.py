@@ -8,6 +8,7 @@
 
 import unittest
 
+
 # An iterator that returns the nucleotide sequence stored in the given FASTA file.
 class FastaSequence:
     def __init__(self, filename):

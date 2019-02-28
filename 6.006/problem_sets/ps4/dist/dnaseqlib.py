@@ -10,6 +10,7 @@ except ImportError:
     print("Please check README.txt for instructions on how to install PIL.")
     sys.exit(-1)
 
+
 # Produces hash values for a rolling sequence.
 class RollingHash:
     def __init__(self, s):
@@ -60,7 +61,7 @@ class Array2D:
         return max(self.arr)
 
 
-### High-level driver code.  You shouldn't have to tweak this. ###
+# High-level driver code.  You shouldn't have to tweak this. ###
 
 # Given a sequence of matches, produces a w-by-h image and saves it to filename.
 # The remapping function takes values in (0,1) and returns values in (0,1); the default
