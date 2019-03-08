@@ -1,0 +1,105 @@
+Practice Quiz 1
+Ethan Fulbright
+
+================
+FINAL GRADE 72.9 [87.5/120 points]
+================
+
+1   [15/21 points]
+    .a F - the height of a BALANCED BST is O(lg n), but a binary search tree could have
+       height O(n).
+[X] .b T - [OOPS, DIDN'T READ THAT IT WAS THETA(lg n) rotations. That would mean lg n 
+       rotations MINIMUM, which isn't true, because sometimes we can insert with 0
+       rotations.]
+    .c T - A max heap is a balanced binary tree, so the leaves' height can differ by at
+       most 1.
+[X] .d F - the tree must have the property that heights of children of any node differ
+       by at most 1, NOT at most 2.
+    .e T - Holding the exponent constant and changing the number that is being raised
+       to that exponent grows MUCH more slowly than holding the number constant and
+       changing the exponent. Exponentiation quickly outstrips raising to a constant
+       power.
+    .f T - This would require finding m keys in |U| that all hash to the same value.
+    .g T - If they're distinct. The decision tree for sorting 5 elements must have 120
+        leaves, since there are 5!=120 permutations of the elements. Since the decision
+        tree is binary, in order to get at least 120 leaves requires a height of h where
+        2^h = 120. Since 2^7=128, a height of 7 gives us enough leaves in our decision
+        tree. This means that the longest path (most comparisons) from the unsorted
+        state (root) to the sorted state (leaf) is at most 7.
+
+2   [25/40 points]
+    .a 
+        .I  O(n)
+[X]     .II O(n) [Merge sort has the same runtime no matter what - O(n lg n)]
+    .b
+        .I  Theta(n^2 lg n)
+        .II Theta(n)
+    .c
+        .I  In a BST the key of a node is >= the keys in its left subtree and
+            <= the keys in its right subtree.
+        .II In a max heap the key of a node is > the keys of its children.
+    .d
+        .I  Chaining - n^2 - technically, you could put them all in one slot.
+        .II Linear probing - n - Since we're filling slots linearly and there's no
+            chaining, a table of size n can hold only n keys.
+        .III Quadratic probing - n - Again, no chaining means we can hold only n keys.
+    .e  4,2,6,1,3,5,7. Although the order of {2,6} is irrelevant, as is the order of
+        {1,3,5,7}.
+[X] .f ((m-1)(m-2)) / m [ ((m-2)/m)^3 , because we're inserting 3 keys independently of
+        each other, and they must all land outside of slots 0 and 1.]
+[X] .g  f4, f2, f1, f3 [f2,f4,f3,f1 - n^(log n) > n^c for ALL constant c, 
+        including n^(3 + sin(n))]
+    .h If you replace a removed entry with NIL, a later search may fail early because
+        it the slot marked NIL was occupied when the search target key was inserted,
+        but is now filled with NIL. This will cause the search to terminate early,
+        and answer (incorrectly) that the target key is not in the table.
+
+3   [17.5/20 points]
+    .a 24
+    .b [40 17 39 15 14 22 37 3 6 12 11] 
+                    40
+                     ^
+                  17  39
+                  ^    ^
+                15 14 22 37
+                ^   ^  
+              3  6 12 11
+
+    .c            10
+                 ^
+               5   14
+               ^    ^
+             3  6 11  17
+[X] .d insert(12) delete(3)
+      [Got insert correct, over-analyzed delete.]
+
+4   [4/10 points]
+    O(n)  [O(n^2)]
+[X]
+
+5   [15/15 points]
+    First, augment the tree to maintain an average field in every node that stores
+    the average of the nodes in the subtree rooted at that node. This can be calculated
+    with a constant number of pointer operations by considering the average field of
+    each of the node's subtrees. The average of a node with no children is simply the
+    key of the node itself.
+    During insertion we will set the average of the new leaf node to be its own key
+    value. Then we'll rotate, if necessary.
+    During rotation, a constant number of pointer changes can be made to update the
+    average field of any changed nodes.
+
+6   [11/14 points]
+    Absolute best possible performance is O(n^2), because we have to look at each letter.
+    Might actually be O(n^2 * m), because we have to check each letter for each of the m
+    words.
+
+    Start by computing the hashes of all m words, as well as the hashes of all m words
+    backwards. This will give us something to compare to.
+
+    Rolling hashes seem well-suited to this problem. The general idea is to slide a
+    l x l window across the grid, comparing its hashes to the target hashes. If we
+    construct this window by computing n vertical hashes, each of height l, we can slide
+    them one letter down in O(1) time. 
+    This will run in O(n(n - l + 1))) time, which will result in O(n^2) time for the
+    entire algorithm.
+
