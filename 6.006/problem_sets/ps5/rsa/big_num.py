@@ -112,7 +112,7 @@ class BigNum(object):
 
     def __lt__(self, other):
         """< for BigNums.
-    
+
     Comparing BigNums normalizes them."""
         if not isinstance(other, BigNum):
             return NotImplemented  # BigNums can only be compared to other BigNums.
@@ -129,7 +129,7 @@ class BigNum(object):
 
     def __le__(self, other):
         """<= for BigNums.
-    
+
     Comparing BigNums normalizes them.
     """
         if not isinstance(other, BigNum):
@@ -147,7 +147,7 @@ class BigNum(object):
 
     def __gt__(self, other):
         """> for BigNums.
-    
+
     Comparing BigNums normalizes them.
     """
         if not isinstance(other, BigNum):
@@ -257,7 +257,36 @@ class BigNum(object):
         """
     Slow method for multiplying two numbers w/ good constant factors.
     """
-        return self.fast_mul(other)
+        # Get correct number of digits for result.
+        in_digits = max(len(self.d), len(other.d))
+
+        # Special case 1-digit multiplication for speed.
+        if in_digits == 1:
+            product = self.d[0] * other.d[0]
+            return BigNum([product.lsb(), product.msb()], 2, True)
+
+        # Allocate space for result.
+        result = [Byte.zero()] * (in_digits * 2)
+
+        for self_i in range(len(self.d)):
+            # Reset carry.
+            carry = Byte.zero()
+            for other_j in range(len(other.d)):
+                pos = self_i + other_j
+                # Multiply self digit and other digit.
+                digit = \
+                    self.d[self_i] * other.d[other_j] + \
+                    Word.from_byte(result[pos]) + \
+                    Word.from_byte(carry)
+                # Store result.
+                result[pos] = digit.lsb()
+                # Calculate carry (if necessary).
+                carry = digit.msb()
+            # Final carry for last digit of result.
+            result[self_i + in_digits] = carry
+
+        # Create a BigNum from the calculated digits and return it.
+        return BigNum(result, None, True)
 
     def fast_mul(self, other):
         """
@@ -318,7 +347,33 @@ class BigNum(object):
         """
     Slow method for dividing two numbers w/ good constant factors.
     """
-        return self.fast_divmod(other)
+        if other == BigNum.zero():
+            raise ValueError("Division by zero is undefined.")
+
+        # Get correct number of digits for result.
+        in_digits = max(len(self.d), len(other.d))
+
+        # Special-case division by 1 for speed.
+        if len(other.d) == 1 and other.d[0] == Byte.one():
+            return (self, BigNum.zero())
+
+        quotient = BigNum.zero()
+        remainder = BigNum(self.d, None, True)
+
+        # s[i] = other * 2^i
+        s = [BigNum(other.d, None, True)]
+        i = 0
+        while (len(s[i].d) <= in_digits) and (s[i] <= self):
+            i += 1
+            s.append(s[i - 1] + s[i - 1])
+
+        for j in range(i - 1, -1, -1):
+            quotient = quotient + quotient
+            if remainder >= s[j]:
+                remainder = remainder - s[j]
+                quotient += BigNum.one()
+
+        return (quotient, remainder)
 
     def fast_divmod(self, other):
         """

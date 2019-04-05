@@ -26,7 +26,7 @@ class Byte(object):
     @staticmethod
     def from_hex(hex_string):
         """A byte initialized to the value in the given hexadecimal number.
-    
+
     Args:
       string: a 2-character string containing the hexadecimal digits 0-9, a-f,
               and/or A-F
@@ -112,7 +112,7 @@ class Byte(object):
 
     def __init__(self, value):
         """Do not call the Byte constructor directly.
-    
+
     Use Byte.zero(), Byte.one(), or Byte.from_hex() instead.
     """
         if len(Byte._bytes) == 0x100:  # True after all Byte singletons are created.
@@ -186,7 +186,7 @@ class Word(object):
               and/or A-F
     """
         if len(hex_string) != 4:
-            raise ValueError("Invalid hexadecimal string")
+            raise ValueError("Invalid hexadecimal string " + hex_string)
         return Word.from_bytes(
             Byte.from_hex(hex_string[0:2]), Byte.from_hex(hex_string[2:4])
         )

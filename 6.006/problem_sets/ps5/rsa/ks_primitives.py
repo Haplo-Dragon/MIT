@@ -214,7 +214,7 @@ class Word(object):
               and/or A-F
     """
         if len(hex_string) != 4:
-            raise ValueError("Invalid hexadecimal string")
+            raise ValueError("Invalid hexadecimal string: {}".format(hex_string))
         return Word.from_bytes(
             Byte.from_hex(hex_string[0:2]), Byte.from_hex(hex_string[2:4])
         )
