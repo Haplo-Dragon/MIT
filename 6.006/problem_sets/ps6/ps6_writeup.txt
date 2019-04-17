@@ -1,0 +1,50 @@
+Problem Set 6
+Ethan Fulbright
+
+=============
+FINAL GRADE  
+=============
+
+6-1
+    The desired running time and the k constraint strongly imply BFS.
+
+    compute_strength(source_user, adjacency_list, k):
+        # Initializations are all O(1)
+        level = {source_user: 0}
+        parent = {source_user: None}
+        strength = {source_user: 1}
+        i = 1
+        frontier = [source_user]
+
+        # We're only interested in potential friends who are k edges or fewer away.
+        while frontier and i <= k:                  # At most O(k)
+            next = []
+            for user in frontier:
+                for friend in adjacency_list[user]:
+                    if friend not in level:
+                        level[friend] = i
+                        parent[friend] = user
+                        # Add to next only if we haven't seen this friend before, so we
+                        # visit each node at most once.
+                        next.append(friend)
+
+                    # We relax edges just like in Dijkstra, except now we're looking
+                    # for the strongest connection (i.e., the highest number).
+                    if friend not in strength:
+                        # It's the first time we've seen this node. Its strength will
+                        # be the edgerank of the edge we're following times the previous
+                        # node's strength.
+                        strength[friend] = strength[user] * ER(user, friend)
+                    else:
+                        if strength[friend] < strength[user] * ER(user, friend):
+                            # We found a stronger connection.
+                            strength[friend] = strength[user] * ER(user, friend)
+                            parent[friend] = user
+            frontier = next
+            i += 1
+
+    We add each node to the search frontier at most once, but we examine edge strengths
+    regardless of whether or not we've already seen that particular node (because we want
+    to find stronger connections for old nodes, if they exist). So, we'll do at most k
+    iterations over these edges, extending our running time from the base BFS running time
+    of O(V+E) to O(V + kE).
