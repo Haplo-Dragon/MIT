@@ -48,3 +48,65 @@ FINAL GRADE
     to find stronger connections for old nodes, if they exist). So, we'll do at most k
     iterations over these edges, extending our running time from the base BFS running time
     of O(V+E) to O(V + kE).
+
+6-2
+    .a
+        Topologically sorting the graph of libraries and dependencies will result in a
+        usable installation order. Topological sort is generally accomplished on a DAG by
+        running DFS and outputting the reverse of the nodes' finishing times. 
+        First we'll have to build a graph from the V libraries and their E dependencies,
+        including an adjacency list for each vertex. We'll also need a list of libraries.
+        Because this is DFS, it is O(V+E), as inserting libraries into the order is O(1)
+        and reversing the order is O(V) time.
+
+        Like so:
+
+        parent = {s: None}
+        order = []
+
+        DFS(libraries, adjacency_list):
+            parent = {}
+            for vertex in libraries:
+                if vertex not in parent:
+                    parent[vertex] = None
+                    DFS_Visit(libraries, adjacency_list, vertex)
+            order.reverse()
+            return order
+
+        DFS_Visit(libraries, adjacency_list, source_vertex):
+            for vertex in adjacency_list(source_vertex):
+                if vertex not in parent:
+                    parent[vertex] = source_vertex
+                    DFS_Visit(libraries, adjacency_list, vertex)
+            order.append(vertex)
+
+    .b
+        Imagine that the process detailed in 6-2(a) is a subroutine called TOPO_SORT()
+        which takes the graph (represented as a list of vertices and an adjacency list)
+        as input. A slight modification of this subroutine will achieve the desired
+        result. Essentially, because only P libraries still need to be installed, we
+        can trim our topological sort procedure to skip libraries which are already
+        installed. Thanks to the O(1) dictionary lookup, this is relatively simple:
+
+        # pre_installed is a dict containing the libraries we've already installed.
+        parent = {s: None}
+        order = []
+
+        DFS(libraries, adjacency_list):
+            parent = {}
+            for vertex in libraries:
+                # This check is O(1), and ensures we only recurse on the P libraries
+                # that have yet to be installed.
+                if vertex not in pre_installed:
+                    if vertex not in parent:
+                        parent[vertex] = None
+                        DFS_Visit(libraries, adjacency_list, vertex)
+            order.reverse()
+            return order
+
+        DFS_Visit(libraries, adjacency_list, source_vertex):
+            for vertex in adjacency_list(source_vertex):
+                if vertex not in parent:
+                    parent[vertex] = source_vertex
+                    DFS_Visit(libraries, adjacency_list, vertex)
+            order.append(vertex)
