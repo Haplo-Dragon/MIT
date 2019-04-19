@@ -90,6 +90,6 @@ class PriorityQueue:
                 raise ValueError("Right child is smaller than parent.")
             i += 1
 
-        for key, index in list(self.key_index.items()):
+        for key, index in self.key_index.items():
             if self.heap[index] is not key:
                 raise ValueError("Key index mapping is wrong.")

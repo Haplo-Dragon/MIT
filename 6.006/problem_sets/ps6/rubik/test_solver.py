@@ -4,6 +4,7 @@ import solver
 import rubik
 import sys
 
+
 class TestSolver(unittest.TestCase):
     def testShortestPath0(self):
         """Length 0 path."""
@@ -52,7 +53,32 @@ class TestSolver(unittest.TestCase):
 
     def testshortestPath14(self):
         """Length 14 path."""
-        start = (6, 7, 8, 20, 18, 19, 3, 4, 5, 16, 17, 15, 0, 1, 2, 14, 12, 13, 10, 11, 9, 21, 22, 23)
+        start = (
+            6,
+            7,
+            8,
+            20,
+            18,
+            19,
+            3,
+            4,
+            5,
+            16,
+            17,
+            15,
+            0,
+            1,
+            2,
+            14,
+            12,
+            13,
+            10,
+            11,
+            9,
+            21,
+            22,
+            23,
+        )
         end = rubik.I
         ans = solver.shortest_path(start, end)
         self.assertEqual(len(ans), 14)
@@ -60,7 +86,32 @@ class TestSolver(unittest.TestCase):
 
     def testshortestPathBad(self):
         """No solution."""
-        start = (7, 8, 6, 20, 18, 19, 3, 4, 5, 16, 17, 15, 0, 1, 2, 14, 12, 13, 10, 11, 9, 21, 22, 23)
+        start = (
+            7,
+            8,
+            6,
+            20,
+            18,
+            19,
+            3,
+            4,
+            5,
+            16,
+            17,
+            15,
+            0,
+            1,
+            2,
+            14,
+            12,
+            13,
+            10,
+            11,
+            9,
+            21,
+            22,
+            23,
+        )
         end = rubik.I
         ans = solver.shortest_path(start, end)
         self.assertEqual(ans, None)
@@ -71,6 +122,7 @@ class TestSolver(unittest.TestCase):
             current = rubik.perm_apply(move, current)
         self.assertEqual(current, end)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     suite = unittest.TestLoader().loadTestsFromTestCase(TestSolver)
     unittest.TextTestRunner(verbosity=2).run(suite)
