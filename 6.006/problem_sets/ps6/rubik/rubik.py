@@ -56,7 +56,7 @@ ryg = fdl = 6  # (2-nd cubie; front face)
 ygr = dlf = 7  # (2-nd cubie; down face)
 gry = lfd = 8  # (2-nd cubie; left face)
 
-rby = frd = 9  #  (3-rd cubie; front face)
+rby = frd = 9   # (3-rd cubie; front face)
 byr = rdf = 10  # (3-rd cubie; right face)
 yrb = dfr = 11  # (3-rd cubie; down face)
 
@@ -91,7 +91,7 @@ the color at position j moves to position i.
 """
 
 ####################################################
-### Permutation operations
+# Permutation operations
 ####################################################
 
 
@@ -127,7 +127,7 @@ def perm_to_string(p):
 
 
 ###################################################
-### Make standard permutations of faces
+# Make standard permutations of faces
 ###################################################
 # Identity: equal to (0, 1, 2, ..., 23).
 I = (
