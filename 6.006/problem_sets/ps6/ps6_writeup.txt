@@ -1,11 +1,11 @@
 Problem Set 6
 Ethan Fulbright
 
-=============
-FINAL GRADE  
-=============
+================
+FINAL GRADE 95.8 
+================
 
-6-1
+6-1 [25/30 points]
     The desired running time and the k constraint strongly imply BFS.
 
     compute_strength(source_user, adjacency_list, k):
@@ -49,7 +49,7 @@ FINAL GRADE
     iterations over these edges, extending our running time from the base BFS running time
     of O(V+E) to O(V + kE).
 
-6-2
+6-2 [30/30 points]
     .a
         Topologically sorting the graph of libraries and dependencies will result in a
         usable installation order. Topological sort is generally accomplished on a DAG by
