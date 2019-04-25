@@ -3,7 +3,7 @@
 
 class PriorityQueue:
     """Min-heap-based priority queue, using 1-based indexing. Adapted from CLRS.
-    
+
     Augmented to include a map of keys to their indices in the heap so that
     key lookup is constant time and decrease_key(key) is O(log n) time.
     """
@@ -23,7 +23,7 @@ class PriorityQueue:
         self.heap[i] = key
 
     def decrease_key(self, key):
-        """Decreases the value of the key if it is in the priority queue and 
+        """Decreases the value of the key if it is in the priority queue and
         maintains the heap property."""
         index = self.key_index[key]
         if index:
@@ -47,7 +47,7 @@ class PriorityQueue:
 
     def _decrease_key(self, i, key):
         """Decreases key at a give index.
-        
+
         Args:
             i: index of the key.
             key: key with decreased value.

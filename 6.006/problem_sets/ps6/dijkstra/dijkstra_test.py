@@ -21,11 +21,11 @@ class DijkstraTest(unittest.TestCase):
 
     def _cmp_files(self, file, lines):
         """Compares the result with the gold result.
-        
+
         Args:
             file: gold result file.
             lines: result in lines for testing.
-            
+
         Returns:
             True if the result is same as the gold result; False otherwise
         """

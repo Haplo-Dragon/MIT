@@ -9,7 +9,7 @@ from priority_queue import *
 
 
 def distance(node1, node2):
-    """Returns the distance between node1 and node2, ignoring the Earth's 
+    """Returns the distance between node1 and node2, ignoring the Earth's
     curvature.
     """
     latitude_diff = node1.latitude - node2.latitude
@@ -18,7 +18,7 @@ def distance(node1, node2):
 
 
 def distance_curved(node1, node2):
-    """Returns the distance between node1 and node2, including the Earth's 
+    """Returns the distance between node1 and node2, including the Earth's
     curvature.
     """
     A = node1.latitude * pi / 10 ** 6 / 180
@@ -81,11 +81,11 @@ class Network(object):
 
     def verify_path(self, path, source, destination):
         """Verifies that path is a valid path from source to destination.
-        
+
         Returns:
             True if the path is valid such that it uses only edges in the edge
             set.
-            
+
         Raises:
             ValueError: if the first node and the last node do not match source
                 and destination respectively or if the edge in not the the edge
@@ -93,13 +93,11 @@ class Network(object):
         """
         if source != path[0]:
             raise ValueError(
-                "First node on a path is different form the \
-                              source."
+                "First node on a path is different from the source."
             )
         if destination != path[-1]:
             raise ValueError(
-                "Last node on a path is different form the \
-                              destination."
+                "Last node on a path is different from the destination."
             )
         for i in range(len(path) - 1):
             if (path[i], path[i + 1]) not in self.edge_set and (
@@ -107,18 +105,17 @@ class Network(object):
                 path[i],
             ) not in self.edge_set:
                 raise ValueError(
-                    "Adjacent nodes in path have no edge between \
-                                  them"
+                    "Adjacent nodes in path have no edge between them."
                 )
         return True
 
     def node_by_name(self, city, state):
         """Returns the first node that matches specified location.
-        
+
         Args:
             city: the description of the node should include city.
             state: the state of the node should match state.
-        
+
         Returns:
             The node if it exists, or None otherwise.
         """
@@ -158,7 +155,7 @@ class PathFinder(object):
 
     def __init__(self, network, source, destination):
         """Creates a PathFinder for the network with source and destination.
-        
+
         Args:
             network: the network on which paths should be found.
             source: source of the path.
@@ -169,11 +166,11 @@ class PathFinder(object):
         self.destination = destination
 
     def shortest_path(self, weight):
-        """Returns a PathResult for the shortest path from source to destination. 
-        
-        Args: 
+        """Returns a PathResult for the shortest path from source to destination.
+
+        Args:
             weight: weight function to compute edge weights.
-            
+
         Returns:
             PathResult for the shortest path or None if path is empty.
         """
@@ -194,35 +191,92 @@ class PathFinder(object):
         """Performs Dijkstra's algorithm until it finds the shortest
         path from source to destination in the graph with nodes and edges.
         Assumes that all weights are non-negative.
-    
+
         At the end of the algorithm:
         - node.visited is True if the node is visited, False otherwise.
         (Note: node is visited if the shortest path to it is computed.)
-    
+
         Args:
-            weight: function for calculating the weight of edge (u, v). 
+            weight: function for calculating the weight of edge (u, v).
             nodes: list of all nodes in the network.
             source: the source node in the network.
             destination: the destination node in the network.
-         
+
         Returns:
-            A tuple: (the path as a list of nodes from source to destination, 
+            A tuple: (the path as a list of nodes from source to destination,
                       the number of visited nodes)
         """
-        return NotImplemented
+        # Set distance of all nodes (except source) to infinity. Distance to source is 0.
+        for node in nodes:
+            if node == source:
+                node.distance = 0
+            else:
+                node.distance = inf
+
+        # Place all nodes into a minimum priority queue.
+        queue = PriorityQueue()
+        for node in nodes:
+            queue.insert(NodeDistancePair(node, node.distance))
+
+        # Keep track of visited nodes.
+        visited_nodes = set()
+        destination_found = False
+
+        # While there are nodes left in the queue, and we haven't found destination...
+        while (len(queue) > 0) and (not destination_found):
+            # Get the closest node.
+            closest_node_key = queue.extract_min()
+            closest_node = closest_node_key.node
+            # Add the closest node to set of visited nodes.
+            visited_nodes.add(closest_node)
+            if closest_node == destination:
+                destination_found = True
+
+            # For every edge leaving the current node...
+            for node in closest_node.adj:
+                # Relax the edge.
+                if node.distance > closest_node_key.distance + weight(closest_node, node):
+                    # We've found a shorter path, so we'll set the node's new distance.
+                    new_distance = closest_node_key.distance + weight(closest_node, node)
+                    node.distance = new_distance
+                    node.parent = closest_node
+                    queue.insert(NodeDistancePair(node, new_distance))
+
+        path = self._build(nodes, source, destination)
+
+        return (path, len(visited_nodes))
+
+    def _build(self, nodes, source, destination):
+        """
+        Starts the recursion cleanly.
+        """
+        path = []
+        self._build_path(nodes, source, destination, path)
+        return path
+
+    def _build_path(self, nodes, source, current_node, path):
+        """
+        Again, shamelessly stolen from CLRS, where it's called PRINT_PATH.
+        """
+        if current_node == source:
+            path.append(current_node)
+        else:
+            next_node = current_node.parent
+            self._build_path(nodes, source, next_node, path)
+            path.append(current_node)
 
     @staticmethod
     def from_file(file, network):
-        """Creates a PathFinder object with source and destination read from 
+        """Creates a PathFinder object with source and destination read from
         file.
-        
+
         Args:
             file: file containing source and destination.
             network: network in which a shortest path needs to be found.
-        
+
         Returns:
             A PathFinder object.
-            
+
         Raises:
             ValueError: when source or destination is not valid.
         """
@@ -250,7 +304,7 @@ class PathResult(object):
 
     def __init__(self, path, num_visited, weight, network, time):
         """Creates a PathResult.
-        
+
         Args:
             path: a list of nodes in the path.
             num_visited: number of nodes visited during path finding.
@@ -326,7 +380,7 @@ class PathResult(object):
 
     def _total_weight(self, weight):
         """Computes the sum of weights along a path.
-        
+
         Args:
             weight: function to compute the weight of an edge (u, v).
         """
